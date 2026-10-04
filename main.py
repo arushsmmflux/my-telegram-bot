@@ -19,20 +19,30 @@ bot = telebot.TeleBot(TOKEN)
 # ===================== EDIT YOUR CONTENT HERE =====================
 # Telegram photo file_id values can be obtained by sending each image to the bot
 # and reading message.photo[-1].file_id, or use a public direct image URL.
-AGE_IMAGE = ''
+AGE_IMAGE = 'https://ibb.co/DPrXVzfN'
 AGE_CAPTION = '𝘽𝙚𝙛𝙤𝙧𝙚 𝙘𝙤𝙣𝙩𝙞𝙣𝙪𝙞𝙣𝙜, 𝙥𝙡𝙚𝙖𝙨𝙚 𝙘𝙤𝙣𝙛𝙞𝙧𝙢 𝙮𝙤𝙪 𝙖𝙧𝙚 18 𝙤𝙧 𝙤𝙡𝙙𝙚𝙧.'
 DENIED_CAPTION = '𝘼𝙘𝙘𝙚𝙨𝙨 𝙙𝙚𝙣𝙞𝙚𝙙. 𝘽𝙤𝙩 𝙞𝙨 𝙤𝙣𝙡𝙮 𝙛𝙤𝙧 18+.'
 WELCOME_IMAGE = 'https://imgh.in/host/03a6vy'
 WELCOME_CAPTION = '''𝙒𝙚𝙡𝙘𝙤𝙢𝙚!
-𝙏𝙝𝙞𝙨 𝙥𝙖𝙜𝙚 𝙞𝙨 𝙛𝙤𝙧 𝙖𝙙𝙪𝙡𝙩 𝙡𝙚𝙖𝙧𝙣𝙚𝙧𝙨.
-𝘽𝙧𝙤𝙬𝙨𝙚 𝙩𝙝𝙚 𝙥𝙡𝙖𝙣𝙨 𝙗𝙚𝙡𝙤𝙬.
-𝘾𝙝𝙚𝙘𝙠 𝙚𝙖𝙘𝙝 𝙥𝙡𝙖𝙣’𝙨 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.
-𝙍𝙚𝙖𝙙 𝙫𝙖𝙡𝙞𝙙𝙞𝙩𝙮 𝙖𝙣𝙙 𝙫𝙞𝙙𝙚𝙤 𝙘𝙤𝙪𝙣𝙩.
-𝙐𝙨𝙚 𝙙𝙚𝙢𝙤 𝙡𝙞𝙣𝙠𝙨 𝙩𝙤 𝙥𝙧𝙚𝙫𝙞𝙚𝙬.
-𝘾𝙝𝙤𝙤𝙨𝙚 𝙤𝙣𝙡𝙮 𝙬𝙝𝙖𝙩 𝙨𝙪𝙞𝙩𝙨 𝙮𝙤𝙪.
-𝙋𝙖𝙮 𝙤𝙣𝙡𝙮 𝙩𝙝𝙚 𝙨𝙝𝙤𝙬𝙣 𝙖𝙢𝙤𝙪𝙣𝙩.
-𝙎𝙪𝙗𝙢𝙞𝙩 𝙖 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩.
-𝙊𝙧𝙙𝙚𝙧𝙨 𝙖𝙧𝙚 𝙢𝙖𝙣𝙪𝙖𝙡𝙡𝙮 𝙧𝙚𝙫𝙞𝙚𝙬𝙚𝙙.'''
+𝐇𝐄𝐑𝐄 𝐀𝐑𝐄 𝐏𝐋𝐀𝐍𝐒 ✅
+
+🔥𝘽𝙃#𝘼𝙄 𝘽𝙀𝙃𝘼𝙉 
+🔥𝘽𝙃𝘼𝘽𝙃𝙄 𝙑𝙄𝘿𝙀0𝙎 
+🔥𝙈0𝙈 𝘼𝙉𝘿 𝙎𝙊#𝙉 
+🔥𝙍!@𝙋𝙀 𝙑𝙄𝘿𝙀0𝙎 
+🔥 𝙈𝘼𝙇#𝙇𝙐 𝙂𝙄𝙍𝙇 
+🔥𝘽𝘼#𝙋 𝘽𝙀𝙏𝙄 
+🔥𝙄𝙉𝘿𝙄𝘼𝙉 𝘾𝙃𝙄.#𝙇𝘿 
+🔥𝙁𝙊𝙍𝙀𝙄𝙂𝙉 𝘾𝙃#.𝙄𝙇𝘿 
+🔥𝘾𝘾𝙏𝙑 𝙊𝙔0 𝙍0𝙊𝙈 
+🔥𝙅𝘼𝘽𝘼𝙍𝘿#𝙎𝙏𝙄 
+🔥𝗢𝗨𝗧𝗗𝗢0𝗥 𝗩𝗜𝗗𝗘𝗢𝗦 
+🔥𝗥@𝗡𝗗𝗜 𝗣𝗢#𝗥𝗡 
+🔥𝗜𝗡𝗦𝗧𝗚𝗥𝗔𝗠 𝗠𝗠#𝗦 𝗔𝗟𝗟 
+🔥𝗩𝗜𝗣 𝗣#𝗥𝗡 𝗛𝗨𝗕 𝗩𝗜𝗗𝗘𝗢𝗦 
+🔥𝗔𝗟𝗟 𝗩𝗜𝗣 𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 ( ₹169 ) 
+
+𝘼𝙉𝙔 𝙋𝘼𝘾𝙆 𝘼𝙏 ₹49 ‼️
 
 # Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
 PLANS = [
