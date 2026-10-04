@@ -22,7 +22,7 @@ bot = telebot.TeleBot(TOKEN)
 AGE_IMAGE = ''
 AGE_CAPTION = '𝘽𝙚𝙛𝙤𝙧𝙚 𝙘𝙤𝙣𝙩𝙞𝙣𝙪𝙞𝙣𝙜, 𝙥𝙡𝙚𝙖𝙨𝙚 𝙘𝙤𝙣𝙛𝙞𝙧𝙢 𝙮𝙤𝙪 𝙖𝙧𝙚 18 𝙤𝙧 𝙤𝙡𝙙𝙚𝙧.'
 DENIED_CAPTION = '𝘼𝙘𝙘𝙚𝙨𝙨 𝙙𝙚𝙣𝙞𝙚𝙙. 𝘽𝙤𝙩 𝙞𝙨 𝙤𝙣𝙡𝙮 𝙛𝙤𝙧 18+.'
-WELCOME_IMAGE = ''
+WELCOME_IMAGE = 'https://imgh.in/host/03a6vy'
 WELCOME_CAPTION = '''𝙒𝙚𝙡𝙘𝙤𝙢𝙚!
 𝙏𝙝𝙞𝙨 𝙥𝙖𝙜𝙚 𝙞𝙨 𝙛𝙤𝙧 𝙖𝙙𝙪𝙡𝙩 𝙡𝙚𝙖𝙧𝙣𝙚𝙧𝙨.
 𝘽𝙧𝙤𝙬𝙨𝙚 𝙩𝙝𝙚 𝙥𝙡𝙖𝙣𝙨 𝙗𝙚𝙡𝙤𝙬.
