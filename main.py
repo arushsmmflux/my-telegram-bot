@@ -42,7 +42,7 @@ WELCOME_CAPTION = '''𝙒𝙚𝙡𝙘𝙤𝙢𝙚!
 🔥𝗩𝗜𝗣 𝗣#𝗥𝗡 𝗛𝗨𝗕 𝗩𝗜𝗗𝗘𝗢𝗦 
 🔥𝗔𝗟𝗟 𝗩𝗜𝗣 𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 ( ₹169 ) 
 
-𝘼𝙉𝙔 𝙋𝘼𝘾𝙆 𝘼𝙏 ₹49 ‼️
+𝘼𝙉𝙔 𝙋𝘼𝘾𝙆 𝘼𝙏 ₹49 ‼️"
 
 # Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
 PLANS = [
