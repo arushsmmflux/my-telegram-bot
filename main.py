@@ -234,18 +234,26 @@ def send_plan(chat_id, pid):
     if not p:
         bot.send_message(chat_id, "Plan unavailable.")
         return
-    caption = f"{p['name']} — ₹{p['price']}\n\n{p['description']}".strip()
-    entities = entities_from_json(p["description_entities"])
-    # Entities from description are for description-only text; combined prefix shifts offsets.
-    # Keep custom entities for exact text by storing and sending the description as its own message if needed.
+
+    # Send the title/image separately so saved custom-emoji offsets in the
+    # description remain correct (Telegram entity offsets are UTF-16 based).
+    title = f"{p['name']} — ₹{p['price']}"
+    if p["image_id"]:
+        bot.send_photo(chat_id, p["image_id"], caption=title)
+    else:
+        bot.send_message(chat_id, title)
+
+    description = (p.get("description") or "").strip()
+    if description:
+        entities = entities_from_json(p.get("description_entities", "[]"))
+        bot.send_message(chat_id, description, entities=entities or None)
+
     kb = InlineKeyboardMarkup()
+    # Telegram custom button icons depend on Bot API/library/client support.
+    # Keep readable ordinary emoji in button text as a universal fallback.
     kb.add(btn("💳 Buy now", f"u:buy:{pid}", style="success", icon_id=custom_button_id()))
     kb.add(btn("⬅ Back to plans", "u:plans"))
-    if p["image_id"]:
-        # Avoid applying stale offsets after prefix is added.
-        bot.send_photo(chat_id, p["image_id"], caption=caption, reply_markup=kb)
-    else:
-        bot.send_message(chat_id, caption, reply_markup=kb)
+    bot.send_message(chat_id, "Choose an option:", reply_markup=kb)
 
 
 def prompt(chat_id, uid, state, message, **extra):
