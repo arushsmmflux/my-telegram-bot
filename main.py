@@ -1,8 +1,6 @@
-
 import os
 import telebot
-
-TOKEN = os.getenv(8871548094:AAGmIcQtd6MEc_qj2NoCkDj8MvIRD5uilvI)
+TOKEN = os.getenv("BOT_TOKEN")
 
 if not TOKEN:
     raise RuntimeError("8871548094:AAGmIcQtd6MEc_qj2NoCkDj8MvIRD5uilvI")
