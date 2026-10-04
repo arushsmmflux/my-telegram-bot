@@ -1,344 +1,233 @@
 import os
-import re
-import json
-import sqlite3
 import logging
-from contextlib import contextmanager
-from urllib.parse import urlparse
-
 import telebot
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, MessageEntity
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-# Railway Variables:
-# BOT_TOKEN, ADMIN_ID, DB_PATH=/data/bot.db
-TOKEN = os.getenv("BOT_TOKEN", "").strip()
-ADMIN_RAW = os.getenv("ADMIN_ID", "").strip()
-DB_PATH = os.getenv("DB_PATH", "/data/bot.db")
-
+# Railway Variables required: BOT_TOKEN, ADMIN_ID
+TOKEN = os.getenv('BOT_TOKEN', '').strip()
+ADMIN_RAW = os.getenv('ADMIN_ID', '').strip()
 if not TOKEN:
-    raise RuntimeError("Set BOT_TOKEN in Railway Variables.")
+    raise RuntimeError('Set BOT_TOKEN in Railway Variables')
 if not ADMIN_RAW.isdigit():
-    raise RuntimeError("Set ADMIN_ID to your numeric Telegram user ID.")
+    raise RuntimeError('Set ADMIN_ID to your numeric Telegram user ID')
 ADMIN_ID = int(ADMIN_RAW)
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
-log = logging.getLogger("planbot")
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger('course_bot')
 bot = telebot.TeleBot(TOKEN)
-states = {}
-COLORS = ("danger", "success", "primary")
 
+# ===================== EDIT YOUR CONTENT HERE =====================
+# Telegram photo file_id values can be obtained by sending each image to the bot
+# and reading message.photo[-1].file_id, or use a public direct image URL.
+AGE_IMAGE = ''
+AGE_CAPTION = '𝘽𝙚𝙛𝙤𝙧𝙚 𝙘𝙤𝙣𝙩𝙞𝙣𝙪𝙞𝙣𝙜, 𝙥𝙡𝙚𝙖𝙨𝙚 𝙘𝙤𝙣𝙛𝙞𝙧𝙢 𝙮𝙤𝙪 𝙖𝙧𝙚 18 𝙤𝙧 𝙤𝙡𝙙𝙚𝙧.'
+DENIED_CAPTION = '𝘼𝙘𝙘𝙚𝙨𝙨 𝙙𝙚𝙣𝙞𝙚𝙙. 𝘽𝙤𝙩 𝙞𝙨 𝙤𝙣𝙡𝙮 𝙛𝙤𝙧 18+.'
+WELCOME_IMAGE = ''
+WELCOME_CAPTION = '''𝙒𝙚𝙡𝙘𝙤𝙢𝙚!
+𝙏𝙝𝙞𝙨 𝙥𝙖𝙜𝙚 𝙞𝙨 𝙛𝙤𝙧 𝙖𝙙𝙪𝙡𝙩 𝙡𝙚𝙖𝙧𝙣𝙚𝙧𝙨.
+𝘽𝙧𝙤𝙬𝙨𝙚 𝙩𝙝𝙚 𝙥𝙡𝙖𝙣𝙨 𝙗𝙚𝙡𝙤𝙬.
+𝘾𝙝𝙚𝙘𝙠 𝙚𝙖𝙘𝙝 𝙥𝙡𝙖𝙣’𝙨 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.
+𝙍𝙚𝙖𝙙 𝙫𝙖𝙡𝙞𝙙𝙞𝙩𝙮 𝙖𝙣𝙙 𝙫𝙞𝙙𝙚𝙤 𝙘𝙤𝙪𝙣𝙩.
+𝙐𝙨𝙚 𝙙𝙚𝙢𝙤 𝙡𝙞𝙣𝙠𝙨 𝙩𝙤 𝙥𝙧𝙚𝙫𝙞𝙚𝙬.
+𝘾𝙝𝙤𝙤𝙨𝙚 𝙤𝙣𝙡𝙮 𝙬𝙝𝙖𝙩 𝙨𝙪𝙞𝙩𝙨 𝙮𝙤𝙪.
+𝙋𝙖𝙮 𝙤𝙣𝙡𝙮 𝙩𝙝𝙚 𝙨𝙝𝙤𝙬𝙣 𝙖𝙢𝙤𝙪𝙣𝙩.
+𝙎𝙪𝙗𝙢𝙞𝙩 𝙖 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩.
+𝙊𝙧𝙙𝙚𝙧𝙨 𝙖𝙧𝙚 𝙢𝙖𝙣𝙪𝙖𝙡𝙡𝙮 𝙧𝙚𝙫𝙞𝙚𝙬𝙚𝙙.'''
 
-@contextmanager
-def db():
-    folder = os.path.dirname(DB_PATH)
-    if folder:
-        os.makedirs(folder, exist_ok=True)
-    con = sqlite3.connect(DB_PATH, timeout=30)
-    con.row_factory = sqlite3.Row
-    try:
-        yield con
-        con.commit()
-    except Exception:
-        con.rollback()
-        raise
-    finally:
-        con.close()
+# Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
+PLANS = [
+    {'id': 1, 'name': 'Plan 1', 'price': '199', 'validity': '30 days', 'videos': '50 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 2, 'name': 'Plan 2', 'price': '299', 'validity': '30 days', 'videos': '80 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 3, 'name': 'Plan 3', 'price': '399', 'validity': '60 days', 'videos': '100 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 4, 'name': 'Plan 4', 'price': '499', 'validity': '60 days', 'videos': '120 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 5, 'name': 'Plan 5', 'price': '599', 'validity': '90 days', 'videos': '150 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 6, 'name': 'Plan 6', 'price': '699', 'validity': '90 days', 'videos': '180 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 7, 'name': 'Plan 7', 'price': '799', 'validity': '120 days', 'videos': '200 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 8, 'name': 'Plan 8', 'price': '899', 'validity': '120 days', 'videos': '250 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 9, 'name': 'Plan 9', 'price': '999', 'validity': '180 days', 'videos': '300 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 10, 'name': 'Plan 10', 'price': '1199', 'validity': '365 days', 'videos': 'All videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+]
+# =================== END OF EDITABLE CONTENT =====================
 
-
-def setup_db():
-    with db() as con:
-        con.execute("""CREATE TABLE IF NOT EXISTS settings(
-            key TEXT PRIMARY KEY, value TEXT NOT NULL DEFAULT '')""")
-        con.execute("""CREATE TABLE IF NOT EXISTS plans(
-            id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL,
-            price TEXT NOT NULL, description TEXT NOT NULL DEFAULT '',
-            description_entities TEXT NOT NULL DEFAULT '[]',
-            image_id TEXT NOT NULL DEFAULT '', qr_id TEXT NOT NULL DEFAULT '',
-            qr_caption TEXT NOT NULL DEFAULT '', qr_entities TEXT NOT NULL DEFAULT '[]',
-            active INTEGER NOT NULL DEFAULT 1)""")
-        con.execute("""CREATE TABLE IF NOT EXISTS orders(
-            id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL,
-            plan_id INTEGER NOT NULL, screenshot_id TEXT NOT NULL DEFAULT '',
-            status TEXT NOT NULL DEFAULT 'awaiting_payment',
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)""")
-        # Safe migrations for older versions of this bot.
-        for table, needed in {
-            "plans": {
-                "name": "TEXT NOT NULL DEFAULT ''", "price": "TEXT NOT NULL DEFAULT ''",
-                "description": "TEXT NOT NULL DEFAULT ''", "description_entities": "TEXT NOT NULL DEFAULT '[]'",
-                "image_id": "TEXT NOT NULL DEFAULT ''", "qr_id": "TEXT NOT NULL DEFAULT ''",
-                "qr_caption": "TEXT NOT NULL DEFAULT ''", "qr_entities": "TEXT NOT NULL DEFAULT '[]'",
-                "active": "INTEGER NOT NULL DEFAULT 1"},
-            "orders": {
-                "user_id": "INTEGER NOT NULL DEFAULT 0", "plan_id": "INTEGER NOT NULL DEFAULT 0",
-                "screenshot_id": "TEXT NOT NULL DEFAULT ''",
-                "status": "TEXT NOT NULL DEFAULT 'awaiting_payment'",
-                "created_at": "TIMESTAMP"}
-        }.items():
-            existing = {r["name"] for r in con.execute(f"PRAGMA table_info({table})")}
-            for col, spec in needed.items():
-                if col not in existing:
-                    con.execute(f"ALTER TABLE {table} ADD COLUMN {col} {spec}")
-
-
-def setting(key, default=""):
-    with db() as con:
-        row = con.execute("SELECT value FROM settings WHERE key=?", (key,)).fetchone()
-    return row["value"] if row else default
-
-
-def set_setting(key, value):
-    with db() as con:
-        con.execute("""INSERT INTO settings(key,value) VALUES(?,?)
-        ON CONFLICT(key) DO UPDATE SET value=excluded.value""", (key, value))
-
-
-def is_admin(uid):
-    return uid == ADMIN_ID
-
-
-def valid_url(value):
-    try:
-        p = urlparse((value or "").strip())
-        return p.scheme in ("https", "http") and bool(p.netloc)
-    except Exception:
-        return False
-
-
-def entity_data(entities):
-    out = []
-    for e in entities or []:
-        if getattr(e, "type", None) == "custom_emoji" and getattr(e, "custom_emoji_id", None):
-            out.append({
-                "type": "custom_emoji", "offset": e.offset, "length": e.length,
-                "custom_emoji_id": e.custom_emoji_id
-            })
-    return out
-
-
-def entities_from_json(raw):
-    result = []
-    try:
-        for e in json.loads(raw or "[]"):
-            result.append(MessageEntity(
-                type="custom_emoji", offset=int(e["offset"]), length=int(e["length"]),
-                custom_emoji_id=str(e["custom_emoji_id"])
-            ))
-    except Exception:
-        log.exception("Could not restore message entities")
-    return result
-
-
-def btn(text, data=None, url=None, style=None, icon_id=None):
-    args = {"text": text}
-    if data is not None:
-        args["callback_data"] = data
-    if url is not None:
-        args["url"] = url
-    # Custom emoji icons are optional Bot API support; fall back gracefully.
-    if icon_id:
-        try:
-            return InlineKeyboardButton(**args, style=style, icon_custom_emoji_id=icon_id)
-        except (TypeError, ValueError):
-            pass
+# Telegram supports button styles only on some Bot API/client versions.
+# We try the requested red/green/blue style sequence and gracefully fall back.
+STYLE_SERIES = ['danger', 'success', 'primary', 'danger', 'success', 'primary', 'danger']
+def button(text, data=None, url=None, style=None):
+    kwargs = {'text': text}
+    if data is not None: kwargs['callback_data'] = data
+    if url is not None: kwargs['url'] = url
     if style:
-        try:
-            return InlineKeyboardButton(**args, style=style)
-        except (TypeError, ValueError):
-            pass
-    return InlineKeyboardButton(**args)
+        try: return InlineKeyboardButton(**kwargs, style=style)
+        except (TypeError, ValueError): pass
+    return InlineKeyboardButton(**kwargs)
 
+def add_styled(kb, text, data=None, url=None, index=0):
+    kb.add(button(text, data=data, url=url, style=STYLE_SERIES[index % len(STYLE_SERIES)]))
 
-def custom_button_id():
-    return setting("button_emoji_id", "")
+def get_plan(pid):
+    return next((p for p in PLANS if p['id'] == pid and p.get('active')), None)
 
+def send_photo_or_text(chat_id, image, caption, reply_markup=None):
+    try:
+        if image:
+            bot.send_photo(chat_id, image, caption=caption, reply_markup=reply_markup)
+        else:
+            bot.send_message(chat_id, caption, reply_markup=reply_markup)
+    except Exception:
+        log.exception('Could not send configured image; sending text fallback')
+        bot.send_message(chat_id, caption, reply_markup=reply_markup)
 
-def admin_kb():
+def send_age_gate(chat_id):
     kb = InlineKeyboardMarkup()
-    kb.row(btn("➕ Add plan", "a:add", style="success"),
-           btn("✏️ Edit plan", "a:edit", style="primary"))
-    kb.row(btn("🗑 Remove plan", "a:remove", style="danger"),
-           btn("📋 List plans", "a:list"))
-    kb.row(btn("🖼 Welcome", "a:welcome"),
-           btn("🔗 Demo link", "a:demo"))
-    kb.row(btn("✨ Save Premium emoji text", "a:emoji"),
-           btn("💳 Pending payments", "a:pending", style="success"))
-    kb.add(btn("❌ Cancel current step", "a:cancel", style="danger"))
-    return kb
-
-
-def send_admin(chat_id):
-    bot.send_message(chat_id, "⚙️ ADMIN PANEL\nChoose an action:", reply_markup=admin_kb())
-
-
-def get_plan(pid, active_only=False):
-    q = "SELECT * FROM plans WHERE id=?"
-    if active_only:
-        q += " AND active=1"
-    with db() as con:
-        return con.execute(q, (pid,)).fetchone()
-
-
-def list_plan_keyboard(action, active_only=True):
-    q = "SELECT id,name,price,active FROM plans"
-    if active_only:
-        q += " WHERE active=1"
-    q += " ORDER BY id DESC LIMIT 80"
-    with db() as con:
-        rows = con.execute(q).fetchall()
-    kb = InlineKeyboardMarkup()
-    for row in rows:
-        kb.add(btn(f"#{row['id']} {row['name']} — ₹{row['price']}"[:60],
-                   f"a:{action}:{row['id']}"))
-    kb.add(btn("⬅ Admin menu", "a:home"))
-    return kb, rows
-
-
-def user_plans_kb():
-    kb = InlineKeyboardMarkup()
-    with db() as con:
-        rows = con.execute("SELECT id,name,price FROM plans WHERE active=1 ORDER BY id").fetchall()
-    icon = custom_button_id()
-    for i, row in enumerate(rows):
-        kb.add(btn(f"{row['name']} — ₹{row['price']}", f"u:plan:{row['id']}",
-                   style=COLORS[i % 3], icon_id=icon))
-    demo = setting("demo_link")
-    if valid_url(demo):
-        kb.add(btn("🎬 Demo Channel", url=demo))
-    kb.add(btn("⬅ Main menu", "u:home"))
-    return kb
-
+    kb.row(button('𝙔𝙚𝙨, 𝙄’𝙢 18+', 'age:yes', style='success'), button('𝙄’𝙢 𝙣𝙤𝙩', 'age:no', style='danger'))
+    send_photo_or_text(chat_id, AGE_IMAGE, AGE_CAPTION, kb)
 
 def send_home(chat_id):
-    caption = setting("welcome_caption", "Welcome! Choose a plan below.")
-    photo = setting("welcome_image")
-    entities = entities_from_json(setting("welcome_entities", "[]"))
-    if photo:
-        try:
-            bot.send_photo(chat_id, photo, caption=caption, caption_entities=entities or None)
-        except Exception:
-            log.exception("Welcome photo send failed; sending text instead")
-            bot.send_message(chat_id, caption, entities=entities or None)
-    else:
-        bot.send_message(chat_id, caption, entities=entities or None)
-    with db() as con:
-        count = con.execute("SELECT COUNT(*) n FROM plans WHERE active=1").fetchone()["n"]
-    if count:
-        bot.send_message(chat_id, "✨ Available plans:", reply_markup=user_plans_kb())
-    else:
-        bot.send_message(chat_id, "Bot not ready — admin has not added plans yet.")
-
-
-def send_plan(chat_id, pid):
-    p = get_plan(pid, True)
-    if not p:
-        bot.send_message(chat_id, "Plan unavailable.")
-        return
-
-    # Send the title/image separately so saved custom-emoji offsets in the
-    # description remain correct (Telegram entity offsets are UTF-16 based).
-    title = f"{p['name']} — ₹{p['price']}"
-    if p["image_id"]:
-        bot.send_photo(chat_id, p["image_id"], caption=title)
-    else:
-        bot.send_message(chat_id, title)
-
-    description = (p.get("description") or "").strip()
-    if description:
-        entities = entities_from_json(p.get("description_entities", "[]"))
-        bot.send_message(chat_id, description, entities=entities or None)
-
     kb = InlineKeyboardMarkup()
-    # Telegram custom button icons depend on Bot API/library/client support.
-    # Keep readable ordinary emoji in button text as a universal fallback.
-    kb.add(btn("💳 Buy now", f"u:buy:{pid}", style="success", icon_id=custom_button_id()))
-    kb.add(btn("⬅ Back to plans", "u:plans"))
-    bot.send_message(chat_id, "Choose an option:", reply_markup=kb)
+    add_styled(kb, '𝙑𝙞𝙚𝙬 𝙥𝙡𝙖𝙣𝙨', 'plans', index=0)
+    send_photo_or_text(chat_id, WELCOME_IMAGE, WELCOME_CAPTION, kb)
 
+def send_plans(chat_id):
+    kb = InlineKeyboardMarkup()
+    for i, p in enumerate([p for p in PLANS if p.get('active')]):
+        add_styled(kb, f"𝙋𝙡𝙖𝙣 {p['id']} · {p['name']} · ₹{p['price']}", f"plan:{p['id']}", index=i)
+    add_styled(kb, '𝘽𝙖𝙘𝙠', 'home', index=len(PLANS))
+    bot.send_message(chat_id, '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣:', reply_markup=kb)
 
-def prompt(chat_id, uid, state, message, **extra):
-    states[uid] = {"state": state, **extra}
-    bot.send_message(chat_id, message + "\n\nSend /cancel to cancel.")
+def send_plan(chat_id, p):
+    caption = (f"𝙋𝙡𝙖𝙣 : {p['name']}\n\n𝙋𝙧𝙞𝙘𝙚 - ₹{p['price']}\n𝙑𝙖𝙡𝙞𝙙𝙞𝙩𝙮 - {p['validity']}\n𝙑𝙞𝙙𝙚𝙤𝙨 - {p['videos']}\n\n{p['caption']}")
+    kb = InlineKeyboardMarkup()
+    add_styled(kb, '𝘽𝙪𝙮 𝙣𝙤𝙬', f"buy:{p['id']}", index=0)
+    if p.get('demo') and p['demo'].startswith(('https://', 'http://')):
+        add_styled(kb, '𝘿𝙚𝙢𝙤', url=p['demo'], index=1)
+    add_styled(kb, '𝘾𝙝𝙖𝙣𝙜𝙚 𝙥𝙡𝙖𝙣', 'plans', index=2)
+    send_photo_or_text(chat_id, p.get('image', ''), caption, kb)
 
-
-def admin_callback(call):
-    if not is_admin(call.from_user.id):
-        bot.answer_callback_query(call.id, "Access denied.", show_alert=True)
-        return False
-    return True
-
-
-@bot.message_handler(commands=["start"])
-def start(message):
-    states.pop(message.from_user.id, None)
-    send_home(message.chat.id)
-
-
-@bot.message_handler(commands=["admin"])
-def admin(message):
-    if not is_admin(message.from_user.id):
-        bot.reply_to(message, "⛔ Access denied.")
+def send_payment(chat_id, user_id, p):
+    if not p.get('qr'):
+        bot.send_message(chat_id, '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙌𝙍 𝙞𝙨 𝙣𝙤𝙩 𝙨𝙚𝙩 𝙞𝙣 𝙘𝙤𝙙𝙚 𝙮𝙚𝙩.')
         return
-    states.pop(message.from_user.id, None)
-    send_admin(message.chat.id)
+    kb = InlineKeyboardMarkup()
+    add_styled(kb, '𝙄 𝙥𝙖𝙞𝙙', f"paid:{p['id']}", index=0)
+    add_styled(kb, '𝘽𝙖𝙘𝙠', f"plan:{p['id']}", index=1)
+    caption = (f"𝙋𝙖𝙮 ₹{p['price']} using this QR.\n\n𝙎𝙩𝙚𝙥𝙨:\n1. 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍.\n2. 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩.\n3. 𝙏𝙖𝙥 ‘𝙄 𝙥𝙖𝙞𝙙’.\n4. 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩.\n𝙊𝙧𝙙𝙚𝙧 𝙧𝙚𝙛: {user_id}-{p['id']}")
+    send_photo_or_text(chat_id, p['qr'], caption, kb)
 
+# In-memory order state. Pending reviews are sent to ADMIN_ID; review is manual.
+pending_screenshots = {}
+user_waiting_screenshot = set()
 
-@bot.message_handler(commands=["cancel"])
-def cancel(message):
-    states.pop(message.from_user.id, None)
-    bot.reply_to(message, "Cancelled.")
-    if is_admin(message.from_user.id):
-        send_admin(message.chat.id)
+@bot.message_handler(commands=['start'])
+def start(message):
+    user_waiting_screenshot.discard(message.from_user.id)
+    send_age_gate(message.chat.id)
 
-
-@bot.callback_query_handler(func=lambda c: c.data == "u:home")
-def user_home(call):
+@bot.callback_query_handler(func=lambda c: c.data in ('age:yes', 'age:no'))
+def age_choice(call):
     bot.answer_callback_query(call.id)
-    states.pop(call.from_user.id, None)
+    if call.data == 'age:no':
+        kb = InlineKeyboardMarkup()
+        add_styled(kb, '𝘽𝙖𝙘𝙠', 'age:back', index=0)
+        bot.send_message(call.message.chat.id, DENIED_CAPTION, reply_markup=kb)
+    else:
+        # This is self-attestation only; it does not independently verify age.
+        send_home(call.message.chat.id)
+
+@bot.callback_query_handler(func=lambda c: c.data == 'age:back')
+def age_back(call):
+    bot.answer_callback_query(call.id)
+    send_age_gate(call.message.chat.id)
+
+@bot.callback_query_handler(func=lambda c: c.data == 'home')
+def home(call):
+    bot.answer_callback_query(call.id)
     send_home(call.message.chat.id)
 
-
-@bot.callback_query_handler(func=lambda c: c.data == "u:plans")
-def user_plans(call):
+@bot.callback_query_handler(func=lambda c: c.data == 'plans')
+def plans(call):
     bot.answer_callback_query(call.id)
-    states.pop(call.from_user.id, None)
-    with db() as con:
-        n = con.execute("SELECT COUNT(*) n FROM plans WHERE active=1").fetchone()["n"]
-    if n:
-        bot.send_message(call.message.chat.id, "✨ Available plans:", reply_markup=user_plans_kb())
-    else:
-        bot.send_message(call.message.chat.id, "No plans available yet.")
+    send_plans(call.message.chat.id)
 
-
-@bot.callback_query_handler(func=lambda c: c.data.startswith("u:plan:"))
-def user_plan(call):
+@bot.callback_query_handler(func=lambda c: c.data.startswith('plan:'))
+def plan_detail(call):
     bot.answer_callback_query(call.id)
-    try:
-        send_plan(call.message.chat.id, int(call.data.rsplit(":", 1)[1]))
-    except ValueError:
-        bot.send_message(call.message.chat.id, "Invalid plan.")
+    try: p = get_plan(int(call.data.split(':')[1]))
+    except (ValueError, IndexError): p = None
+    if p: send_plan(call.message.chat.id, p)
 
-
-@bot.callback_query_handler(func=lambda c: c.data.startswith("u:buy:"))
-def user_buy(call):
+@bot.callback_query_handler(func=lambda c: c.data.startswith('buy:'))
+def buy(call):
     bot.answer_callback_query(call.id)
-    try:
-        pid = int(call.data.rsplit(":", 1)[1])
-    except ValueError:
+    try: p = get_plan(int(call.data.split(':')[1]))
+    except (ValueError, IndexError): p = None
+    if p: send_payment(call.message.chat.id, call.from_user.id, p)
+
+@bot.callback_query_handler(func=lambda c: c.data.startswith('paid:'))
+def paid(call):
+    bot.answer_callback_query(call.id)
+    try: pid = int(call.data.split(':')[1]); p = get_plan(pid)
+    except (ValueError, IndexError): p = None
+    if not p: return
+    user_waiting_screenshot.add(call.from_user.id)
+    bot.send_message(call.message.chat.id, '𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙩𝙝𝙚 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.')
+    # Remember chosen plan while waiting for screenshot.
+    pending_screenshots[call.from_user.id] = {'plan_id': pid, 'status': 'waiting'}
+
+@bot.message_handler(content_types=['photo', 'text', 'document'])
+def screenshot_handler(message):
+    uid = message.from_user.id
+    if uid not in user_waiting_screenshot:
         return
-    p = get_plan(pid, True)
+    if message.content_type != 'photo':
+        bot.reply_to(message, '𝙋𝙡𝙚𝙖𝙨𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.')
+        return
+    state = pending_screenshots.get(uid, {})
+    pid = state.get('plan_id')
+    p = get_plan(pid) if pid else None
     if not p:
-        bot.send_message(call.message.chat.id, "Plan unavailable.")
+        bot.reply_to(message, '𝙋𝙡𝙖𝙣 𝙞𝙣𝙛𝙤 𝙢𝙞𝙨𝙨𝙞𝙣𝙜. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.')
         return
-    if not p["qr_id"]:
-        bot.send_message(call.message.chat.id, "Payment QR is not set. Contact admin.")
-        return
-    with db() as con:
-        cur = con.execute("INSERT INTO orders(user_id,plan_id,status) VALUES(?,?,?)",
-                          (call.from_user.id, pid, "awaiting_payment"))
-        oid = cur.lastrowid
+    user_waiting_screenshot.discard(uid)
+    file_id = message.photo[-1].file_id
     kb = InlineKeyboardMarkup()
-    kb.add(btn("📸 Submit payment screenshot", f"u:submit:{oid}", style="success"))
+    add_styled(kb, '𝘼𝙥𝙥𝙧𝙤𝙫𝙚', f'review:approve:{uid}:{pid}', index=1)
+    add_styled(kb, '𝙍𝙚𝙟𝙚𝙘𝙩', f'review:reject:{uid}:{pid}', index=0)
+    try:
+        bot.send_photo(ADMIN_ID, file_id,
+            caption=(f"𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩\n𝙐𝙨𝙚𝙧 𝙄𝘿: {uid}\n𝙋𝙡𝙖𝙣: {p['name']}\n𝘼𝙢𝙤𝙪𝙣𝙩: ₹{p['price']}"), reply_markup=kb)
+        bot.reply_to(message, '𝙎𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙨𝙪𝙗𝙢𝙞𝙩𝙩𝙚𝙙.')
+    except Exception:
+        log.exception('Failed sending screenshot to admin')
+        user_waiting_screenshot.add(uid)
+        bot.reply_to(message, '𝙎𝙪𝙗𝙢𝙞𝙨𝙨𝙞𝙤𝙣 𝙛𝙖𝙞𝙡𝙚𝙙. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.')
+
+@bot.callback_query_handler(func=lambda c: c.data.startswith('review:'))
+def review(call):
+    if call.from_user.id != ADMIN_ID:
+        bot.answer_callback_query(call.id, 'Not allowed', show_alert=True)
+        return
+    parts = call.data.split(':')
+    if len(parts) != 4 or parts[1] not in ('approve', 'reject'):
+        bot.answer_callback_query(call.id, 'Invalid action', show_alert=True)
+        return
+    action, uid_s, pid_s = parts[1], parts[2], parts[3]
+    try: uid, pid = int(uid_s), int(pid_s)
+    except ValueError:
+        bot.answer_callback_query(call.id, 'Invalid order', show_alert=True); return
+    p = get_plan(pid)
+    status = 'approved' if action == 'approve' else 'rejected'
+    try:
+        bot.send_message(uid, '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙖𝙥𝙥𝙧𝙤𝙫𝙚𝙙. 𝙏𝙝𝙖𝙣𝙠 𝙮𝙤𝙪.' if action == 'approve' else '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙧𝙚𝙟𝙚𝙘𝙩𝙚𝙙. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙘𝙤𝙣𝙩𝙖𝙘𝙩 𝙖𝙙𝙢𝙞𝙣 𝙞𝙛 𝙮𝙤𝙪 𝙩𝙝𝙞𝙣𝙠 𝙩𝙝𝙞𝙨 𝙞𝙨 𝙖 𝙢𝙞𝙨𝙩𝙖𝙠𝙚.')
+    except Exception:
+        log.exception('Could not notify user %s', uid)
+    bot.answer_callback_query(call.id, status.title())
+    try: bot.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
+    except Exception: pass
+    bot.send_message(ADMIN_ID, f'𝙊𝙧𝙙𝙚𝙧 {status}: user {uid}, plan {p["name"] if p else pid}.')
+
+if __name__ == '__main__':
+    log.info('Starting fixed-config bot (no admin panel)')
+    bot.infinity_polling(skip_pending=True, timeout=30, long_polling_timeout=30)
     kb.add(btn("⬅ Back to plan", f"u:plan:{pid}"))
     bot.send_photo(call.message.chat.id, p["qr_id"],
                    caption=p["qr_caption"] or f"Pay ₹{p['price']} using this QR. Order #{oid}",
