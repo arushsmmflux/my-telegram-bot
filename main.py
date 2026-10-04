@@ -43,8 +43,10 @@ WELCOME_CAPTION = '''𝙒𝙚𝙡𝙘𝙤𝙢𝙚!
 
 # Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
 PLANS = [
-    {'id': 1, 'name': 'YouTube', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
-    {'id': 2, 'name': 'Instagram', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
+     {'id': 1, 'name': 'YouTube', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
+     {'id': 2, 'name': 'Instagram', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
+     {'id': 3, 'name': 'Facebook', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
+    {'id': 3, 'name': 'Facebook', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
     {'id': 3, 'name': 'Facebook', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
 ]
 # =================== END OF EDITABLE CONTENT =====================
