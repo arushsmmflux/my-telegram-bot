@@ -5,7 +5,7 @@ import telebot
 TOKEN = os.getenv("8871548094:AAGmIcQtd6MEc_qj2NoCkDj8MvIRD5uilvI")
 
 if not TOKEN:
-    raise RuntimeError("BOT_TOKEN is missing!")
+    raise RuntimeError("8871548094:AAGmIcQtd6MEc_qj2NoCkDj8MvIRD5uilvI")
 
 bot = telebot.TeleBot(TOKEN)
 
