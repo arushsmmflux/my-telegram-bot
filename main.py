@@ -23,7 +23,8 @@ AGE_IMAGE = 'https://i.ibb.co/Q7DBbpvZ/watermarked-img-5390942081179769641.png'
 AGE_CAPTION = '𝘽𝙚𝙛𝙤𝙧𝙚 𝙘𝙤𝙣𝙩𝙞𝙣𝙪𝙞𝙣𝙜, 𝙥𝙡𝙚𝙖𝙨𝙚 𝙘𝙤𝙣𝙛𝙞𝙧𝙢 𝙮𝙤𝙪 𝙖𝙧𝙚 18 𝙤𝙧 𝙤𝙡𝙙𝙚𝙧.'
 DENIED_CAPTION = '𝘼𝙘𝙘𝙚𝙨𝙨 𝙙𝙚𝙣𝙞𝙚𝙙. 𝘽𝙤𝙩 𝙞𝙨 𝙤𝙣𝙡𝙮 𝙛𝙤𝙧 18+.'
 WELCOME_IMAGE = ''
-WELCOME_CAPTION = '''🌟 𝐅𝐔𝐋𝐋 𝐏𝐗𝟒𝐍 𝐂𝐎𝐋𝐋𝐄𝐂𝐓𝐈𝐎𝐍 🌟
+WELCOME_CAPTION = '''𝙒𝙚𝙡𝙘𝙤𝙢𝙚!
+🌟 𝐅𝐔𝐋𝐋 𝐏𝐗𝟒𝐍 𝐂𝐎𝐋𝐋𝐄𝐂𝐓𝐈𝐎𝐍 🌟
 
 🔥 𝐌𝐎𝐌 𝐀𝐍𝐃 𝐒𝟎𝐍
 🔥 𝐒𝐈𝐒 𝐀𝐍𝐃 𝐁𝐑𝟎
@@ -38,24 +39,13 @@ WELCOME_CAPTION = '''🌟 𝐅𝐔𝐋𝐋 𝐏𝐗𝟒𝐍 𝐂𝐎𝐋𝐋𝐄
 🔥55𝙆 𝘼𝙇𝙇 𝙄𝙉𝙎𝙏𝘼 𝙇𝙀𝘼𝙆𝙎 😍
 🔥𝘼𝙇𝙇 𝙈𝙈𝙎 👀
 
-☠️ 𝐀𝐋𝐋 𝐅𝐎𝐑 49 𝐑𝐒 ☠️
-
-𝙄𝙁 𝙔𝙊𝙐 𝙒𝘼𝙉𝙏 𝘾𝙇𝙄𝘾𝙆 𝙊𝙉 𝙄 𝙒𝘼𝙉𝙏 ✅
-
-𝙋𝙍𝙄𝘾𝙀 𝙄𝙎 𝙅𝙐𝙎𝙏 49 ₹ ☠️.'''
+☠️ 𝐀𝐋𝐋 𝐅𝐎𝐑 49 𝐑𝐒 ☠️.'''
 
 # Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
 PLANS = [
-    {'id': 1, 'name': 'Plan 1', 'price': '199', 'validity': '30 days', 'videos': '50 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 2, 'name': 'Plan 2', 'price': '299', 'validity': '30 days', 'videos': '80 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 3, 'name': 'Plan 3', 'price': '399', 'validity': '60 days', 'videos': '100 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 4, 'name': 'Plan 4', 'price': '499', 'validity': '60 days', 'videos': '120 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 5, 'name': 'Plan 5', 'price': '599', 'validity': '90 days', 'videos': '150 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 6, 'name': 'Plan 6', 'price': '699', 'validity': '90 days', 'videos': '180 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 7, 'name': 'Plan 7', 'price': '799', 'validity': '120 days', 'videos': '200 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 8, 'name': 'Plan 8', 'price': '899', 'validity': '120 days', 'videos': '250 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 9, 'name': 'Plan 9', 'price': '999', 'validity': '180 days', 'videos': '300 videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
-    {'id': 10, 'name': 'Plan 10', 'price': '1199', 'validity': '365 days', 'videos': 'All videos', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙇𝙚𝙖𝙧𝙣 𝙖𝙩 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙥𝙖𝙘𝙚.', 'active': True},
+    {'id': 1, 'name': 'YouTube', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
+    {'id': 2, 'name': 'Instagram', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
+    {'id': 3, 'name': 'Facebook', 'price': '49', 'validity': '30 days', 'videos': 'As described', 'image': '', 'qr': '', 'demo': 'https://example.com/demo', 'caption': '𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.', 'active': True},
 ]
 # =================== END OF EDITABLE CONTENT =====================
 
@@ -93,19 +83,17 @@ def send_age_gate(chat_id):
     send_photo_or_text(chat_id, AGE_IMAGE, AGE_CAPTION, kb)
 
 def send_home(chat_id):
-    # Send welcome text first, then show every active plan immediately.
-    send_photo_or_text(chat_id, WELCOME_IMAGE, WELCOME_CAPTION)
-    send_plans_direct(chat_id)
-
-def send_plans_direct(chat_id):
-    for p in [p for p in PLANS if p.get('active')]:
-        send_plan(chat_id, p)
-
-def send_plans(chat_id):
+    # Show plan names as buttons directly below the welcome message.
     kb = InlineKeyboardMarkup()
     for i, p in enumerate([p for p in PLANS if p.get('active')]):
-        add_styled(kb, f"𝙋𝙡𝙖𝙣 {p['id']} · {p['name']} · ₹{p['price']}", f"plan:{p['id']}", index=i)
-    add_styled(kb, '𝘽𝙖𝙘𝙠', 'home', index=len(PLANS))
+        add_styled(kb, f"{p['name']} · ₹{p['price']}", f"plan:{p['id']}", index=i)
+    send_photo_or_text(chat_id, WELCOME_IMAGE, WELCOME_CAPTION, kb)
+
+def send_plans(chat_id):
+    # Same plan-name buttons, without extra plan cards/messages.
+    kb = InlineKeyboardMarkup()
+    for i, p in enumerate([p for p in PLANS if p.get('active')]):
+        add_styled(kb, f"{p['name']} · ₹{p['price']}", f"plan:{p['id']}", index=i)
     bot.send_message(chat_id, '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣:', reply_markup=kb)
 
 def send_plan(chat_id, p):
@@ -114,6 +102,7 @@ def send_plan(chat_id, p):
     add_styled(kb, '𝘽𝙪𝙮 𝙣𝙤𝙬', f"buy:{p['id']}", index=0)
     if p.get('demo') and p['demo'].startswith(('https://', 'http://')):
         add_styled(kb, '𝘿𝙚𝙢𝙤', url=p['demo'], index=1)
+    add_styled(kb, '𝘽𝙖𝙘𝙠', 'home', index=2)
     send_photo_or_text(chat_id, p.get('image', ''), caption, kb)
 
 def send_payment(chat_id, user_id, p):
