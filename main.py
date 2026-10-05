@@ -152,9 +152,9 @@ PLANS = [
         'validity': '180 days', 'videos': '30000+',
         'image': 'https://ibb.co/5X0hc5dd', 'qr': 'https://ibb.co/xK77FFDK',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+            'https://t.me/studywalahai/171',
+            'https://t.me/studywalahai/172',
+            'https://t.me/studywalahai/173'
         ],
        'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
