@@ -295,7 +295,7 @@ def send_plan(chat_id, p):
 
     add_styled(
         kb,
-        '🟢 𝘽𝙪𝙮 𝙉𝙤𝙬',
+        '𝘽𝙐𝙔 𝙉𝙊𝙒 💳 ',
         f"buy:{p['id']}",
         index=0
     )
@@ -400,7 +400,7 @@ def paid(call):
 
     bot.send_message(
         call.message.chat.id,
-        '𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙩𝙝𝙚 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.'
+        '𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙩𝙝𝙚 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 ✅.'
     )
 
     pending_screenshots[call.from_user.id] = {
