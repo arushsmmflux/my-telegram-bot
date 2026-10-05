@@ -48,6 +48,90 @@ PLANS = [
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
     },
+      {
+        'id': 1, 'name': 'YouTube', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            'https://example.com/demo1',
+            'https://example.com/demo2',
+            'https://example.com/demo3'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
+      {
+        'id': 1, 'name': 'YouTube', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            'https://example.com/demo1',
+            'https://example.com/demo2',
+            'https://example.com/demo3'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
+      {
+        'id': 1, 'name': 'YouTube', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            'https://example.com/demo1',
+            'https://example.com/demo2',
+            'https://example.com/demo3'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
+      {
+        'id': 1, 'name': 'YouTube', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            'https://example.com/demo1',
+            'https://example.com/demo2',
+            'https://example.com/demo3'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
+      {
+        'id': 1, 'name': 'YouTube', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            'https://example.com/demo1',
+            'https://example.com/demo2',
+            'https://example.com/demo3'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
+      {
+        'id': 1, 'name': 'YouTube', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            'https://example.com/demo1',
+            'https://example.com/demo2',
+            'https://example.com/demo3'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
+      {
+        'id': 1, 'name': 'YouTube', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            'https://example.com/demo1',
+            'https://example.com/demo2',
+            'https://example.com/demo3'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
     {
         'id': 2, 'name': 'Instagram', 'price': '49',
         'validity': '30 days', 'videos': 'As described',
