@@ -330,9 +330,9 @@ def send_payment(chat_id, user_id, p):
         bot.send_message(chat_id, '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙌𝙍 𝙞𝙨 𝙣𝙤𝙩 𝙨𝙚𝙩 𝙞𝙣 𝙘𝙤𝙙𝙚 𝙮𝙚𝙩.')
         return
     kb = InlineKeyboardMarkup()
-    add_styled(kb, '𝙄 𝙥𝙖𝙞𝙙', f"paid:{p['id']}", index=0)
-    add_styled(kb, '𝘽𝙖𝙘𝙠', f"plan:{p['id']}", index=1)
-    caption = (f"𝙋𝙖𝙮 ₹{p['price']} using this QR.\n\n𝙎𝙩𝙚𝙥𝙨:\n1. 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍.\n2. 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩.\n3. 𝙏𝙖𝙥 ‘𝙄 𝙥𝙖𝙞𝙙’.\n4. 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩.\n𝙊𝙧𝙙𝙚𝙧 𝙧𝙚𝙛: {user_id}-{p['id']}")
+    add_styled(kb, '𝙄 𝙋𝘼𝙄𝘿 ✅', f"paid:{p['id']}", index=0)
+    add_styled(kb, 𝘽𝘼𝘾𝙆 ⬅️', f"plan:{p['id']}", index=1)
+    caption = (f"𝙋𝙖𝙮 ₹{p['price']} using this QR.\n\n𝙎𝙩𝙚𝙥𝙨:\n1. 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍✅.\n2. 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩✅.\n3. 𝙏𝙖𝙥 ‘𝙄 𝙥𝙖𝙞𝙙’✅.\n4. 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩✅.\n5 𝙊𝙧𝙙𝙚𝙧 ID: {user_id}-{p['id']}")
     send_photo_or_text(chat_id, p['qr'], caption, kb)
 
 # In-memory order state. Pending reviews are sent to ADMIN_ID; review is manual.
