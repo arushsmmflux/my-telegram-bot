@@ -123,14 +123,48 @@ def send_plans(chat_id):
     bot.send_message(chat_id, '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣:', reply_markup=kb)
 
 def send_plan(chat_id, p):
-    caption = (f"𝙋𝙡𝙖𝙣 : {p['name']}\n\n𝙋𝙧𝙞𝙘𝙚 - ₹{p['price']}\n𝙑𝙖𝙡𝙞𝙙𝙞𝙩𝙮 - {p['validity']}\n𝙑𝙞𝙙𝙚𝙤𝙨 - {p['videos']}\n\n{p['caption']}")
-    kb = InlineKeyboardMarkup()
-    add_styled(kb, '𝘽𝙪𝙮 𝙣𝙤𝙬', f"buy:{p['id']}", index=0)
-    if p.get('demo') and p['demo'].startswith(('https://', 'http://')):
-        add_styled(kb, '𝘿𝙚𝙢𝙤', url=p['demo'], index=1)
-    add_styled(kb, '𝘽𝙖𝙘𝙠', 'home', index=2)
-    send_photo_or_text(chat_id, p.get('image', ''), caption, kb)
+    caption = (
+        f"𝙋𝙡𝙖𝙣 : {p['name']}\n\n"
+        f"𝙋𝙧𝙞𝙘𝙚 - ₹{p['price']}\n"
+        f"𝙑𝙖𝙡𝙞𝙙𝙞𝙩𝙮 - {p['validity']}\n"
+        f"𝙑𝙞𝙙𝙚𝙤𝙨 - {p['videos']}\n\n"
+        f"{p['caption']}"
+    )
 
+    kb = InlineKeyboardMarkup()
+
+    add_styled(
+        kb,
+        '🟢 𝘽𝙪𝙮 𝙉𝙤𝙬',
+        f"buy:{p['id']}",
+        index=0
+    )
+
+    # 3 Demo buttons
+    demos = p.get('demos', [])
+
+    for i, url in enumerate(demos[:3], start=1):
+        if url.startswith(("https://", "http://")):
+            add_styled(
+                kb,
+                f'🎬 𝘿𝙚𝙢𝙤 {i}',
+                url=url,
+                index=i
+            )
+
+    add_styled(
+        kb,
+        '🔙 𝘽𝙖𝙘𝙠',
+        'home',
+        index=4
+    )
+
+    send_photo_or_text(
+        chat_id,
+        p.get('image', ''),
+        caption,
+        kb
+    )
 def send_payment(chat_id, user_id, p):
     if not p.get('qr'):
         bot.send_message(chat_id, '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙌𝙍 𝙞𝙨 𝙣𝙤𝙩 𝙨𝙚𝙩 𝙞𝙣 𝙘𝙤𝙙𝙚 𝙮𝙚𝙩.')
