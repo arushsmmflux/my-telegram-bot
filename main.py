@@ -101,7 +101,7 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            '
+            
 'https://t.me/studywalahai/148',
 'https://t.me/studywalahai/165',
 'https://t.me/studywalahai/163',
