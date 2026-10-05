@@ -75,15 +75,14 @@ PLANS = [
         'id': 5, 'name': '𝘾𝙃𝙄!𝙇𝘿 𝙑𝙄𝘿!𝙀𝙊 ( 𝘾.𝙋)  🔥👀', 'price': '49',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
-        'demos': [
-            
-'https://t.me/studywalahai/128'
-'https://t.me/studywalahai/115'
-'https://t.me/studywalahai/161'
-'https://t.me/studywalahai/117'
-'https://t.me/studywalahai/116'
-'https://t.me/studywalahai/100'
-'https://t.me/studywalahai/145'
+        'demos': [          
+'https://t.me/studywalahai/128',
+'https://t.me/studywalahai/115',
+'https://t.me/studywalahai/161',
+'https://t.me/studywalahai/117',
+'https://t.me/studywalahai/116',
+'https://t.me/studywalahai/100',
+'https://t.me/studywalahai/145',
 'https://t.me/studywalahai/150'
         ],
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
