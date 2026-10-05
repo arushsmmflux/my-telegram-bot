@@ -243,7 +243,7 @@ def send_plan(chat_id, p):
     # 3 Demo buttons
     demos = p.get('demos', [])
 
-    for i, url in enumerate(demos[:3], start=1):
+    for i, url in enumerate(demos, start=1):
         if url.startswith(("https://", "http://")):
             add_styled(
                 kb,
@@ -325,10 +325,7 @@ def buy(call):
     if p: send_payment(call.message.chat.id, call.from_user.id, p)
 
 @bot.callback_query_handler(func=lambda c: c.data.startswith('paid:'))
-def paid(call):
-    bot.answer_callback_query(call.id)
-    try: pid = int(call.data.split(':')[1]); p = get_plan(pid)
-    except (ValueError, IndexError): p = None
+def paid(call):6 p = None
     if not p: return
     user_waiting_screenshot.add(call.from_user.id)
     bot.send_message(call.message.chat.id, '𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙩𝙝𝙚 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.')
