@@ -48,7 +48,7 @@ WELCOME_CAPTION = '''𝙃𝙀𝙔 👋🏻, 𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙩�
 # Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
 PLANS = [
     {
-        'id': 1, 'name': '𝙈𝙊𝙈 𝘼𝙉𝘿 𝙎𝙊𝙉 😍🔥 ( ₹49 )', 'price': '49',
+        'id': 1, 'name': '𝙈𝙊𝙈 𝘼𝙉𝘿 𝙎𝙊𝙉 😍🔥 ', 'price': '49',
         'validity': '180 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -60,7 +60,7 @@ PLANS = [
         'active': True
     },
       {
-        'id': 1, 'name': '𝙍!@𝙋𝙀 𝙑𝙄𝘿𝙀𝙊𝙎 💦👀 ( ₹69 )', 'price': '69',
+        'id': 1, 'name': '𝙍!@𝙋𝙀 𝙑𝙄𝘿𝙀𝙊𝙎 💦👀 ', 'price': '69',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -72,7 +72,25 @@ PLANS = [
         'active': True
     },
       {
-        'id': 1, 'name': '𝘾𝙃𝙄!𝙇𝘿 𝙑𝙄𝘿!𝙀𝙊 ( 𝘾.𝙋) ( 49₹ ) 🔥👀', 'price': '49',
+        'id': 1, 'name': '𝘾𝙃𝙄!𝙇𝘿 𝙑𝙄𝘿!𝙀𝙊 ( 𝘾.𝙋)  🔥👀', 'price': '49',
+        'validity': '30 days', 'videos': 'As described',
+        'image': '', 'qr': '',
+        'demos': [
+            
+'https://t.me/studywalahai/128'
+'https://t.me/studywalahai/115'
+'https://t.me/studywalahai/161'
+'https://t.me/studywalahai/117'
+'https://t.me/studywalahai/116'
+'https://t.me/studywalahai/100'
+'https://t.me/studywalahai/145'
+'https://t.me/studywalahai/150'
+        ],
+        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
+        'active': True
+    },
+      {
+        'id': 1, 'name': '𝘽𝙃𝘼𝙄 𝘽𝙀𝙃𝘼𝙉 🔥🥵 ', 'price': '49',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -84,7 +102,7 @@ PLANS = [
         'active': True
     },
       {
-        'id': 1, 'name': '𝘽𝙃𝘼𝙄 𝘽𝙀𝙃𝘼𝙉 🔥🥵 ( ₹49 )', 'price': '49',
+        'id': 1, 'name': '𝘽𝙃𝘼𝘽𝙃𝙄 𝙑𝙄𝘿𝙀𝙊𝙎 💦👅 ', 'price': '39',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -96,7 +114,7 @@ PLANS = [
         'active': True
     },
       {
-        'id': 1, 'name': '𝘽𝙃𝘼𝘽𝙃𝙄 𝙑𝙄𝘿𝙀𝙊𝙎 💦👅 ( ₹39 )', 'price': '39',
+        'id': 1, 'name': '𝘽𝘼𝘼𝙋 𝘽𝙀𝙏𝙄 🔥💦 ', 'price': '58',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -108,7 +126,7 @@ PLANS = [
         'active': True
     },
       {
-        'id': 1, 'name': '𝘽𝘼𝘼𝙋 𝘽𝙀𝙏𝙄 🔥💦 ( ₹58 )', 'price': '58',
+        'id': 1, 'name': '𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥', 'price': '49',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -120,19 +138,7 @@ PLANS = [
         'active': True
     },
       {
-        'id': 1, 'name': '𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥 (₹49 )', 'price': '49',
-        'validity': '30 days', 'videos': 'As described',
-        'image': '', 'qr': '',
-        'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
-        ],
-        'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
-        'active': True
-    },
-      {
-        'id': 1, 'name': '𝗜𝗡𝗦𝗧𝗚𝗥𝗔𝗠 𝗠𝗠𝗦 𝗔𝗟𝗟 😍🔥 ( ₹49 )', 'price': '49',
+        'id': 1, 'name': '𝗜𝗡𝗦𝗧𝗚𝗥𝗔𝗠 𝗠𝗠𝗦 𝗔𝗟𝗟 😍🔥 ', 'price': '49',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -144,7 +150,7 @@ PLANS = [
         'active': True
     },
     {
-        'id': 2, 'name': '𝙈𝙄𝙓 𝙂𝙍𝙊𝙐𝙋 70𝙆 𝙑𝙄𝘿𝙀𝙊𝙎 🥵 (₹63 )', 'price': '63',
+        'id': 2, 'name': '𝙈𝙄𝙓 𝙂𝙍𝙊𝙐𝙋 70𝙆 𝙑𝙄𝘿𝙀𝙊𝙎 🥵 ', 'price': '63',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
@@ -156,7 +162,7 @@ PLANS = [
         'active': True
     },
     {
-        'id': 3, 'name': '𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥 (₹49 )', 'price': '49',
+        'id': 3, 'name': '𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥', 'price': '49',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
