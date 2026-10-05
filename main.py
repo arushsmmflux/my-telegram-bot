@@ -52,9 +52,13 @@ PLANS = [
         'validity': '180 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+           
+'https://t.me/studywalahai/167',
+'https://t.me/studywalahai/120',
+'https://t.me/studywalahai/129',
+'https://t.me/studywalahai/139',
+'https://t.me/studywalahai/140',
+'https://t.me/studywalahai/139' 
         ],
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
@@ -64,7 +68,7 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [   
- 'https://t.me/studywalahai/111',
+ 'https://t.me/studywalahai/106',
 'https://t.me/studywalahai/136',
 'https://t.me/studywalahai/111'
         ],
@@ -93,9 +97,12 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+            '
+'https://t.me/studywalahai/148',
+'https://t.me/studywalahai/165',
+'https://t.me/studywalahai/163',
+'https://t.me/studywalahai/101',
+'https://t.me/studywalahai/118'
         ],
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
@@ -105,9 +112,12 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+           
+'https://t.me/studywalahai/99',
+'https://t.me/studywalahai/107',
+'https://t.me/studywalahai/127',
+'https://t.me/studywalahai/141',
+'https://t.me/studywalahai/146'
         ],
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
@@ -129,9 +139,7 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+            'https://t.me/demgf/28'
         ],
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
@@ -141,9 +149,13 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+            
+'https://t.me/studywalahai/166',
+'https://t.me/demgf/29',
+'https://t.me/studywalahai/125',
+'https://t.me/studywalahai/162',
+'https://t.me/studywalahai/117',
+'https://t.me/studywalahai/149'
         ],
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
@@ -153,22 +165,20 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+            
+'https://t.me/demgf/30',
+'https://t.me/demgf/36
         ],
         'caption': '𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
     },
     {
-        'id': 3, 'name': '𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥', 'price': '49',
+        'id': 3, 'name': '🔥𝗔𝗟𝗟 𝗩𝗜𝗣 𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 😍', 'price': '169',
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
-        ],
+            'https://t.me/paymentredisb/6'
+            ],
         'caption': '𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
     },
