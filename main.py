@@ -64,9 +64,10 @@ PLANS = [
         'validity': '30 days', 'videos': 'As described',
         'image': '', 'qr': '',
         'demos': [
-            'https://example.com/demo1',
-            'https://example.com/demo2',
-            'https://example.com/demo3'
+       
+      'https://t.me/studywalahai/111
+https://t.me/studywalahai/136
+https://t.me/studywalahai/111
         ],
         'caption': '𝙔𝙤𝙪𝙏𝙪𝙗𝙚 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
