@@ -171,7 +171,7 @@ PLANS = [
         'demos': [
             
 'https://t.me/demgf/30',
-'https://t.me/demgf/36
+'https://t.me/demgf/36'
         ],
         'caption': '𝙄𝙣𝙨𝙩𝙖𝙜𝙧𝙖𝙢 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨.',
         'active': True
