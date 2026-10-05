@@ -60,7 +60,7 @@ PLANS = [
 'https://t.me/studywalahai/140',
 'https://t.me/studywalahai/139' 
         ],
-        'caption': '
+        'caption': 
 '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅',
 '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌',
 '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍',
