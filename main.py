@@ -264,19 +264,67 @@ def send_age_gate(chat_id):
     send_photo_or_text(chat_id, AGE_IMAGE, AGE_CAPTION, kb)
 
 def send_home(chat_id):
-    # Show plan names as buttons directly below the welcome message.
     kb = InlineKeyboardMarkup()
+
+    # All active plans
     for i, p in enumerate([p for p in PLANS if p.get('active')]):
-        add_styled(kb, f"{p['name']} · ₹{p['price']}", f"plan:{p['id']}", index=i)
+        add_styled(
+            kb,
+            f"{p['name']} · ₹{p['price']}",
+            f"plan:{p['id']}",
+            index=i
+        )
+def send_demo_menu(chat_id):
+    kb = InlineKeyboardMarkup()
+
+    add_styled(
+        kb,
+        '🇮🇳 𝘿𝙚𝙢𝙤 𝙙𝙚𝙠𝙝𝙣𝙚 𝙠𝙚 𝙡𝙞𝙮𝙚 𝙠𝙤𝙞 𝙥𝙡𝙖𝙣 𝙨𝙚𝙡𝙚𝙘𝙩 𝙠𝙖𝙧𝙚𝙞𝙣',
+        'demo:info',
+        index=0
+    )
+
+    for i, p in enumerate([p for p in PLANS if p.get('active')]):
+        add_styled(
+            kb,
+            f"🎬 {p['name']}",
+            f"plan:{p['id']}",
+            index=i
+        )
+
+    add_styled(kb, '🔙 𝘽𝙖𝙘𝙠', 'home', index=4)
+
+    bot.send_message(
+        chat_id,
+        '🇮🇳 𝘿𝙚𝙢𝙤 𝙙𝙚𝙠𝙝𝙣𝙚 𝙠𝙚 𝙡𝙞𝙮𝙚 𝙠𝙤𝙞 𝙥𝙡𝙖𝙣 𝙨𝙚𝙡𝙚𝙘𝙩 𝙠𝙖𝙧𝙚𝙞𝙣.\n'
+        '🇬🇧 𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙡𝙚𝙘𝙩 𝙖 𝙥𝙡𝙖𝙣 𝙩𝙤 𝙫𝙞𝙚𝙬 𝙩𝙝𝙚 𝙙𝙚𝙢𝙤.',
+        reply_markup=kb
+    )
+    # Extra buttons
+    add_styled(kb, '🎬 𝘿𝙚𝙢𝙤', 'demo_menu', index=0)
+    add_styled(kb, '🆘 𝙎𝙪𝙥𝙥𝙤𝙧𝙩', url=SUPPORT_LINK, index=1)
+
     send_photo_or_text(chat_id, WELCOME_IMAGE, WELCOME_CAPTION, kb)
 
 def send_plans(chat_id):
-    # Same plan-name buttons, without extra plan cards/messages.
     kb = InlineKeyboardMarkup()
-    for i, p in enumerate([p for p in PLANS if p.get('active')]):
-        add_styled(kb, f"{p['name']} · ₹{p['price']}", f"plan:{p['id']}", index=i)
-    bot.send_message(chat_id, '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣:', reply_markup=kb)
 
+    for i, p in enumerate([p for p in PLANS if p.get('active')]):
+        add_styled(
+            kb,
+            f"{p['name']} · ₹{p['price']}",
+            f"plan:{p['id']}",
+            index=i
+        )
+
+    add_styled(kb, '🎬 𝘿𝙚𝙢𝙤', 'demo_menu', index=0)
+    add_styled(kb, '🆘 𝙎𝙪𝙥𝙥𝙤𝙧𝙩', url=SUPPORT_LINK, index=1)
+
+    bot.send_message(
+        chat_id,
+        '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣:',
+        reply_markup=kb
+    )
 def send_plan(chat_id, p):
     caption = (
         f"𝙋𝙡𝙖𝙣 : {p['name']}\n\n"
@@ -436,6 +484,10 @@ def review(call):
     if call.from_user.id != ADMIN_ID:
         bot.answer_callback_query(call.id, 'Not allowed', show_alert=True)
         return
+        @bot.callback_query_handler(func=lambda c: c.data == 'demo_menu')
+def demo_menu(call):
+    bot.answer_callback_query(call.id)
+    send_demo_menu(call.message.chat.id)
     parts = call.data.split(':')
     if len(parts) != 4 or parts[1] not in ('approve', 'reject'):
         bot.answer_callback_query(call.id, 'Invalid action', show_alert=True)
