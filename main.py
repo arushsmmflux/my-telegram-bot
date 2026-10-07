@@ -52,13 +52,10 @@ PLANS = [
         'validity': '180 days', 'videos': 'As described',
         'image': 'https://ibb.co/ZRqKVvRQ', 'qr': 'https://ibb.co/fYsgpT3c',
         'demos': [
-           
-'https://t.me/studywalahai/167',
-'https://t.me/studywalahai/120',
-'https://t.me/studywalahai/129',
-'https://t.me/studywalahai/139',
-'https://t.me/studywalahai/140',
-'https://t.me/studywalahai/139' 
+'https://t.me/studyof12th/27',
+'https://t.me/studyof12th/30',
+'https://t.me/studyof12th/64',
+'https://t.me/studyof12th/65'
         ],
    'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -73,9 +70,13 @@ PLANS = [
         'validity': '180 days', 'videos': '40000',
         'image': 'https://ibb.co/QF2v05qK', 'qr': 'https://ibb.co/gbLMg58r',
         'demos': [   
- 'https://t.me/studywalahai/106',
-'https://t.me/studywalahai/136',
-'https://t.me/studywalahai/111'
+'https://t.me/studyof12th/42',
+'https://t.me/studyof12th/37',
+'https://t.me/studyof12th/20',
+'https://t.me/studyof12th/12',
+'https://t.me/studyof12th/15',
+'https://t.me/studyof12th/40',
+'https://t.me/studyof12th/40'
         ],
       'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -90,14 +91,13 @@ PLANS = [
         'validity': '180 days', 'videos': '70000+',
         'image': 'https://ibb.co/21H7BGM2', 'qr': 'https://ibb.co/fYsgpT3c',
         'demos': [          
-'https://t.me/studywalahai/128',
-'https://t.me/studywalahai/115',
-'https://t.me/studywalahai/161',
-'https://t.me/studywalahai/117',
-'https://t.me/studywalahai/116',
-'https://t.me/studywalahai/100',
-'https://t.me/studywalahai/145',
-'https://t.me/studywalahai/150'
+'https://t.me/studyof12th/51',
+'https://t.me/studyof12th/41',
+'https://t.me/studyof12th/28',
+'https://t.me/studyof12th/26',
+'https://t.me/studyof12th/25',
+'https://t.me/studyof12th/24',
+'https://t.me/studyof12th/6'
         ],
        'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -112,12 +112,13 @@ PLANS = [
         'validity': '180 days', 'videos': '67000+',
         'image': 'https://ibb.co/9kKCd6ZF', 'qr': 'https://ibb.co/fYsgpT3c',
         'demos': [
-            
-'https://t.me/studywalahai/148',
-'https://t.me/studywalahai/165',
-'https://t.me/studywalahai/163',
-'https://t.me/studywalahai/101',
-'https://t.me/studywalahai/118'
+'https://t.me/studyof12th/53',
+'https://t.me/studyof12th/10',
+'https://t.me/studyof12th/55',
+'https://t.me/studyof12th/7',
+'https://t.me/studyof12th/34',
+'https://t.me/studyof12th/49',
+'https://t.me/studyof12th/54'
         ],
       'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -132,12 +133,12 @@ PLANS = [
         'validity': '180 days', 'videos': '56000+',
         'image': 'https://ibb.co/HLw36KQ4', 'qr': 'https://ibb.co/4n9q8mK2',
         'demos': [
-           
-'https://t.me/studywalahai/99',
-'https://t.me/studywalahai/107',
-'https://t.me/studywalahai/127',
-'https://t.me/studywalahai/141',
-'https://t.me/studywalahai/146'
+'https://t.me/studyof12th/48',
+'https://t.me/studyof12th/62',
+'https://t.me/studyof12th/21',
+'https://t.me/studyof12th/23',
+'https://t.me/studyof12th/29',
+'https://t.me/studyof12th/36'
         ],
       'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -152,9 +153,9 @@ PLANS = [
         'validity': '180 days', 'videos': '30000+',
         'image': 'https://ibb.co/5X0hc5dd', 'qr': 'https://ibb.co/xK77FFDK',
         'demos': [
-            'https://t.me/studywalahai/171',
-            'https://t.me/studywalahai/172',
-            'https://t.me/studywalahai/173'
+'https://t.me/studyof12th/60',
+'https://t.me/studyof12th/59',
+'https://t.me/studyof12th/58'
         ],
        'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -169,7 +170,7 @@ PLANS = [
         'validity': '180 days', 'videos': '18000+',
         'image': 'https://ibb.co/C5KZBm7f', 'qr': 'https://ibb.co/fYsgpT3c',
         'demos': [
-            'https://t.me/demgf/28'
+'https://t.me/studyof12th/61'
         ],
        'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -184,13 +185,11 @@ PLANS = [
         'validity': '180 days', 'videos': '50000+',
         'image': 'https://ibb.co/Fb6S1mYg', 'qr': 'https://ibb.co/fYsgpT3c',
         'demos': [
-            
-'https://t.me/studywalahai/166',
-'https://t.me/demgf/29',
-'https://t.me/studywalahai/125',
-'https://t.me/studywalahai/162',
-'https://t.me/studywalahai/117',
-'https://t.me/studywalahai/149'
+'https://t.me/studyof12th/35',
+'https://t.me/studyof12th/50',
+'https://t.me/studyof12th/63',
+'https://t.me/studyof12th/56',
+'https://t.me/studyof12th/52'
         ],
        'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -205,10 +204,9 @@ PLANS = [
         'validity': '180 days', 'videos': '70000+',
         'image': 'https://ibb.co/qFhKnzcH', 'qr': 'https://ibb.co/tMVzjb0D',
         'demos': [
-            
-'https://t.me/demgf/30',
-'https://t.me/demgf/36'
-        ],
+'https://t.me/studyof12th/31',
+'https://t.me/studyof12th/57'
+       ],
        'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
     '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
@@ -221,9 +219,6 @@ PLANS = [
         'id': 3, 'name': '🔥𝗔𝗟𝗟 𝗩𝗜𝗣 𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 😍', 'price': '169',
         'validity': '180 days', 'videos': '1 lakh+ ',
         'image': 'https://ibb.co/84598K8j', 'qr': 'https://ibb.co/MDWVSzF8',
-        'demos': [
-            'https://t.me/paymentredisb/6'
-            ],
        'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
     '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
