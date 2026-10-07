@@ -54,7 +54,7 @@ PLANS = [
         'demos': [
 'https://t.me/studyof12th/27',
 'https://t.me/studyof12th/30',
-'https://t.me/studyof12th/64',
+'https://t.me/studyof12th/47',
 'https://t.me/studyof12th/65'
         ],
    'caption': (
