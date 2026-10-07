@@ -484,11 +484,6 @@ def review(call):
     if call.from_user.id != ADMIN_ID:
         bot.answer_callback_query(call.id, 'Not allowed', show_alert=True)
         return
-        @bot.callback_query_handler(func=lambda c: c.data == 'demo_menu')
-def demo_menu(call):
-    bot.answer_callback_query(call.id)
-    send_demo_menu(call.message.chat.id)
-    parts = call.data.split(':')
     if len(parts) != 4 or parts[1] not in ('approve', 'reject'):
         bot.answer_callback_query(call.id, 'Invalid action', show_alert=True)
         return
