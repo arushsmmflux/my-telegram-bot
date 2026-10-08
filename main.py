@@ -16,6 +16,8 @@ logging.basicConfig(
 
 log = logging.getLogger(__name__)
 
+user_waiting_screenshot = set()
+pending_screenshots = {}
 
 # =========================================================
 # BOT
