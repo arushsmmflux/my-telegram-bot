@@ -879,7 +879,9 @@ def send_demo_over(chat_id, plan_id):
     bot.send_message(
         chat_id,
         "🚫 <b>𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍</b>\n\n"
-        "💎 <b>𝙋𝙇𝙀𝘼𝙎𝙀 𝙋𝙐𝙍𝘾𝙃𝘼𝙎𝙀 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 𝙋𝙇𝘼𝙉</b>",
+"💎 <b>𝙋𝙇𝙀𝘼𝙎𝙀 𝙋𝙐𝙍𝘾𝙃𝘼𝙎𝙀 𝙋𝙍𝙀𝙈𝙄𝙐𝙈</b>\n\n"
+"❤️ <b>𝙁𝙊𝙍 𝙈𝙊𝙍𝙀 𝙅𝙊𝙄𝙉 𝙃𝙀𝙍𝙀</b> "
+"<a href='https://t.me/studyof12thc'>@studyof12thc</a>"
         reply_markup=kb
     )
 
