@@ -243,7 +243,7 @@ STYLE_SERIES = [
     'danger'
 ]
 
-
+SUPPORT_LINK = 'https://t.me/xylerigcc'
 def button(text, data=None, url=None, style=None):
     kwargs = {
         'text': text
