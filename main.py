@@ -932,18 +932,46 @@ def free_button(call):
 # =========================================================
 # PAID
 # =========================================================
-
 @bot.callback_query_handler(
-    func=lambda call: call.data == "paid"
+    func=lambda call: call.data.startswith("paid:")
 )
 def paid_button(call):
 
     bot.answer_callback_query(call.id)
 
-    send_paid_screen(
-        call.message.chat.id
-    )
+    try:
+        plan_id = int(call.data.split(":")[1])
+    except (ValueError, IndexError):
+        bot.send_message(
+            call.message.chat.id,
+            "❌ Invalid payment request."
+        )
+        return
 
+    plan = get_plan(plan_id)
+
+    if not plan:
+        bot.send_message(
+            call.message.chat.id,
+            "❌ Plan not found."
+        )
+        return
+
+    user_id = call.from_user.id
+
+    user_waiting_screenshot.add(user_id)
+
+    pending_screenshots[user_id] = {
+        "plan_id": plan_id,
+        "status": "waiting"
+    }
+
+    bot.send_message(
+        call.message.chat.id,
+        "✅ 𝙊𝙆!\n\n"
+        "📸 𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙮𝙤𝙪𝙧 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 "
+        "𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩."
+    )
 
 # =========================================================
 # START BACK
