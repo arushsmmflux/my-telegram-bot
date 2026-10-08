@@ -867,15 +867,13 @@ def send_payment(chat_id, user_id, plan):
     qr = plan.get("qr", "")
 
     if not qr:
-
         bot.send_message(
             chat_id,
             "⚠️ 𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙌𝙍 𝙞𝙨 𝙣𝙤𝙩 𝙨𝙚𝙩 𝙮𝙚𝙩."
         )
-
         return
 
-       kb = InlineKeyboardMarkup()
+    kb = InlineKeyboardMarkup()
 
     kb.row(
         button(
@@ -894,11 +892,11 @@ def send_payment(chat_id, user_id, plan):
     )
 
     caption = (
-        f" <b>𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙋𝘼𝙂𝙀 💳: ₹{plan['price']}</b>\n\n"
+        f"<b>𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙋𝘼𝙂𝙀 💳: ₹{plan['price']}</b>\n\n"
         "1️⃣ 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍.\n"
         "2️⃣ 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩.\n"
-        "3️⃣ 𝘾𝙡𝙞𝙘𝙠 <b>𝙄 𝙋𝘼𝙄𝘿✅</b>.\n"
-        "4️⃣ 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩.✅"
+        "3️⃣ 𝘾𝙡𝙞𝙘𝙠 <b>𝙄 𝙋𝘼𝙄𝘿 ✅</b>.\n"
+        "4️⃣ 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩. ✅"
     )
 
     send_photo_or_text(
@@ -907,7 +905,6 @@ def send_payment(chat_id, user_id, plan):
         caption,
         kb
     )
-
 # =========================================================
 # SCREENSHOT STATE
 # =========================================================
