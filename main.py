@@ -319,7 +319,7 @@ PLANS = [
         "caption": "PLAN 9 CAPTION",
         "active": True
     },
-    { 
+      {
         "id": 10,
         "name": "𝗔𝗟𝗟 𝗩𝗜𝗣  𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 🔥 ",
         "price": "169",
@@ -329,13 +329,18 @@ PLANS = [
         "image": "https://ibb.co/84598K8j",
         "qr": "https://ibb.co/MDWVSzF8",
 
-        },
+        "demos": [
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_5_FILE_ID"}
+        ],
 
         "caption": "PLAN 10 CAPTION",
         "active": True
     }
-
-[
+]
 
 
 # =========================================================
