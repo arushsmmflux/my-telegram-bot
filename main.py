@@ -319,9 +319,7 @@ PLANS = [
         "caption": "PLAN 9 CAPTION",
         "active": True
     },
-
-
-]
+    { 
         "id": 10,
         "name": "𝗔𝗟𝗟 𝗩𝗜𝗣  𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 🔥 ",
         "price": "169",
