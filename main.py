@@ -329,7 +329,7 @@ PLANS = [
         "image": "https://ibb.co/84598K8j",
         "qr": "https://ibb.co/MDWVSzF8",
 
-        ],
+        },
 
         "caption": "PLAN 10 CAPTION",
         "active": True
