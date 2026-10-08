@@ -85,7 +85,7 @@ PLANS = [
         "name": "𝙈𝙊𝙈 𝘼𝙉𝘿 𝙎𝙊𝙉 😍🔥 (",
         "price": "49",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "45000+",
 
         "image": "https://ibb.co/ZRqKVvRQ",
         "qr": "https://ibb.co/fYsgpT3c",
@@ -131,9 +131,9 @@ PLANS = [
         "name": "𝙍!@𝙋𝙀 𝙑𝙄𝘿𝙀𝙊𝙎 💦👀",
         "price": "69",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "40000+",
 
-        "image": "https://ibb.co/gbLMg58r",
+        "image": "https://ibb.co/QF2v05qK",
         "qr": "https://ibb.co/gbLMg58r",
 
         "demos": [
@@ -155,10 +155,10 @@ PLANS = [
         "name": "𝘾𝙃𝙄!𝙇𝘿 𝙑𝙄𝘿!𝙀𝙊 ( 𝘾.𝙋) 🔥👀",
         "price": "49",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "70000+",
 
-        "image": "https://ibb.co/fYsgpT3c",
-        "qr": "PASTE_PLAN_3_QR_HERE",
+        "image": "https://ibb.co/21H7BGM2",
+        "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
             {"type": "video", "id": "BAACAgUAAxkBAAI102rHeZi-bZlCOVmo9Ii4N1CXKMdGAAKdIgACv69BVpPMgg4dHNouPQQ"},
@@ -182,10 +182,10 @@ PLANS = [
         "name": "𝘽𝙃𝘼𝘽𝙃𝙄 𝙑𝙄𝘿𝙀𝙊𝙎  💦👅 ",
         "price": "39",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "56000+",
 
-        "image": "https://ibb.co/4n9q8mK2",
-        "qr": "PASTE_PLAN_4_QR_HERE",
+        "image": "https://ibb.co/HLw36KQ4",
+        "qr": "https://ibb.co/4n9q8mK2",
 
         "demos": [
             {"type": "video", "id": "BAACAgUAAxkBAAI2VGrHh0V0mxFFNp3VOcOb33Ml1G4MAALzIgACv69BVk4g0vpDj712PQQ"},
@@ -209,10 +209,10 @@ PLANS = [
         "name": "𝘽𝙃𝘼𝙄 𝘽𝙀𝙃𝘼𝙉 🔥🥵 ",
         "price": "49",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "67000+",
 
-        "image": "https://ibb.co/fYsgpT3c",
-        "qr": "PASTE_PLAN_5_QR_HERE",
+        "image": "https://ibb.co/9kKCd6ZF",
+        "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
             {"type": "video", "id": "BAACAgUAAxkBAAI2D2rHfDIG-VI27jxnsZvofOtrGTyfAAKuIgACv69BVm1uywMJ7wpRPQQ"},
@@ -233,10 +233,10 @@ PLANS = [
         "name": "𝗜𝗡𝗦𝗧𝗚𝗥𝗔𝗠 𝗠𝗠𝗦 𝗔𝗟𝗟 😍🔥 ",
         "price": "49",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "50000+",
 
-        "image": "https://ibb.co/fYsgpT3c",
-        "qr": "PASTE_PLAN_6_QR_HERE",
+        "image": "https://ibb.co/Fb6S1mYg",
+        "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
             {"type": "video", "id": "BAACAgUAAxkBAAI1-GrHevTR_e2y2y3Nia8GN8aFjkQMAAKmIgACv69BVjq7X6WlNlKCPQQ"},
@@ -279,7 +279,7 @@ PLANS = [
         "name": "𝙈𝙄𝙓 𝙂𝙍𝙊𝙐𝙋 70𝙆 𝙑𝙄𝘿𝙀𝙊𝙎 🥵",
         "price": "63",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "70000+",
 
         "image": "https://ibb.co/qFhKnzcH",
         "qr": "https://ibb.co/tMVzjb0D",
@@ -316,7 +316,7 @@ PLANS = [
         "name": "𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥",
         "price": "49",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "18000+",
 
         "image": "https://ibb.co/qFhKnzcH",
         "qr": "https://ibb.co/fYsgpT3c",
@@ -337,7 +337,7 @@ PLANS = [
         "name": "𝗔𝗟𝗟 𝗩𝗜𝗣  𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 🔥 ",
         "price": "169",
         "validity": "180 days",
-        "videos": "30000+",
+        "videos": "100000+",
 
         "image": "https://ibb.co/84598K8j",
         "qr": "https://ibb.co/MDWVSzF8",
