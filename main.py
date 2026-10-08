@@ -875,20 +875,23 @@ def send_payment(chat_id, user_id, plan):
 
         return
 
-    kb = InlineKeyboardMarkup()
+       kb = InlineKeyboardMarkup()
 
-   kb.row(
-    button(
-        " 𝙄 𝙋𝘼𝙄𝘿",
-        data=f"paid:{plan['id']}",
-        style="success"
-    ),
-    button(
-        " 𝘽𝘼𝘾𝙆",
-        data=f"plan:{plan['id']}",
-        style="primary"
+    kb.row(
+        button(
+            " 𝙄 𝙋𝘼𝙄𝘿 ✅",
+            data=f"paid:{plan['id']}",
+            style="success"
+        )
     )
-)
+
+    kb.row(
+        button(
+            " 𝘽𝘼𝘾𝙆 ⬅️",
+            data=f"plan:{plan['id']}",
+            style="primary"
+        )
+    )
 
     caption = (
         f" <b>𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙋𝘼𝙂𝙀 💳: ₹{plan['price']}</b>\n\n"
