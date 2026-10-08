@@ -931,7 +931,17 @@ def review(call):
         f'plan {p["name"] if p else pid}.'
     )
 
+OWNER_ID = 6516697207  # yahan apni Telegram numeric user ID daalo
 
+@bot.message_handler(content_types=['video'])
+def get_video_id(message):
+    if message.from_user.id != OWNER_ID:
+        return
+
+    bot.reply_to(
+        message,
+        message.video.file_id
+    )
 # =========================
 # START BOT
 # =========================
