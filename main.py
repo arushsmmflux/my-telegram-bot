@@ -355,22 +355,18 @@ PLANS = [
         "active": True
     },
       {
-        "id": 10,
-        "name": "𝗔𝗟𝗟 𝗩𝗜𝗣  𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 🔥 ",
-        "price": "169",
-        "validity": "180 days",
-        "videos": "100000+",
+    "id": 10,
+    "name": "𝗔𝗟𝗟 𝗩𝗜𝗣  𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 🔥 ",
+    "price": "169",
+    "validity": "180 days",
+    "videos": "100000+",
 
-        "image": "https://ibb.co/84598K8j",
-        "qr": "https://ibb.co/MDWVSzF8",
+    "image": "https://ibb.co/84598K8j",
+    "qr": "https://ibb.co/MDWVSzF8",
 
-        "demos": [
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_1_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_2_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_3_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_4_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_5_FILE_ID"}
-        ],
+    "caption": "PLAN 10 CAPTION",
+    "active": True
+},
 
          "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
 "2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
