@@ -745,14 +745,14 @@ def send_demo(
     ]
 
     # All demos finished
-    if index >= len(demos):
+if index >= len(demos):
 
-        send_demo_over(
-            chat_id,
-            plan_id
-        )
+    send_demo_over(
+        chat_id,
+        plan_id
+    )
 
-        return
+    return
 
     # Delete previous demo
     if delete_message_id:
