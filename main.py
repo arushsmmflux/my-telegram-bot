@@ -488,27 +488,33 @@ def get_plan(plan_id):
 # ============================================================
 # START
 # ============================================================
+ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
 
 @bot.message_handler(commands=["start"])
 def start(message):
 
-    if MAINTENANCE_MODE:
+    # 👑 ADMIN — FULL ACCESS
+    if message.from_user.id == ADMIN_ID:
+        send_home(message.chat.id)
+        return
 
-        keyboard = InlineKeyboardMarkup()
+    # 👤 USERS — MAINTENANCE
+    keyboard = InlineKeyboardMarkup()
 
-        keyboard.add(
-            InlineKeyboardButton(
-                "🛠️ 𝘽𝙊𝙏 𝙐𝙉𝘿𝙀𝙍 𝙈𝘼𝙄𝙉𝙏𝙀𝙉𝘼𝙉𝘾𝙀",
-                callback_data="maintenance"
-            )
+    keyboard.add(
+        InlineKeyboardButton(
+            "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
+            url="https://t.me/xylerigcc"
         )
+    )
 
-        keyboard.add(
-            InlineKeyboardButton(
-                "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
-                url=SUPPORT_LINK
-            )
-        )
+    bot.send_message(
+        message.chat.id,
+        "🛠️ 𝘽𝙊𝙏 𝙐𝙉𝘿𝙀𝙍 𝙈𝘼𝙄𝙉𝙏𝙀𝙉𝘼𝙉𝘾𝙀\n\n"
+        "✨ Bot is currently being updated.\n\n"
+        "⏳ Please try again later.",
+        reply_markup=keyboard
+    )
 
         bot.send_message(
             message.chat.id,
