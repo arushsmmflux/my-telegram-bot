@@ -121,7 +121,10 @@ PLANS = [
             }
         ],
 
-        "caption": "PLAN 1 CAPTION",
+        "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
 
@@ -145,7 +148,10 @@ PLANS = [
             {"type": "video", "id": "BAACAgUAAxkBAAI2hWrHiOJLaQ20bd0ZQccYSGi1DGuDAAL8IgACv69BVn0nBQ-OdSg0PQQ"}
         ],
 
-        "caption": "PLAN 2 CAPTION",
+        "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
 
@@ -172,7 +178,10 @@ PLANS = [
             {"type": "video", "id": "BAACAgUAAxkBAAI112rHehWT7ChqF4hbypfAEwmyF9BkAAKeIgACv69BVtXBJ3Uu9oPEPQQ"}
         ],
 
-        "caption": "PLAN 3 CAPTION",
+        "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
 
@@ -198,8 +207,10 @@ PLANS = [
             {"type": "video", "id": "BAACAgUAAxkBAAI2fWrHiI7Nlb-qmDGWX8V5OPABhxF3AAL6IgACv69BVrDggsTSrVXBPQQ"},
             {"type": "video", "id": "PASTE_PLAN_4_DEMO_5_FILE_ID"}
         ],
-
-        "caption": "PLAN 4 CAPTION",
+ "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
 
@@ -222,8 +233,10 @@ PLANS = [
              {"type": "video", "id": "BAACAgUAAxkBAAI2LWrHf2JdymEiQzYPAzuN7rLmXU6LAALSIgACv69BVoCKrwF1v2vCPQQ"},
             {"type": "video", "id": "BAACAgUAAxkBAAI2HWrHfFTFQ939rnRsRWwSQLD5RjQqAAKzIgACv69BVrrMSsutBep6PQQ"}
         ],
-
-        "caption": "PLAN 5 CAPTION",
+ "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
 
@@ -246,7 +259,10 @@ PLANS = [
             {"type": "video", "id": "PASTE_PLAN_6_DEMO_5_FILE_ID"}
         ],
 
-        "caption": "PLAN 6 CAPTION",
+        "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
 
@@ -269,7 +285,10 @@ PLANS = [
             {"type": "video", "id": "PASTE_PLAN_7_DEMO_5_FILE_ID"}
         ],
 
-        "caption": "PLAN 7 CAPTION",
+         "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
 
@@ -329,7 +348,10 @@ PLANS = [
             {"type": "video", "id": "PASTE_PLAN_9_DEMO_5_FILE_ID"}
         ],
 
-        "caption": "PLAN 9 CAPTION",
+         "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     },
       {
@@ -350,7 +372,10 @@ PLANS = [
             {"type": "video", "id": "PASTE_PLAN_10_DEMO_5_FILE_ID"}
         ],
 
-        "caption": "PLAN 10 CAPTION",
+         "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
+"2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
+"3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
+"4.  𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙎𝙐𝙉𝘿𝘼𝙔   ✅",
         "active": True
     }
 ]
