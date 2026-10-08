@@ -47,7 +47,7 @@ SUPPORT_LINK = "https://t.me/xylerigcc"
 #
 # Agar empty rahega to bot text bhej dega.
 
-WELCOME_IMAGE = "BQACAgUAAxkBAAI1SGrHXiJ5xT9M113ppwuDAnJOd0YjAAJWIgACv69BVhAt5m1CHaWyPQQ"
+WELCOME_IMAGE = "https://ibb.co/RGL77cpn"
 
 
 # =========================================================
@@ -58,7 +58,7 @@ WELCOME_IMAGE = "BQACAgUAAxkBAAI1SGrHXiJ5xT9M113ppwuDAnJOd0YjAAJWIgACv69BVhAt5m1
 # Agar same image welcome ke liye use karni hai:
 # START_IMAGE = WELCOME_IMAGE
 
-START_IMAGE = "BQACAgUAAxkBAAI1Q2rHXgSAGyZNK-QLdAM6VAWmCPz_AAJUIgACv69BVgs8n4-qoTb_PQQ"
+START_IMAGE = "https://ibb.co/GhbLV5P"
 
 
 # =========================================================
@@ -112,7 +112,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1ZmrHX21OeUrF4vUV9xieZZNkHVX2AAJeIgACv69BVrD2MoU0OynaPQQ",
+        "image": "https://ibb.co/QF2v05qK",
         "qr": "PASTE_PLAN_2_QR_HERE",
 
         "demos": [
@@ -135,7 +135,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1W2rHXz2mDVbWA4KZdvBDNk8LQxjVAAJaIgACv69BVo6vLvgjuOIjPQQ",
+        "image": "https://ibb.co/21H7BGM2",
         "qr": "PASTE_PLAN_3_QR_HERE",
 
         "demos": [
@@ -158,7 +158,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1cWrHX7BT4InnLhS3SLxfdlMZbsQ5AAJgIgACv69BVpyg52xMJ0QrPQQ",
+        "image": "https://ibb.co/HLw36KQ4",
         "qr": "PASTE_PLAN_4_QR_HERE",
 
         "demos": [
@@ -181,7 +181,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1dWrHX8PELGSWzmVxImtdyTmau860AAJhIgACv69BVktUO3bNwxBkPQQ",
+        "image": "https://ibb.co/9kKCd6ZF",
         "qr": "PASTE_PLAN_5_QR_HERE",
 
         "demos": [
@@ -204,7 +204,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1TGrHXwbfcf_9DcYSRUn32IDDJPtZAAJYIgACv69BVv9zDRN1BiiAPQQ",
+        "image": "https://ibb.co/Fb6S1mYg",
         "qr": "PASTE_PLAN_6_QR_HERE",
 
         "demos": [
@@ -227,7 +227,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1bWrHX6QS9deLrUcp1HZDBG9g_OaFAAJfIgACv69BVnG8RFPE5NFZPQQ",
+        "image": "https://ibb.co/5X0hc5dd",
         "qr": "PASTE_PLAN_7_QR_HERE",
 
         "demos": [
@@ -250,7 +250,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1ZGrHX2ILCBX8b9Qxe3Y2-6k3DzIvAAJdIgACv69BViaEY78FlQRjPQQ",
+        "image": "https://ibb.co/qFhKnzcH",
         "qr": "PASTE_PLAN_8_QR_HERE",
 
         "demos": [
@@ -286,7 +286,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1YGrHX1bXBiTVpIUketChkY8pfZPAAAJcIgACv69BViWqbDZKy61xPQQ",
+        "image": "https://ibb.co/qFhKnzcH",
         "qr": "PASTE_PLAN_9_QR_HERE",
 
         "demos": [
@@ -309,7 +309,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1eWrHX9SnCDU1PpPl3neVkDZfCBEOAAJiIgACv69BVsIgBUl_R2KNPQQ",
+        "image": "https://ibb.co/84598K8j",
         "qr": "PASTE_PLAN_10_QR_HERE",
 
         "demos": [
