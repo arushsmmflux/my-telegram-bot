@@ -485,9 +485,6 @@ def get_plan(plan_id):
     return None
 
 
-# ============================================================
-# START
-# ============================================================
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
 
 @bot.message_handler(commands=["start"])
@@ -511,7 +508,6 @@ def start(message):
         "⏳ Please try again later.",
         reply_markup=keyboard
     )
-
     bot.send_message(
         message.chat.id,
         "🛠️ 𝘽𝙊𝙏 𝙐𝙉𝘿𝙀𝙍 𝙈𝘼𝙄𝙉𝙏𝙀𝙉𝘼𝙉𝘾𝙀\n\n"
