@@ -250,7 +250,7 @@ STYLE_SERIES = [
 # SUPPORT LINK
 # =========================
 
-SUPPORT_LINK = 'https:/xylerigcc'
+SUPPORT_LINK = 'https://t.me/xylerigcc'
 
 
 # =========================
