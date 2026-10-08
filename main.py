@@ -243,19 +243,10 @@ STYLE_SERIES = [
 ]
 
 
-# =========================
-# SUPPORT LINK
-# =========================
-
-SUPPORT_LINK = 'https://t.me/xylerigcc'
-
-
-# =========================
-# BUTTON FUNCTIONS
-# =========================
-
 def button(text, data=None, url=None, style=None):
-    kwargs = {'text': text}
+    kwargs = {
+        'text': text
+    }
 
     if data is not None:
         kwargs['callback_data'] = data
@@ -265,7 +256,10 @@ def button(text, data=None, url=None, style=None):
 
     if style:
         try:
-            return InlineKeyboardButton(**kwargs, style=style)
+            return InlineKeyboardButton(
+                **kwargs,
+                style=style
+            )
         except (TypeError, ValueError):
             pass
 
@@ -283,6 +277,10 @@ def add_styled(kb, text, data=None, url=None, index=0):
     )
 
 
+# ============================================================
+# HELPERS
+# ============================================================
+
 def get_plan(pid):
     return next(
         (
@@ -293,11 +291,12 @@ def get_plan(pid):
     )
 
 
-# =========================
-# SEND PHOTO OR TEXT
-# =========================
-
-def send_photo_or_text(chat_id, image, caption, reply_markup=None):
+def send_photo_or_text(
+    chat_id,
+    image,
+    caption,
+    reply_markup=None
+):
     try:
         if image:
             bot.send_photo(
@@ -315,7 +314,8 @@ def send_photo_or_text(chat_id, image, caption, reply_markup=None):
 
     except Exception:
         log.exception(
-            'Could not send configured image; sending text fallback'
+            'Could not send configured image; '
+            'sending text fallback'
         )
 
         bot.send_message(
@@ -325,11 +325,12 @@ def send_photo_or_text(chat_id, image, caption, reply_markup=None):
         )
 
 
-# =========================
+# ============================================================
 # AGE GATE
-# =========================
+# ============================================================
 
 def send_age_gate(chat_id):
+
     kb = InlineKeyboardMarkup()
 
     kb.row(
@@ -353,17 +354,21 @@ def send_age_gate(chat_id):
     )
 
 
-# =========================
+# ============================================================
 # HOME
-# =========================
+# ============================================================
 
 def send_home(chat_id):
+
     kb = InlineKeyboardMarkup()
 
-    # All active plans
-    for i, p in enumerate(
-        [p for p in PLANS if p.get('active')]
-    ):
+    active_plans = [
+        p for p in PLANS
+        if p.get('active')
+    ]
+
+    for i, p in enumerate(active_plans):
+
         add_styled(
             kb,
             f"{p['name']} · ₹{p['price']}",
@@ -371,7 +376,6 @@ def send_home(chat_id):
             index=i
         )
 
-    # Demo button
     add_styled(
         kb,
         '🎬 𝘿𝙚𝙢𝙤',
@@ -379,7 +383,6 @@ def send_home(chat_id):
         index=0
     )
 
-    # Support button
     add_styled(
         kb,
         '🆘 𝙎𝙪𝙥𝙥𝙤𝙧𝙩',
@@ -395,16 +398,21 @@ def send_home(chat_id):
     )
 
 
-# =========================
+# ============================================================
 # PLANS MENU
-# =========================
+# ============================================================
 
 def send_plans(chat_id):
+
     kb = InlineKeyboardMarkup()
 
-    for i, p in enumerate(
-        [p for p in PLANS if p.get('active')]
-    ):
+    active_plans = [
+        p for p in PLANS
+        if p.get('active')
+    ]
+
+    for i, p in enumerate(active_plans):
+
         add_styled(
             kb,
             f"{p['name']} · ₹{p['price']}",
@@ -412,7 +420,6 @@ def send_plans(chat_id):
             index=i
         )
 
-    # Demo button
     add_styled(
         kb,
         '🎬 𝘿𝙚𝙢𝙤',
@@ -420,7 +427,6 @@ def send_plans(chat_id):
         index=0
     )
 
-    # Support button
     add_styled(
         kb,
         '🆘 𝙎𝙪𝙥𝙥𝙤𝙧𝙩',
@@ -430,28 +436,32 @@ def send_plans(chat_id):
 
     bot.send_message(
         chat_id,
-        '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣:',
+        '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣❤️:',
         reply_markup=kb
     )
 
 
-# =========================
+# ============================================================
 # DEMO MENU
-# =========================
+# ============================================================
 
 def send_demo_menu(chat_id):
-    kb = InlineKeyboardMarkup()
 
     bot.send_message(
         chat_id,
-        ' 𝘿𝙚𝙢𝙤 𝙙𝙚𝙠𝙝𝙣𝙚 𝙠𝙚 𝙡𝙞𝙮𝙚 𝙠𝙤𝙞 𝙥𝙡𝙖𝙣 𝙨𝙚𝙡𝙚𝙘𝙩 𝙠𝙖𝙧𝙚𝙞𝙣✅.\n'
+        ' 𝘿𝙚𝙢𝙤 𝙙𝙚𝙠𝙝𝙣𝙚 𝙠𝙚 𝙡𝙞𝙮𝙚 𝙠𝙤𝙞 𝙥𝙡𝙖𝙣 𝙨𝙚𝙡𝙚𝙘𝙩 𝙠𝙖𝙧𝙚𝙞𝙣❤️n'
         ' 𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙡𝙚𝙘𝙩 𝙖 𝙥𝙡𝙖𝙣 𝙩𝙤 𝙫𝙞𝙚𝙬 𝙩𝙝𝙚 𝙙𝙚𝙢𝙤.'
     )
 
-    # All active plans
-    for i, p in enumerate(
-        [p for p in PLANS if p.get('active')]
-    ):
+    kb = InlineKeyboardMarkup()
+
+    active_plans = [
+        p for p in PLANS
+        if p.get('active')
+    ]
+
+    for i, p in enumerate(active_plans):
+
         add_styled(
             kb,
             f"🎬 {p['name']}",
@@ -459,7 +469,6 @@ def send_demo_menu(chat_id):
             index=i
         )
 
-    # Back button
     add_styled(
         kb,
         '🔙 𝘽𝙖𝙘𝙠',
@@ -474,11 +483,12 @@ def send_demo_menu(chat_id):
     )
 
 
-# =========================
+# ============================================================
 # PLAN DETAILS
-# =========================
+# ============================================================
 
 def send_plan(chat_id, p):
+
     caption = (
         f"𝙋𝙡𝙖𝙣 : {p['name']}\n\n"
         f"𝙋𝙧𝙞𝙘𝙚 - ₹{p['price']}\n"
@@ -489,7 +499,6 @@ def send_plan(chat_id, p):
 
     kb = InlineKeyboardMarkup()
 
-    # Buy button
     add_styled(
         kb,
         '𝘽𝙐𝙔 𝙉𝙊𝙒 💳',
@@ -497,19 +506,16 @@ def send_plan(chat_id, p):
         index=0
     )
 
-    # Demo buttons
-    demos = p.get('demos', [])
+    if p.get('demo') and p['demo'].startswith(
+        ('https://', 'http://')
+    ):
+        add_styled(
+            kb,
+            '🎬 𝘿𝙚𝙢𝙤',
+            url=p['demo'],
+            index=1
+        )
 
-    for i, url in enumerate(demos, start=1):
-        if url.startswith(('https://', 'http://')):
-            add_styled(
-                kb,
-                f'🎬 𝘿𝙚𝙢𝙤 {i}',
-                url=url,
-                index=i
-            )
-
-    # Back button
     add_styled(
         kb,
         '🔙 𝘽𝙖𝙘𝙠',
@@ -525,17 +531,23 @@ def send_plan(chat_id, p):
     )
 
 
-# =========================
+# ============================================================
 # PAYMENT
-# =========================
+# ============================================================
 
 def send_payment(chat_id, user_id, p):
+
     if not p.get('qr'):
+
         bot.send_message(
             chat_id,
             '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙌𝙍 𝙞𝙨 𝙣𝙤𝙩 𝙨𝙚𝙩 𝙞𝙣 𝙘𝙤𝙙𝙚 𝙮𝙚𝙩.'
         )
+
         return
+
+    # Remember which plan's QR the user opened.
+    active_payment_plan[user_id] = p['id']
 
     kb = InlineKeyboardMarkup()
 
@@ -556,11 +568,11 @@ def send_payment(chat_id, user_id, p):
     caption = (
         f"𝙋𝙖𝙮 ₹{p['price']} using this QR.\n\n"
         f"𝙎𝙩𝙚𝙥𝙨:\n"
-        f"1. 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍✅.\n"
-        f"2. 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩✅.\n"
-        f"3. 𝙏𝙖𝙥 ‘𝙄 𝙥𝙖𝙞𝙙’✅.\n"
-        f"4. 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩✅.\n"
-        f"5. 𝙊𝙧𝙙𝙚𝙧 ID: {user_id}-{p['id']}"
+        f"1. 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍 ✅\n"
+        f"2. 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩 ✅\n"
+        f"3. 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 ✅\n"
+        f"4. 𝙏𝙝𝙚𝙣 𝙩𝙖𝙥 ‘𝙄 𝙋𝘼𝙄𝘿’ ✅\n\n"
+        f"𝙊𝙧𝙙𝙚𝙧 𝙍𝙚𝙛: {user_id}-{p['id']}"
     )
 
     send_photo_or_text(
@@ -571,37 +583,90 @@ def send_payment(chat_id, user_id, p):
     )
 
 
-# =========================
-# ORDER STATE
-# =========================
+# ============================================================
+# ORDER / SCREENSHOT STATE
+# ============================================================
 
+# Same user + same plan = locked for 2 hours
+plan_locks = {}
+
+# User's currently opened payment plan
+active_payment_plan = {}
+
+# After "I PAID", waiting for screenshot
 pending_screenshots = {}
+
+# Users currently expected to send screenshot
 user_waiting_screenshot = set()
 
+LOCK_SECONDS = 2 * 60 * 60
 
-# =========================
+
+def get_lock_remaining(user_id, plan_id):
+
+    key = (user_id, plan_id)
+
+    locked_until = plan_locks.get(key)
+
+    if not locked_until:
+        return 0
+
+    remaining = int(locked_until - time.time())
+
+    if remaining <= 0:
+        plan_locks.pop(key, None)
+        return 0
+
+    return remaining
+
+
+def lock_plan(user_id, plan_id):
+
+    plan_locks[(user_id, plan_id)] = (
+        time.time() + LOCK_SECONDS
+    )
+
+
+def format_remaining(seconds):
+
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+
+    if hours > 0:
+        return f"{hours}h {minutes}m"
+
+    return f"{minutes}m"
+
+
+# ============================================================
 # START
-# =========================
+# ============================================================
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    user_waiting_screenshot.discard(
-        message.from_user.id
-    )
+
+    uid = message.from_user.id
+
+    user_waiting_screenshot.discard(uid)
+    pending_screenshots.pop(uid, None)
+    active_payment_plan.pop(uid, None)
+
     send_age_gate(message.chat.id)
 
 
-# =========================
+# ============================================================
 # AGE CALLBACK
-# =========================
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data in ('age:yes', 'age:no')
 )
 def age_choice(call):
+
     bot.answer_callback_query(call.id)
 
     if call.data == 'age:no':
+
         kb = InlineKeyboardMarkup()
 
         add_styled(
@@ -616,68 +681,96 @@ def age_choice(call):
             DENIED_CAPTION,
             reply_markup=kb
         )
-    else:
-        send_home(call.message.chat.id)
 
+    else:
+
+        send_home(
+            call.message.chat.id
+        )
+
+
+# ============================================================
+# AGE BACK
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data == 'age:back'
 )
 def age_back(call):
+
     bot.answer_callback_query(call.id)
-    send_age_gate(call.message.chat.id)
+
+    send_age_gate(
+        call.message.chat.id
+    )
 
 
-# =========================
-# HOME CALLBACK
-# =========================
+# ============================================================
+# HOME
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data == 'home'
 )
 def home(call):
+
     bot.answer_callback_query(call.id)
-    send_home(call.message.chat.id)
+
+    send_home(
+        call.message.chat.id
+    )
 
 
-# =========================
-# PLANS CALLBACK
-# =========================
+# ============================================================
+# PLANS
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data == 'plans'
 )
 def plans(call):
+
     bot.answer_callback_query(call.id)
-    send_plans(call.message.chat.id)
+
+    send_plans(
+        call.message.chat.id
+    )
 
 
-# =========================
-# DEMO CALLBACK
-# =========================
+# ============================================================
+# DEMO MENU
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data == 'demo_menu'
 )
 def demo_menu(call):
+
     bot.answer_callback_query(call.id)
-    send_demo_menu(call.message.chat.id)
+
+    send_demo_menu(
+        call.message.chat.id
+    )
 
 
-# =========================
-# PLAN CALLBACK
-# =========================
+# ============================================================
+# PLAN DETAILS
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data.startswith('plan:')
 )
 def plan_detail(call):
+
     bot.answer_callback_query(call.id)
 
     try:
-        p = get_plan(
-            int(call.data.split(':')[1])
+        pid = int(
+            call.data.split(':')[1]
         )
+
+        p = get_plan(pid)
+
     except (ValueError, IndexError):
         p = None
 
@@ -688,100 +781,232 @@ def plan_detail(call):
         )
 
 
-# =========================
-# BUY CALLBACK
-# =========================
+# ============================================================
+# BUY
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data.startswith('buy:')
 )
 def buy(call):
-    bot.answer_callback_query(call.id)
 
     try:
-        p = get_plan(
-            int(call.data.split(':')[1])
+
+        pid = int(
+            call.data.split(':')[1]
         )
+
+        p = get_plan(pid)
+
     except (ValueError, IndexError):
+
         p = None
 
-    if p:
-        send_payment(
-            call.message.chat.id,
-            call.from_user.id,
-            p
+    if not p:
+        bot.answer_callback_query(
+            call.id,
+            'Plan not found.',
+            show_alert=True
+        )
+        return
+
+    uid = call.from_user.id
+
+    # Check SAME plan lock only.
+    remaining = get_lock_remaining(
+        uid,
+        pid
+    )
+
+    if remaining > 0:
+
+        bot.answer_callback_query(
+            call.id,
+            f'This plan is locked for '
+            f'{format_remaining(remaining)}.',
+            show_alert=True
         )
 
+        return
 
-# =========================
-# PAID CALLBACK
-# =========================
+    bot.answer_callback_query(call.id)
+
+    send_payment(
+        call.message.chat.id,
+        uid,
+        p
+    )
+
+
+# ============================================================
+# I PAID
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data.startswith('paid:')
 )
 def paid(call):
-    bot.answer_callback_query(call.id)
 
     try:
-        pid = int(call.data.split(':')[1])
+
+        pid = int(
+            call.data.split(':')[1]
+        )
+
         p = get_plan(pid)
+
     except (ValueError, IndexError):
+
         p = None
 
     if not p:
+        bot.answer_callback_query(
+            call.id,
+            'Plan not found.',
+            show_alert=True
+        )
         return
 
-    user_waiting_screenshot.add(
-        call.from_user.id
+    uid = call.from_user.id
+
+    # Check same-plan lock.
+    remaining = get_lock_remaining(
+        uid,
+        pid
     )
 
-    bot.send_message(
-        call.message.chat.id,
-        '𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙩𝙝𝙚 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 ✅.'
-    )
+    if remaining > 0:
 
-    pending_screenshots[
-        call.from_user.id
-    ] = {
+        bot.answer_callback_query(
+            call.id,
+            f'This plan is locked for '
+            f'{format_remaining(remaining)}.',
+            show_alert=True
+        )
+
+        return
+
+    bot.answer_callback_query(call.id)
+
+    user_waiting_screenshot.add(uid)
+
+    pending_screenshots[uid] = {
         'plan_id': pid,
         'status': 'waiting'
     }
 
+    bot.send_message(
+        call.message.chat.id,
+        '𝙎𝙚𝙣𝙙 𝙮𝙤𝙪𝙧 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 '
+        '𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤 ✅'
+    )
 
-# =========================
+
+# ============================================================
 # SCREENSHOT HANDLER
-# =========================
+# ============================================================
 
 @bot.message_handler(
     content_types=['photo', 'text', 'document']
 )
 def screenshot_handler(message):
+
     uid = message.from_user.id
 
-    if uid not in user_waiting_screenshot:
-        return
+    # --------------------------------------------------------
+    # Only process a photo.
+    # --------------------------------------------------------
 
     if message.content_type != 'photo':
-        bot.reply_to(
-            message,
-            '𝙋𝙡𝙚𝙖𝙨𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.'
-        )
+
+        if (
+            uid in user_waiting_screenshot
+            or uid in active_payment_plan
+        ):
+
+            bot.reply_to(
+                message,
+                '𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 '
+                '𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.'
+            )
+
         return
 
-    state = pending_screenshots.get(uid, {})
+    # --------------------------------------------------------
+    # Determine selected plan.
+    #
+    # Case 1: User pressed I PAID
+    # Case 2: User sent screenshot BEFORE I PAID
+    # --------------------------------------------------------
+
+    state = pending_screenshots.get(
+        uid,
+        {}
+    )
+
     pid = state.get('plan_id')
 
-    p = get_plan(pid) if pid else None
+    before_i_paid = False
+
+    if not pid:
+
+        pid = active_payment_plan.get(uid)
+
+        if pid:
+            before_i_paid = True
+
+    # No payment screen opened / no selected plan.
+    if not pid:
+        return
+
+    p = get_plan(pid)
 
     if not p:
         bot.reply_to(
             message,
-            '𝙋𝙡𝙖𝙣 𝙞𝙣𝙛𝙤 𝙢𝙞𝙨𝙨𝙞𝙣𝙜. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.'
+            '𝙋𝙡𝙖𝙣 𝙞𝙣𝙛𝙤 𝙢𝙞𝙨𝙨𝙞𝙣𝙜. '
+            '𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.'
         )
         return
 
+    # --------------------------------------------------------
+    # Lock same user + same plan for 2 hours.
+    # --------------------------------------------------------
+
+    remaining = get_lock_remaining(
+        uid,
+        pid
+    )
+
+    if remaining > 0:
+
+        user_waiting_screenshot.discard(uid)
+        pending_screenshots.pop(uid, None)
+        active_payment_plan.pop(uid, None)
+
+        bot.reply_to(
+            message,
+            '⏳ 𝙔𝙤𝙪 𝙖𝙡𝙧𝙚𝙖𝙙𝙮 𝙨𝙪𝙗𝙢𝙞𝙩𝙩𝙚𝙙 '
+            '𝙩𝙝𝙞𝙨 𝙥𝙡𝙖𝙣.\n'
+            f'𝙋𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩 '
+            f'{format_remaining(remaining)}.'
+        )
+
+        return
+
+    # --------------------------------------------------------
+    # Remove waiting state.
+    # --------------------------------------------------------
+
     user_waiting_screenshot.discard(uid)
+    pending_screenshots.pop(uid, None)
+    active_payment_plan.pop(uid, None)
+
+    # Start 2-hour lock.
+    lock_plan(
+        uid,
+        pid
+    )
 
     file_id = message.photo[-1].file_id
 
@@ -789,52 +1014,80 @@ def screenshot_handler(message):
 
     add_styled(
         kb,
-        '𝘼𝙥𝙥𝙧𝙤𝙫𝙚',
+        '𝘼𝙥𝙥𝙧𝙤𝙫𝙚 ✅',
         f'review:approve:{uid}:{pid}',
         index=1
     )
 
     add_styled(
         kb,
-        '𝙍𝙚𝙟𝙚𝙘𝙩',
+        '𝙍𝙚𝙟𝙚𝙘𝙩 ❌',
         f'review:reject:{uid}:{pid}',
         index=0
     )
 
+    # --------------------------------------------------------
+    # Admin notification.
+    # --------------------------------------------------------
+
+    if before_i_paid:
+
+        status_text = (
+            '⚠️ 𝙎𝙐𝘽𝙈𝙄𝙏𝙏𝙀𝘿 '
+            '𝘽𝙀𝙁𝙊𝙍𝙀 "𝙄 𝙋𝘼𝙄𝘿"'
+        )
+
+    else:
+
+        status_text = (
+            '✅ 𝙎𝙐𝘽𝙈𝙄𝙏𝙏𝙀𝘿 𝘼𝙁𝙏𝙀𝙍 "𝙄 𝙋𝘼𝙄𝘿"'
+        )
+
     try:
+
         bot.send_photo(
             ADMIN_ID,
             file_id,
             caption=(
-                f"𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩\n"
+                f"𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙎𝘾𝙍𝙀𝙀𝙉𝙎𝙃𝙊𝙏\n\n"
+                f"𝙎𝙩𝙖𝙩𝙪𝙨: {status_text}\n"
                 f"𝙐𝙨𝙚𝙧 𝙄𝘿: {uid}\n"
                 f"𝙋𝙡𝙖𝙣: {p['name']}\n"
-                f"𝘼𝙢𝙤𝙪𝙣𝙩: ₹{p['price']}"
+                f"𝘼𝙢𝙤𝙪𝙣𝙩: ₹{p['price']}\n"
+                f"𝙊𝙧𝙙𝙚𝙧 𝙍𝙚𝙛: {uid}-{pid}"
             ),
             reply_markup=kb
         )
 
         bot.reply_to(
             message,
-            '𝙎𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙨𝙪𝙗𝙢𝙞𝙩𝙩𝙚𝙙✅.'
+            '✅ 𝙎𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙨𝙪𝙗𝙢𝙞𝙩𝙩𝙚𝙙.\n'
+            '𝙔𝙤𝙪𝙧 𝙤𝙧𝙙𝙚𝙧 𝙞𝙨 𝙣𝙤𝙬 𝙪𝙣𝙙𝙚𝙧 𝙧𝙚𝙫𝙞𝙚𝙬.'
         )
 
     except Exception:
+
         log.exception(
             'Failed sending screenshot to admin'
         )
 
-        user_waiting_screenshot.add(uid)
+        # If admin notification failed,
+        # remove lock so user can retry.
+        plan_locks.pop(
+            (uid, pid),
+            None
+        )
 
         bot.reply_to(
             message,
-            '𝙎𝙪𝙗𝙢𝙞𝙨𝙨𝙞𝙤𝙣 𝙛𝙖𝙞𝙡𝙚𝙙. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.'
+            '❌ 𝙎𝙪𝙗𝙢𝙞𝙨𝙨𝙞𝙤𝙣 𝙛𝙖𝙞𝙡𝙚𝙙.\n'
+            '𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.'
         )
 
 
-# =========================
+# ============================================================
 # ADMIN REVIEW
-# =========================
+# ============================================================
 
 @bot.callback_query_handler(
     func=lambda c: c.data.startswith('review:')
@@ -842,25 +1095,28 @@ def screenshot_handler(message):
 def review(call):
 
     if call.from_user.id != ADMIN_ID:
+
         bot.answer_callback_query(
             call.id,
             'Not allowed',
             show_alert=True
         )
+
         return
 
-    # IMPORTANT
     parts = call.data.split(':')
 
-    if len(parts) != 4 or parts[1] not in (
-        'approve',
-        'reject'
+    if (
+        len(parts) != 4
+        or parts[1] not in ('approve', 'reject')
     ):
+
         bot.answer_callback_query(
             call.id,
             'Invalid action',
             show_alert=True
         )
+
         return
 
     action = parts[1]
@@ -868,57 +1124,81 @@ def review(call):
     pid_s = parts[3]
 
     try:
+
         uid = int(uid_s)
         pid = int(pid_s)
 
     except ValueError:
+
         bot.answer_callback_query(
             call.id,
             'Invalid order',
             show_alert=True
         )
+
         return
 
     p = get_plan(pid)
 
-    status = (
-        'approved'
-        if action == 'approve'
-        else 'rejected'
-    )
+    if action == 'approve':
 
+        status = 'approved'
+
+        user_message = (
+            '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙖𝙥𝙥𝙧𝙤𝙫𝙚𝙙. '
+            '𝙏𝙝𝙖𝙣𝙠 𝙮𝙤𝙪.'
+        )
+
+    else:
+
+        status = 'rejected'
+
+        user_message = (
+            '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙧𝙚𝙟𝙚𝙘𝙩𝙚𝙙.\n'
+            '𝙋𝙡𝙚𝙖𝙨𝙚 𝙘𝙤𝙣𝙩𝙖𝙘𝙩 𝙖𝙙𝙢𝙞𝙣 '
+            '𝙞𝙛 𝙮𝙤𝙪 𝙩𝙝𝙞𝙣𝙠 𝙩𝙝𝙞𝙨 𝙞𝙨 𝙖 𝙢𝙞𝙨𝙩𝙖𝙠𝙚.'
+        )
+
+    # Notify user.
     try:
-        if action == 'approve':
-            bot.send_message(
-                uid,
-                '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙖𝙥𝙥𝙧𝙤𝙫𝙚𝙙. 𝙏𝙝𝙖𝙣𝙠 𝙮𝙤𝙪.❤️'
-            )
-        else:
-            bot.send_message(
-                uid,
-                '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙧𝙚𝙟𝙚𝙘𝙩𝙚𝙙. '
-              
-            )
+
+        bot.send_message(
+            uid,
+            user_message
+        )
 
     except Exception:
+
         log.exception(
             'Could not notify user %s',
             uid
+        )
+
+    # Remove admin buttons.
+    try:
+
+        bot.edit_message_reply_markup(
+            call.message.chat.id,
+            call.message.message_id,
+            reply_markup=None
+        )
+
+    except Exception:
+
+        pass
+
+    # If rejected, allow same plan to be submitted again.
+    if action == 'reject':
+
+        plan_locks.pop(
+            (uid, pid),
+            None
         )
 
     bot.answer_callback_query(
         call.id,
         status.title()
     )
-
-    try:
-        bot.edit_message_reply_markup(
-            call.message.chat.id,
-            call.message.message_id,
-            reply_markup=None
-        )
-    except Exception:
-        pass
 
     bot.send_message(
         ADMIN_ID,
@@ -928,13 +1208,15 @@ def review(call):
     )
 
 
-# =========================
+# ============================================================
 # START BOT
-# =========================
+# ============================================================
 
 if __name__ == '__main__':
+
     log.info(
-        'Starting fixed-config bot (no admin panel)'
+        'Starting fixed-config bot '
+        '(2-hour per-plan screenshot lock)'
     )
 
     bot.infinity_polling(
@@ -942,7 +1224,3 @@ if __name__ == '__main__':
         timeout=30,
         long_polling_timeout=30
     )
-
-if __name__ == '__main__':
-    log.info('Starting fixed-config bot (no admin panel)')
-    bot.infinity_polling(skip_pending=True, timeout=30, long_polling_timeout=30)
