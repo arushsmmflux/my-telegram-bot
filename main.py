@@ -621,32 +621,38 @@ def send_plan(chat_id, plan):
         f"{plan['caption']}"
     )
 
-kb = InlineKeyboardMarkup()
+    kb = InlineKeyboardMarkup()
 
-kb.row(
-    button(
-        "🔴 𝘽𝙐𝙔 𝙉𝙊𝙒 💳",
-        data=f"buy:{plan['id']}",
-        style="danger"
+    kb.row(
+        button(
+            " 𝘽𝙐𝙔 𝙉𝙊𝙒 💳",
+            data=f"buy:{plan['id']}",
+            style="danger"
+        )
     )
-)
 
-kb.row(
-    button(
-        "🟢 𝘿𝙀𝙈𝙊 🎬",
-        data=f"demo_plan:{plan['id']}",
-        style="success"
+    kb.row(
+        button(
+            " 𝘿𝙀𝙈𝙊 🎬",
+            data=f"demo_plan:{plan['id']}",
+            style="success"
+        )
     )
-)
 
-kb.row(
-    button(
-        "🔵 𝘽𝘼𝘾𝙆",
-        data="home",
-        style="primary"
+    kb.row(
+        button(
+            " 𝘽𝘼𝘾𝙆",
+            data="home",
+            style="primary"
+        )
     )
-)
 
+    send_photo_or_text(
+        chat_id,
+        plan.get('image', ''),
+        caption,
+        kb
+    )
 
 # =========================================================
 # DEMO STATE
