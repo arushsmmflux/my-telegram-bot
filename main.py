@@ -360,13 +360,12 @@ PLANS = [
     "price": "169",
     "validity": "180 days",
     "videos": "100000+",
-
     "image": "https://ibb.co/84598K8j",
     "qr": "https://ibb.co/MDWVSzF8",
-
     "caption": "PLAN 10 CAPTION",
     "active": True
-},
+}
+]
 
          "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
 "2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
