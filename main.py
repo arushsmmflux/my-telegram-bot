@@ -621,11 +621,7 @@ def send_plan(chat_id, plan):
         f"{plan['caption']}"
     )
 
-    kb = InlineKeyboardMarkup()
-
-    kb.row(
-        button(
-          kb = InlineKeyboardMarkup()
+kb = InlineKeyboardMarkup()
 
 kb.row(
     button(
@@ -650,13 +646,6 @@ kb.row(
         style="primary"
     )
 )
-
-    send_photo_or_text(
-        chat_id,
-        plan.get("image", ""),
-        caption,
-        kb
-    )
 
 
 # =========================================================
