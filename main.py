@@ -3,7 +3,18 @@ import logging
 import telebot
 
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
+ADMIN_RAW = os.getenv("ADMIN_ID", "").strip()
 
+if not BOT_TOKEN:
+    raise RuntimeError("BOT_TOKEN missing")
+
+if not ADMIN_RAW.isdigit():
+    raise RuntimeError("ADMIN_ID missing or invalid")
+
+ADMIN_ID = int(ADMIN_RAW)
+
+bot = telebot.TeleBot(BOT_TOKEN)
 
 # =========================================================
 # LOGGING
@@ -866,18 +877,18 @@ def send_payment(chat_id, user_id, plan):
 
     kb = InlineKeyboardMarkup()
 
-    kb.row(
-        button(
-            " 𝙄 𝙋𝘼𝙄𝘿",
-            data=f"paid:{plan['id']}",
-            style="success"
-        ),
-        button(
-            " 𝘽𝘼𝘾𝙆",
-            data=f"plan:{plan['id']}",
-            style="primary"
-        )
+   kb.row(
+    button(
+        " 𝙄 𝙋𝘼𝙄𝘿",
+        data=f"paid:{plan['id']}",
+        style="success"
+    ),
+    button(
+        " 𝘽𝘼𝘾𝙆",
+        data=f"plan:{plan['id']}",
+        style="primary"
     )
+)
 
     caption = (
         f" <b>𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙋𝘼𝙂𝙀 💳: ₹{plan['price']}</b>\n\n"
@@ -894,12 +905,11 @@ def send_payment(chat_id, user_id, plan):
         kb
     )
 
-
 # =========================================================
 # SCREENSHOT STATE
 # =========================================================
 
-waiting_screenshot = {}
+waiting_screenshot = set()
 pending_orders = {}
 
 
@@ -935,17 +945,21 @@ def free_button(call):
 # PAID
 # =========================================================
 # =========================================================
-# PAID
+# I PAID
 # =========================================================
+
 @bot.callback_query_handler(
     func=lambda call: call.data.startswith("paid:")
 )
-def paid_button(call):
+def paid_confirm(call):
 
     bot.answer_callback_query(call.id)
 
     try:
-        plan_id = int(call.data.split(":")[1])
+        plan_id = int(
+            call.data.split(":")[1]
+        )
+
     except (ValueError, IndexError):
         bot.send_message(
             call.message.chat.id,
@@ -962,20 +976,19 @@ def paid_button(call):
         )
         return
 
-    user_id = call.from_user.id
+    uid = call.from_user.id
 
-    user_waiting_screenshot.add(user_id)
+    waiting_screenshot.add(uid)
 
-    pending_screenshots[user_id] = {
-        "plan_id": plan_id,
-        "status": "waiting"
+    pending_orders[uid] = {
+        "plan_id": plan_id
     }
 
     bot.send_message(
         call.message.chat.id,
-        "✅ 𝙊𝙆!\n\n"
-        "📸 𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙣𝙙 𝙮𝙤𝙪𝙧 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 "
-        "𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩."
+        "📸 <b>𝙎𝙚𝙣𝙙 𝙮𝙤𝙪𝙧 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 "
+        "𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩.</b>\n\n"
+        "𝙎𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤 𝙨𝙚𝙣𝙙 𝙠𝙖𝙧𝙤."
     )
 
 # =========================================================
@@ -1259,6 +1272,10 @@ def paid_confirm(call):
 # SCREENSHOT HANDLER
 # =========================================================
 
+# =========================================================
+# SCREENSHOT HANDLER
+# =========================================================
+
 @bot.message_handler(
     content_types=["photo"]
 )
@@ -1266,6 +1283,7 @@ def screenshot_handler(message):
 
     uid = message.from_user.id
 
+    # User ne I PAID nahi dabaya
     if uid not in waiting_screenshot:
         return
 
@@ -1279,13 +1297,39 @@ def screenshot_handler(message):
     )
 
     if not plan:
+        bot.reply_to(
+            message,
+            "❌ 𝙋𝙡𝙖𝙣 𝙣𝙤𝙩 𝙛𝙤𝙪𝙣𝙙."
+        )
         return
 
-    screenshot_id = (
-        message.photo[-1].file_id
+    screenshot_id = message.photo[-1].file_id
+
+    # =====================================================
+    # ADMIN BUTTONS
+    # =====================================================
+
+    kb = InlineKeyboardMarkup()
+
+    kb.row(
+        button(
+            "✅ 𝘼𝙋𝙋𝙍𝙊𝙑𝙀",
+            data=f"approve:{uid}:{plan['id']}",
+            style="success"
+        )
     )
 
-    waiting_screenshot.discard(uid)
+    kb.row(
+        button(
+            "❌ 𝙍𝙀𝙅𝙀𝘾𝙏",
+            data=f"reject:{uid}:{plan['id']}",
+            style="danger"
+        )
+    )
+
+    # =====================================================
+    # SEND SCREENSHOT TO ADMIN
+    # =====================================================
 
     try:
 
@@ -1294,29 +1338,35 @@ def screenshot_handler(message):
             screenshot_id,
             caption=(
                 "💳 <b>𝙉𝙀𝙒 𝙋𝘼𝙔𝙈𝙀𝙉𝙏</b>\n\n"
-                f"👤 User ID: <code>{uid}</code>\n"
-                f"📦 Plan: {plan['name']}\n"
-                f"💰 Amount: ₹{plan['price']}"
-            )
+                f"👤 𝙐𝙨𝙚𝙧 𝙄𝘿: <code>{uid}</code>\n"
+                f"📦 𝙋𝙡𝙖𝙣: {plan['name']}\n"
+                f"💰 𝘼𝙢𝙤𝙪𝙣𝙩: ₹{plan['price']}"
+            ),
+            reply_markup=kb
         )
 
+        # Screenshot successfully sent to admin
+        waiting_screenshot.discard(uid)
+        pending_orders.pop(uid, None)
+
+        # User confirmation
         bot.reply_to(
             message,
-            "✅ <b>𝙎𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙨𝙚𝙣𝙩.</b>\n"
-            "𝙋𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩 𝙛𝙤𝙧 𝙖𝙥𝙥𝙧𝙤𝙫𝙖𝙡."
+            "✅ <b>𝙎𝘾𝙍𝙀𝙀𝙉𝙎𝙃𝙊𝙏 𝙎𝙐𝘽𝙈𝙄𝙏𝙏𝙀𝘿</b>\n\n"
+            "⏳ 𝙔𝙤𝙪𝙧 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙞𝙨 𝙪𝙣𝙙𝙚𝙧 𝙧𝙚𝙫𝙞𝙚𝙬."
         )
 
     except Exception:
 
         log.exception(
-            "Could not send payment screenshot"
+            "Could not send payment screenshot to admin"
         )
 
         bot.reply_to(
             message,
-            "❌ 𝙎𝙤𝙢𝙚𝙩𝙝𝙞𝙣𝙜 𝙬𝙚𝙣𝙩 𝙬𝙧𝙤𝙣𝙜."
+            "❌ <b>𝙎𝙪𝙗𝙢𝙞𝙨𝙨𝙞𝙤𝙣 𝙛𝙖𝙞𝙡𝙚𝙙.</b>\n\n"
+            "𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣."
         )
-
 
 # =========================================================
 # ADMIN MEDIA ID MODE
