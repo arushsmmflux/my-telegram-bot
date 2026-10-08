@@ -250,7 +250,7 @@ STYLE_SERIES = [
 # SUPPORT LINK
 # =========================
 
-SUPPORT_LINK = 'xylerigcc'
+SUPPORT_LINK = 'https:/xylerigcc'
 
 
 # =========================
@@ -533,8 +533,6 @@ def send_plan(chat_id, p):
 # =========================
 
 def send_payment(chat_id, user_id, p):
-    active_payment_plan[user_id] = p['id']
-
     if not p.get('qr'):
         bot.send_message(
             chat_id,
@@ -582,26 +580,6 @@ def send_payment(chat_id, user_id, p):
 
 pending_screenshots = {}
 user_waiting_screenshot = set()
-
-# 2-hour lock for the SAME user + SAME plan only.
-# Other plans can still be submitted.
-LOCK_SECONDS = 2 * 60 * 60
-plan_locks = {}
-active_payment_plan = {}
-
-def is_plan_locked(user_id, plan_id):
-    key = (user_id, plan_id)
-    until = plan_locks.get(key, 0)
-    if until > __import__('time').time():
-        return True
-    plan_locks.pop(key, None)
-    return False
-
-def lock_plan(user_id, plan_id):
-    plan_locks[(user_id, plan_id)] = __import__('time').time() + LOCK_SECONDS
-
-def unlock_plan(user_id, plan_id):
-    plan_locks.pop((user_id, plan_id), None)
 
 
 # =========================
@@ -707,7 +685,6 @@ def plan_detail(call):
         p = None
 
     if p:
-        active_payment_plan[call.from_user.id] = p['id']
         send_plan(
             call.message.chat.id,
             p
@@ -732,14 +709,6 @@ def buy(call):
         p = None
 
     if p:
-        if is_plan_locked(call.from_user.id, p['id']):
-            bot.send_message(
-                call.message.chat.id,
-                '⏳ Same plan ka screenshot already submit ho chuka hai. '
-                '2 hours baad same plan dobara submit kar sakte ho.'
-            )
-            return
-
         send_payment(
             call.message.chat.id,
             call.from_user.id,
@@ -764,14 +733,6 @@ def paid(call):
         p = None
 
     if not p:
-        return
-
-    if is_plan_locked(call.from_user.id, pid):
-        bot.send_message(
-            call.message.chat.id,
-            '⏳ Same plan ka screenshot already submit ho chuka hai. '
-            '2 hours baad same plan dobara submit kar sakte ho.'
-        )
         return
 
     user_waiting_screenshot.add(
@@ -801,38 +762,25 @@ def paid(call):
 def screenshot_handler(message):
     uid = message.from_user.id
 
-    # Screenshot can be sent BEFORE or AFTER "I PAID".
-    # The selected plan is remembered from the plan/payment screen.
-    pid = active_payment_plan.get(uid)
-
-    if not pid:
-        pid = pending_screenshots.get(uid, {}).get('plan_id')
-
-    if not pid:
+    if uid not in user_waiting_screenshot:
         return
 
-    p = get_plan(pid)
+    if message.content_type != 'photo':
+        bot.reply_to(
+            message,
+            '𝙋𝙡𝙚𝙖𝙨𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.'
+        )
+        return
+
+    state = pending_screenshots.get(uid, {})
+    pid = state.get('plan_id')
+
+    p = get_plan(pid) if pid else None
 
     if not p:
         bot.reply_to(
             message,
             '𝙋𝙡𝙖𝙣 𝙞𝙣𝙛𝙤 𝙢𝙞𝙨𝙨𝙞𝙣𝙜. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.'
-        )
-        return
-
-    if is_plan_locked(uid, pid):
-        bot.reply_to(
-            message,
-            '⏳ Same plan ka screenshot already submit ho chuka hai. '
-            '2 hours baad same plan dobara submit kar sakte ho.'
-        )
-        return
-
-    if message.content_type != 'photo':
-        user_waiting_screenshot.add(uid)
-        bot.reply_to(
-            message,
-            '𝙋𝙡𝙚𝙖𝙨𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.'
         )
         return
 
@@ -944,13 +892,11 @@ def review(call):
 
     try:
         if action == 'approve':
-            lock_plan(uid, pid)
             bot.send_message(
                 uid,
                 '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙖𝙥𝙥𝙧𝙤𝙫𝙚𝙙. 𝙏𝙝𝙖𝙣𝙠 𝙮𝙤𝙪.'
             )
         else:
-            unlock_plan(uid, pid)
             bot.send_message(
                 uid,
                 '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙧𝙚𝙟𝙚𝙘𝙩𝙚𝙙. '
