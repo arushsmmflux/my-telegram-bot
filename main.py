@@ -1,53 +1,71 @@
 import os
 import logging
 import telebot
+
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-# ============================================================
-# RAILWAY VARIABLES
-# ============================================================
 
-TOKEN = os.getenv("BOT_TOKEN", "").strip()
+# =========================================================
+# LOGGING
+# =========================================================
 
-if not TOKEN:
-    raise RuntimeError("BOT_TOKEN is missing in Railway Variables")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger("course_bot")
-
-bot = telebot.TeleBot(TOKEN)
+log = logging.getLogger(__name__)
 
 
-# ============================================================
-# BASIC SETTINGS
-# ============================================================
+# =========================================================
+# BOT
+# =========================================================
+
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
+
+bot = telebot.TeleBot(
+    BOT_TOKEN,
+    parse_mode="HTML"
+)
+
+
+# =========================================================
+# SUPPORT
+# =========================================================
 
 SUPPORT_LINK = "https://t.me/xylerigcc"
 
-MAINTENANCE_MODE = True
 
-MAINTENANCE_TEXT = """
-🛠️ 𝘽𝙊𝙏 𝙐𝙉𝘿𝙀𝙍 𝙈𝘼𝙄𝙉𝙏𝙀𝙉𝘼𝙉𝘾𝙀
+# =========================================================
+# WELCOME IMAGE
+# =========================================================
+# Yahan WELCOME IMAGE ka Telegram FILE ID paste karna.
+#
+# Example:
+# WELCOME_IMAGE = "AgACAgUAAxkBAA..."
+#
+# Agar empty rahega to bot text bhej dega.
 
-✨ We are currently updating the bot.
-
-⏳ Please try again later.
-
-🙏 Thanks for your patience.
-"""
+WELCOME_IMAGE = ""
 
 
-# ============================================================
-# ============================================================
-#                 EDIT YOUR 10 PLANS HERE
-# ============================================================
-# ============================================================
+# =========================================================
+# FIRST START IMAGE
+# =========================================================
+# Start karte hi jo image Free / Paid buttons ke upar aayegi.
+#
+# Agar same image welcome ke liye use karni hai:
+# START_IMAGE = WELCOME_IMAGE
+
+START_IMAGE = ""
+
+
+# =========================================================
+# 10 PLANS
+# =========================================================
 
 PLANS = [
-
-    # ========================================================
-    # PLAN 1
-    # ========================================================
 
     {
         "id": 1,
@@ -83,14 +101,9 @@ PLANS = [
         ],
 
         "caption": "PLAN 1 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 2
-    # ========================================================
 
     {
         "id": 2,
@@ -103,37 +116,17 @@ PLANS = [
         "qr": "PASTE_PLAN_2_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_2_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_2_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_2_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_2_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_2_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_2_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_2_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_2_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_2_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_2_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 2 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 3
-    # ========================================================
 
     {
         "id": 3,
@@ -146,37 +139,17 @@ PLANS = [
         "qr": "PASTE_PLAN_3_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_3_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_3_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_3_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_3_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_3_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_3_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_3_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_3_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_3_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_3_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 3 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 4
-    # ========================================================
 
     {
         "id": 4,
@@ -189,37 +162,17 @@ PLANS = [
         "qr": "PASTE_PLAN_4_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_4_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_4_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_4_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_4_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_4_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_4_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_4_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_4_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_4_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_4_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 4 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 5
-    # ========================================================
 
     {
         "id": 5,
@@ -232,37 +185,17 @@ PLANS = [
         "qr": "PASTE_PLAN_5_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_5_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_5_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_5_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_5_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_5_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_5_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_5_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_5_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_5_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_5_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 5 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 6
-    # ========================================================
 
     {
         "id": 6,
@@ -275,37 +208,17 @@ PLANS = [
         "qr": "PASTE_PLAN_6_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_6_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_6_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_6_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_6_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_6_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_6_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_6_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_6_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_6_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_6_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 6 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 7
-    # ========================================================
 
     {
         "id": 7,
@@ -318,37 +231,17 @@ PLANS = [
         "qr": "PASTE_PLAN_7_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_7_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_7_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_7_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_7_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_7_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_7_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_7_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_7_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_7_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_7_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 7 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 8
-    # ========================================================
 
     {
         "id": 8,
@@ -357,8 +250,8 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "https://ibb.co/5X0hc5dd",
-        "qr": "https://ibb.co/xK77FFDK",
+        "image": "PASTE_PLAN_8_IMAGE_HERE",
+        "qr": "PASTE_PLAN_8_QR_HERE",
 
         "demos": [
             {
@@ -367,11 +260,11 @@ PLANS = [
             },
             {
                 "type": "video",
-                "id": "PASTE_VIDEO_FILE_ID_2_HERE"
+                "id": "PASTE_PLAN_8_DEMO_2_FILE_ID"
             },
             {
                 "type": "video",
-                "id": "PASTE_VIDEO_FILE_ID_3_HERE"
+                "id": "PASTE_PLAN_8_DEMO_3_FILE_ID"
             }
         ],
 
@@ -386,10 +279,6 @@ PLANS = [
     },
 
 
-    # ========================================================
-    # PLAN 9
-    # ========================================================
-
     {
         "id": 9,
         "name": "PLAN 9",
@@ -401,37 +290,17 @@ PLANS = [
         "qr": "PASTE_PLAN_9_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_9_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_9_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_9_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_9_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_9_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_9_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_9_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_9_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_9_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_9_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 9 CAPTION",
-
         "active": True
     },
 
-
-    # ========================================================
-    # PLAN 10
-    # ========================================================
 
     {
         "id": 10,
@@ -444,458 +313,833 @@ PLANS = [
         "qr": "PASTE_PLAN_10_QR_HERE",
 
         "demos": [
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_10_DEMO_1_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_10_DEMO_2_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_10_DEMO_3_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_10_DEMO_4_FILE_ID"
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_10_DEMO_5_FILE_ID"
-            }
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_1_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_2_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_3_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_4_FILE_ID"},
+            {"type": "video", "id": "PASTE_PLAN_10_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 10 CAPTION",
-
         "active": True
     }
 
 ]
 
 
-# ============================================================
-# FIND PLAN
-# ============================================================
+# =========================================================
+# BUTTON STYLES
+# =========================================================
 
-def get_plan(plan_id):
+STYLE_SERIES = [
+    "danger",
+    "success",
+    "primary",
+    "danger",
+    "success",
+    "primary"
+]
+
+
+def button(text, data=None, url=None, style=None):
+
+    kwargs = {
+        "text": text
+    }
+
+    if data is not None:
+        kwargs["callback_data"] = data
+
+    if url is not None:
+        kwargs["url"] = url
+
+    if style is not None:
+        kwargs["style"] = style
+
+    return InlineKeyboardButton(**kwargs)
+
+
+def add_styled(
+    kb,
+    text,
+    data=None,
+    url=None,
+    index=0
+):
+
+    style = STYLE_SERIES[
+        index % len(STYLE_SERIES)
+    ]
+
+    kb.add(
+        button(
+            text,
+            data=data,
+            url=url,
+            style=style
+        )
+    )
+
+
+# =========================================================
+# PLAN HELPER
+# =========================================================
+
+def get_plan(pid):
+
     for plan in PLANS:
-        if plan["id"] == plan_id:
+
+        if (
+            plan["id"] == pid
+            and plan.get("active")
+        ):
             return plan
+
     return None
 
 
-ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
+# =========================================================
+# MEDIA SENDER
+# =========================================================
 
-@bot.message_handler(commands=["start"])
-def start(message):
-    if message.from_user.id == ADMIN_ID:
-        send_home(message.chat.id)
+def send_photo_or_text(
+    chat_id,
+    image,
+    caption,
+    reply_markup=None
+):
+
+    if not image:
+        bot.send_message(
+            chat_id,
+            caption,
+            reply_markup=reply_markup
+        )
         return
 
-    keyboard = InlineKeyboardMarkup()
-    keyboard.add(
-        InlineKeyboardButton(
-            "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
-            url="https://t.me/xylerigcc"
+    try:
+
+        bot.send_photo(
+            chat_id,
+            image,
+            caption=caption,
+            reply_markup=reply_markup
+        )
+
+    except Exception:
+
+        log.exception(
+            "Could not send configured image"
+        )
+
+        bot.send_message(
+            chat_id,
+            caption,
+            reply_markup=reply_markup
+        )
+
+
+# =========================================================
+# START SCREEN
+# =========================================================
+
+START_CAPTION = (
+    "✨ <b>𝙒𝙀𝙇𝘾𝙊𝙈𝙀</b> ✨\n\n"
+    "𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 𝙤𝙪𝙧 𝙎𝙎𝙈 𝙘𝙤𝙪𝙧𝙨𝙚.\n"
+    "𝘾𝙝𝙤𝙤𝙨𝙚 𝙖𝙣 𝙤𝙥𝙩𝙞𝙤𝙣 𝙗𝙚𝙡𝙤𝙬.\n\n"
+    "👇 <b>𝙋𝙡𝙚𝙖𝙨𝙚 𝙘𝙝𝙤𝙤𝙨𝙚:</b>"
+)
+
+
+def send_start_screen(chat_id):
+
+    kb = InlineKeyboardMarkup()
+
+    kb.row(
+        button(
+            "🟢 𝙁𝙍𝙀𝙀",
+            data="free",
+            style="success"
+        ),
+        button(
+            "🔴 𝙋𝘼𝙄𝘿",
+            data="paid",
+            style="danger"
         )
     )
 
-    bot.send_message(
-        message.chat.id,
-        "🛠️ 𝘽𝙊𝙏 𝙐𝙉𝘿𝙀𝙍 𝙈𝘼𝙄𝙉𝙏𝙀𝙉𝘼𝙉𝘾𝙀\n\n"
-        "✨ Bot is currently being updated.\n\n"
-        "⏳ Please try again later.",
-        reply_markup=keyboard
-    )
-# ============================================================
-# MAINTENANCE BUTTON
-# ============================================================
-
-@bot.callback_query_handler(func=lambda call: call.data == "maintenance")
-def maintenance(call):
-
-    bot.answer_callback_query(
-        call.id,
-        "🛠️ Bot is currently under maintenance."
+    send_photo_or_text(
+        chat_id,
+        START_IMAGE,
+        START_CAPTION,
+        kb
     )
 
 
-# ============================================================
-# HOME
-# ============================================================
+# =========================================================
+# PAID SCREEN
+# =========================================================
 
-def send_home(chat_id):
+def send_paid_screen(chat_id):
 
-    keyboard = InlineKeyboardMarkup()
+    kb = InlineKeyboardMarkup()
 
-    keyboard.add(
-        InlineKeyboardButton(
-            "📚 𝙑𝙄𝙀𝙒 𝙋𝙇𝘼𝙉𝙎",
-            callback_data="plans"
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "🎬 𝘿𝙀𝙈𝙊",
-            callback_data="demo_menu"
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
-            url=SUPPORT_LINK
-        )
+    add_styled(
+        kb,
+        "🔙 𝘽𝘼𝘾𝙆",
+        data="start",
+        index=2
     )
 
     bot.send_message(
         chat_id,
-        "🎓 𝙎𝙎𝙈 𝘾𝙊𝙐𝙍𝙎𝙀\n\n"
-        "✨ Choose an option below:",
-        reply_markup=keyboard
+        "🔒 <b>𝙊𝙉𝙇𝙔 𝙁𝙊𝙍 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 𝙐𝙎𝙀𝙍𝙎</b>\n\n"
+        "✨ 𝙏𝙝𝙞𝙨 𝙨𝙚𝙘𝙩𝙞𝙤𝙣 𝙞𝙨 𝙛𝙤𝙧 𝙥𝙧𝙚𝙢𝙞𝙪𝙢 𝙪𝙨𝙚𝙧𝙨.",
+        reply_markup=kb
     )
 
 
-# ============================================================
-# PLANS MENU
-# ============================================================
+# =========================================================
+# WELCOME / FREE HOME
+# =========================================================
 
-@bot.callback_query_handler(func=lambda call: call.data == "plans")
-def plans_menu(call):
+WELCOME_CAPTION = (
+    "✨ <b>𝙒𝙀𝙇𝘾𝙊𝙈𝙀</b> ✨\n\n"
+    "🔥 𝙎𝙎𝙈 𝘾𝙊𝙐𝙍𝙎𝙀\n"
+    "🚀 𝘾𝙝𝙤𝙤𝙨𝙚 𝙮𝙤𝙪𝙧 𝙥𝙡𝙖𝙣\n"
+    "🎬 𝙒𝙖𝙩𝙘𝙝 𝙛𝙧𝙚𝙚 𝙙𝙚𝙢𝙤𝙨\n"
+    "💎 𝘾𝙝𝙚𝙘𝙠 𝙥𝙡𝙖𝙣 𝙙𝙚𝙩𝙖𝙞𝙡𝙨\n"
+    "⚡ 𝙁𝙖𝙨𝙩 𝙖𝙘𝙘𝙚𝙨𝙨\n"
+    "📚 𝙇𝙚𝙖𝙧𝙣 𝙖𝙣𝙙 𝙜𝙧𝙤𝙬\n"
+    "💰 𝘼𝙛𝙛𝙤𝙧𝙙𝙖𝙗𝙡𝙚 𝙥𝙡𝙖𝙣𝙨\n"
+    "🎯 𝘾𝙝𝙤𝙤𝙨𝙚 𝙗𝙚𝙡𝙤𝙬 👇"
+)
 
-    bot.answer_callback_query(call.id)
 
-    keyboard = InlineKeyboardMarkup()
+def send_home(chat_id):
+
+    kb = InlineKeyboardMarkup()
 
     active_plans = [
         p for p in PLANS
-        if p.get("active", True)
+        if p.get("active")
     ]
 
-    for plan in active_plans:
+    for i, p in enumerate(active_plans):
 
-        keyboard.add(
-            InlineKeyboardButton(
-                f"📦 {plan['name']} — ₹{plan['price']}",
-                callback_data=f"plan:{plan['id']}"
-            )
+        add_styled(
+            kb,
+            f"📦 {p['name']} · ₹{p['price']}",
+            data=f"plan:{p['id']}",
+            index=i
         )
 
-    keyboard.add(
-        InlineKeyboardButton(
-            "⬅️ 𝘽𝘼𝘾𝙆",
-            callback_data="home"
+    add_styled(
+        kb,
+        "🎬 𝘿𝙀𝙈𝙊",
+        data="demo_menu",
+        index=0
+    )
+
+    add_styled(
+        kb,
+        "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
+        url=SUPPORT_LINK,
+        index=1
+    )
+
+    send_photo_or_text(
+        chat_id,
+        WELCOME_IMAGE,
+        WELCOME_CAPTION,
+        kb
+    )
+
+
+# =========================================================
+# DEMO PLAN SELECTOR
+# =========================================================
+
+def send_demo_menu(chat_id):
+
+    kb = InlineKeyboardMarkup()
+
+    bot.send_message(
+        chat_id,
+        "🎬 <b>𝘿𝙀𝙈𝙊</b>\n\n"
+        "𝘿𝙚𝙢𝙤 𝙙𝙚𝙠𝙝𝙣𝙚 𝙠𝙚 𝙡𝙞𝙮𝙚 "
+        "𝙠𝙤𝙞 𝙥𝙡𝙖𝙣 𝙨𝙚𝙡𝙚𝙘𝙩 𝙠𝙖𝙧𝙤.\n\n"
+        "👇 <b>𝙎𝙚𝙡𝙚𝙘𝙩 𝙖 𝙥𝙡𝙖𝙣:</b>"
+    )
+
+    active_plans = [
+        p for p in PLANS
+        if p.get("active")
+    ]
+
+    for i, p in enumerate(active_plans):
+
+        add_styled(
+            kb,
+            f"🎬 {p['name']}",
+            data=f"demo_plan:{p['id']}",
+            index=i
         )
+
+    add_styled(
+        kb,
+        "🔙 𝘽𝘼𝘾𝙆",
+        data="home",
+        index=2
     )
 
-    bot.edit_message_text(
-        "📚 𝘼𝙑𝘼𝙄𝙇𝘼𝘽𝙇𝙀 𝙋𝙇𝘼𝙉𝙎\n\n"
-        "👇 Select your plan:",
-        chat_id=call.message.chat.id,
-        message_id=call.message.message_id,
-        reply_markup=keyboard
+    bot.send_message(
+        chat_id,
+        "👇 <b>𝘾𝙝𝙤𝙤𝙨𝙚 𝙥𝙡𝙖𝙣:</b>",
+        reply_markup=kb
     )
 
 
-# ============================================================
+# =========================================================
 # PLAN DETAILS
-# ============================================================
+# =========================================================
 
-@bot.callback_query_handler(func=lambda call: call.data.startswith("plan:"))
-def show_plan(call):
+def send_plan(chat_id, plan):
 
-    bot.answer_callback_query(call.id)
-
-    try:
-        plan_id = int(call.data.split(":")[1])
-    except:
-        return
-
-    plan = get_plan(plan_id)
-
-    if not plan:
-        return
-
-    keyboard = InlineKeyboardMarkup()
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "🎬 𝘿𝙀𝙈𝙊",
-            callback_data=f"demo_start:{plan_id}"
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "🛒 𝘽𝙐𝙔 𝙉𝙊𝙒",
-            callback_data=f"buy:{plan_id}"
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "⬅️ 𝘽𝘼𝘾𝙆",
-            callback_data="plans"
-        )
-    )
-
-    text = (
-        f"📦 {plan['name']}\n\n"
-        f"💰 Price: ₹{plan['price']}\n"
-        f"⏳ Validity: {plan['validity']}\n"
-        f"🎬 Videos: {plan['videos']}\n\n"
+    caption = (
+        f"📦 <b>𝙋𝙡𝙖𝙣:</b> {plan['name']}\n\n"
+        f"💰 <b>𝙋𝙧𝙞𝙘𝙚:</b> ₹{plan['price']}\n"
+        f"⏳ <b>𝙑𝙖𝙡𝙞𝙙𝙞𝙩𝙮:</b> {plan['validity']}\n"
+        f"🎬 <b>𝙑𝙞𝙙𝙚𝙤𝙨:</b> {plan['videos']}\n\n"
         f"{plan['caption']}"
     )
 
-    bot.edit_message_text(
-        text,
-        chat_id=call.message.chat.id,
-        message_id=call.message.message_id,
-        reply_markup=keyboard
-    )
+    kb = InlineKeyboardMarkup()
 
-
-# ============================================================
-# DEMO MENU
-# ============================================================
-
-@bot.callback_query_handler(func=lambda call: call.data == "demo_menu")
-def demo_menu(call):
-
-    bot.answer_callback_query(call.id)
-
-    keyboard = InlineKeyboardMarkup()
-
-    for plan in PLANS:
-
-        if not plan.get("active", True):
-            continue
-
-        if not plan.get("demos"):
-            continue
-
-        keyboard.add(
-            InlineKeyboardButton(
-                f"🎬 {plan['name']}",
-                callback_data=f"demo_start:{plan['id']}"
-            )
-        )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "⬅️ 𝘽𝘼𝘾𝙆",
-            callback_data="home"
+    kb.row(
+        button(
+            "🔴 𝘽𝙐𝙔 𝙉𝙊𝙒 💳",
+            data=f"buy:{plan['id']}",
+            style="danger"
+        ),
+        button(
+            "🟢 𝘿𝙀𝙈𝙊 🎬",
+            data=f"demo_plan:{plan['id']}",
+            style="success"
         )
     )
 
-    bot.edit_message_text(
-        "🎬 𝘿𝙀𝙈𝙊 𝙎𝙀𝘾𝙏𝙄𝙊𝙉\n\n"
-        "👇 Select a plan:",
-        chat_id=call.message.chat.id,
-        message_id=call.message.message_id,
-        reply_markup=keyboard
+    add_styled(
+        kb,
+        "🔵 𝘽𝘼𝘾𝙆",
+        data="home",
+        index=2
+    )
+
+    send_photo_or_text(
+        chat_id,
+        plan.get("image", ""),
+        caption,
+        kb
     )
 
 
-# ============================================================
+# =========================================================
 # DEMO STATE
-# ============================================================
+# =========================================================
+#
+# demo_sessions[user_id] = {
+#     "plan_id": 1,
+#     "index": 0,
+#     "message_id": 123
+# }
 
-demo_states = {}
+demo_sessions = {}
 
 
-# ============================================================
-# SEND DEMO
-# ============================================================
+# =========================================================
+# SEND ONE DEMO
+# =========================================================
 
-def send_demo(chat_id, plan_id, index=0):
+def send_demo(
+    chat_id,
+    user_id,
+    plan_id,
+    index,
+    delete_message_id=None
+):
 
     plan = get_plan(plan_id)
 
     if not plan:
+        bot.send_message(
+            chat_id,
+            "❌ 𝙋𝙡𝙖𝙣 𝙣𝙤𝙩 𝙛𝙤𝙪𝙣𝙙."
+        )
         return
 
     demos = plan.get("demos", [])
 
-    if not demos:
-        bot.send_message(
-            chat_id,
-            "❌ No demos available for this plan."
-        )
-        return
+    # Remove empty placeholder demos
+    demos = [
+        d for d in demos
+        if d.get("id")
+        and not str(d["id"]).startswith("PASTE_")
+    ]
 
     if index >= len(demos):
-        send_demo_over(chat_id, plan_id)
+
+        send_demo_over(
+            chat_id,
+            plan_id
+        )
+
         return
+
+    # Delete previous demo
+    if delete_message_id:
+
+        try:
+            bot.delete_message(
+                chat_id,
+                delete_message_id
+            )
+
+        except Exception:
+            log.exception(
+                "Could not delete previous demo"
+            )
 
     demo = demos[index]
 
-    media_type = demo.get("type", "video")
-    file_id = demo.get("id", "").strip()
+    demo_type = demo.get("type")
+    file_id = demo.get("id")
 
-    if not file_id:
-        bot.send_message(
-            chat_id,
-            f"⚠️ Demo {index + 1} file ID is empty."
-        )
-        return
+    kb = InlineKeyboardMarkup()
 
-    keyboard = InlineKeyboardMarkup()
+    # Next button
+    if index < len(demos) - 1:
 
-    if index + 1 < len(demos):
-
-        keyboard.add(
-            InlineKeyboardButton(
-                f"➡️ 𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ({index + 2}/{len(demos)})",
-                callback_data=f"demonext:{plan_id}:{index + 1}"
+        kb.add(
+            button(
+                "🔵 𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ➡️",
+                data=f"next_demo:{plan_id}:{index}",
+                style="primary"
             )
         )
 
     else:
 
-        keyboard.add(
-            InlineKeyboardButton(
-                "✅ 𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍",
-                callback_data=f"demoover:{plan_id}"
+        kb.add(
+            button(
+                "🔴 𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍",
+                data=f"demo_over:{plan_id}",
+                style="danger"
             )
         )
 
-    keyboard.add(
-        InlineKeyboardButton(
-            "🛒 𝘽𝙐𝙔 𝙋𝘼𝘾𝙆",
-            callback_data=f"buy:{plan_id}"
+    kb.add(
+        button(
+            "🟢 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
+            data=f"plan:{plan_id}",
+            style="success"
         )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "⬅️ 𝘾𝙃𝘼𝙉𝙂𝙀 𝙋𝙇𝘼𝙉",
-            callback_data="demo_menu"
-        )
-    )
-
-    caption = (
-        f"🎬 {plan['name']}\n"
-        f"𝘿𝙀𝙈𝙊 {index + 1}/{len(demos)}"
     )
 
     try:
 
-        if media_type.lower() == "photo":
-
-            sent = bot.send_photo(
-                chat_id,
-                file_id,
-                caption=caption,
-                reply_markup=keyboard
-            )
-
-        else:
+        if demo_type == "video":
 
             sent = bot.send_video(
                 chat_id,
                 file_id,
-                caption=caption,
-                reply_markup=keyboard
+                caption=(
+                    f"🎬 <b>{plan['name']}</b>\n"
+                    f"𝘿𝙚𝙢𝙤 {index + 1}/{len(demos)}"
+                ),
+                reply_markup=kb
             )
 
-        demo_states[chat_id] = {
+        elif demo_type == "photo":
+
+            sent = bot.send_photo(
+                chat_id,
+                file_id,
+                caption=(
+                    f"📸 <b>{plan['name']}</b>\n"
+                    f"𝘿𝙚𝙢𝙤 {index + 1}/{len(demos)}"
+                ),
+                reply_markup=kb
+            )
+
+        else:
+
+            sent = bot.send_document(
+                chat_id,
+                file_id,
+                caption=(
+                    f"📁 <b>{plan['name']}</b>\n"
+                    f"𝘿𝙚𝙢𝙤 {index + 1}/{len(demos)}"
+                ),
+                reply_markup=kb
+            )
+
+        demo_sessions[user_id] = {
             "plan_id": plan_id,
             "index": index,
             "message_id": sent.message_id
         }
 
-    except Exception as e:
+    except Exception:
 
-        log.exception("Demo send failed")
+        log.exception(
+            "Could not send demo"
+        )
 
         bot.send_message(
             chat_id,
-            "❌ Demo send nahi ho paya.\n\n"
-            "Check karo ki Telegram file_id correct hai."
+            "❌ 𝘿𝙚𝙢𝙤 𝙛𝙞𝙡𝙚 𝙨𝙚𝙩𝙩𝙞𝙣𝙜 𝙢𝙚𝙞𝙣 𝙞𝙨𝙨𝙪𝙚 𝙝𝙖𝙞."
         )
 
 
-# ============================================================
-# START DEMO
-# ============================================================
+# =========================================================
+# DEMO OVER
+# =========================================================
 
-@bot.callback_query_handler(func=lambda call: call.data.startswith("demo_start:"))
-def demo_start(call):
+def send_demo_over(chat_id, plan_id):
+
+    kb = InlineKeyboardMarkup()
+
+    kb.row(
+        button(
+            "🔴 𝘽𝙐𝙔 𝙋𝘼𝘾𝙆 💳",
+            data=f"buy:{plan_id}",
+            style="danger"
+        )
+    )
+
+    kb.row(
+        button(
+            "🟢 𝘾𝙃𝘼𝙉𝙂𝙀 𝙋𝙇𝘼𝙉",
+            data="demo_menu",
+            style="success"
+        )
+    )
+
+    kb.row(
+        button(
+            "🔵 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
+            data=f"plan:{plan_id}",
+            style="primary"
+        )
+    )
+
+    bot.send_message(
+        chat_id,
+        "🏁 <b>𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍</b>\n\n"
+        "✨ 𝙋𝙡𝙚𝙖𝙨𝙚 𝙥𝙪𝙧𝙘𝙝𝙖𝙨𝙚 𝙩𝙝𝙚 "
+        "𝙥𝙧𝙚𝙢𝙞𝙪𝙢 𝙥𝙡𝙖𝙣 𝙩𝙤 𝙘𝙤𝙣𝙩𝙞𝙣𝙪𝙚.",
+        reply_markup=kb
+    )
+
+
+# =========================================================
+# PAYMENT
+# =========================================================
+
+def send_payment(chat_id, user_id, plan):
+
+    qr = plan.get("qr", "")
+
+    if not qr:
+
+        bot.send_message(
+            chat_id,
+            "⚠️ 𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙌𝙍 𝙞𝙨 𝙣𝙤𝙩 𝙨𝙚𝙩 𝙮𝙚𝙩."
+        )
+
+        return
+
+    kb = InlineKeyboardMarkup()
+
+    kb.row(
+        button(
+            "🟢 𝙄 𝙋𝘼𝙄𝘿",
+            data=f"paid:{plan['id']}",
+            style="success"
+        ),
+        button(
+            "🔵 𝘽𝘼𝘾𝙆",
+            data=f"plan:{plan['id']}",
+            style="primary"
+        )
+    )
+
+    caption = (
+        f"💰 <b>𝙋𝙖𝙮: ₹{plan['price']}</b>\n\n"
+        "1️⃣ 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍.\n"
+        "2️⃣ 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩.\n"
+        "3️⃣ 𝘾𝙡𝙞𝙘𝙠 <b>𝙄 𝙋𝘼𝙄𝘿</b>.\n"
+        "4️⃣ 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩."
+    )
+
+    send_photo_or_text(
+        chat_id,
+        qr,
+        caption,
+        kb
+    )
+
+
+# =========================================================
+# SCREENSHOT STATE
+# =========================================================
+
+waiting_screenshot = {}
+pending_orders = {}
+
+
+# =========================================================
+# START COMMAND
+# =========================================================
+
+@bot.message_handler(commands=["start"])
+def start(message):
+
+    send_start_screen(
+        message.chat.id
+    )
+
+
+# =========================================================
+# FREE
+# =========================================================
+
+@bot.callback_query_handler(
+    func=lambda call: call.data == "free"
+)
+def free_button(call):
+
+    bot.answer_callback_query(call.id)
+
+    send_home(
+        call.message.chat.id
+    )
+
+
+# =========================================================
+# PAID
+# =========================================================
+
+@bot.callback_query_handler(
+    func=lambda call: call.data == "paid"
+)
+def paid_button(call):
+
+    bot.answer_callback_query(call.id)
+
+    send_paid_screen(
+        call.message.chat.id
+    )
+
+
+# =========================================================
+# START BACK
+# =========================================================
+
+@bot.callback_query_handler(
+    func=lambda call: call.data == "start"
+)
+def start_back(call):
+
+    bot.answer_callback_query(call.id)
+
+    send_start_screen(
+        call.message.chat.id
+    )
+
+
+# =========================================================
+# HOME
+# =========================================================
+
+@bot.callback_query_handler(
+    func=lambda call: call.data == "home"
+)
+def home_button(call):
+
+    bot.answer_callback_query(call.id)
+
+    send_home(
+        call.message.chat.id
+    )
+
+
+# =========================================================
+# DEMO MENU
+# =========================================================
+
+@bot.callback_query_handler(
+    func=lambda call: call.data == "demo_menu"
+)
+def demo_button(call):
+
+    bot.answer_callback_query(call.id)
+
+    send_demo_menu(
+        call.message.chat.id
+    )
+
+
+# =========================================================
+# PLAN
+# =========================================================
+
+@bot.callback_query_handler(
+    func=lambda call: call.data.startswith("plan:")
+)
+def plan_button(call):
 
     bot.answer_callback_query(call.id)
 
     try:
-        plan_id = int(call.data.split(":")[1])
-    except:
+
+        plan_id = int(
+            call.data.split(":")[1]
+        )
+
+    except Exception:
+
         return
 
+    plan = get_plan(plan_id)
+
+    if not plan:
+        return
+
+    send_plan(
+        call.message.chat.id,
+        plan
+    )
+
+
+# =========================================================
+# DEMO PLAN SELECT
+# =========================================================
+
+@bot.callback_query_handler(
+    func=lambda call: call.data.startswith("demo_plan:")
+)
+def demo_plan_button(call):
+
+    bot.answer_callback_query(call.id)
+
+    try:
+
+        plan_id = int(
+            call.data.split(":")[1]
+        )
+
+    except Exception:
+
+        return
+
+    plan = get_plan(plan_id)
+
+    if not plan:
+        return
+
+    # Start from demo 1
     send_demo(
         call.message.chat.id,
+        call.from_user.id,
         plan_id,
         0
     )
 
 
-# ============================================================
+# =========================================================
 # NEXT DEMO
-# ============================================================
+# =========================================================
 
-@bot.callback_query_handler(func=lambda call: call.data.startswith("demonext:"))
-def demo_next(call):
+@bot.callback_query_handler(
+    func=lambda call: call.data.startswith("next_demo:")
+)
+def next_demo_button(call):
+
+    bot.answer_callback_query(call.id)
 
     try:
 
         parts = call.data.split(":")
 
         plan_id = int(parts[1])
-        next_index = int(parts[2])
+        current_index = int(parts[2])
 
-    except:
-        bot.answer_callback_query(call.id)
+    except Exception:
+
         return
 
-    bot.answer_callback_query(call.id)
+    session = demo_sessions.get(
+        call.from_user.id
+    )
 
-    # Delete previous demo
-    try:
-        bot.delete_message(
-            call.message.chat.id,
-            call.message.message_id
+    old_message_id = None
+
+    if session:
+
+        old_message_id = session.get(
+            "message_id"
         )
-    except Exception:
-        pass
 
+    # Next demo
     send_demo(
         call.message.chat.id,
+        call.from_user.id,
         plan_id,
-        next_index
+        current_index + 1,
+        delete_message_id=old_message_id
     )
 
 
-# ============================================================
+# =========================================================
 # DEMO OVER
-# ============================================================
+# =========================================================
 
-@bot.callback_query_handler(func=lambda call: call.data.startswith("demoover:"))
+@bot.callback_query_handler(
+    func=lambda call: call.data.startswith("demo_over:")
+)
 def demo_over_button(call):
 
     bot.answer_callback_query(call.id)
 
     try:
-        plan_id = int(call.data.split(":")[1])
-    except:
+
+        plan_id = int(
+            call.data.split(":")[1]
+        )
+
+    except Exception:
+
         return
 
-    try:
-        bot.delete_message(
-            call.message.chat.id,
-            call.message.message_id
-        )
-    except Exception:
-        pass
+    session = demo_sessions.pop(
+        call.from_user.id,
+        None
+    )
+
+    if session:
+
+        try:
+
+            bot.delete_message(
+                call.message.chat.id,
+                session["message_id"]
+            )
+
+        except Exception:
+
+            pass
 
     send_demo_over(
         call.message.chat.id,
@@ -903,59 +1147,25 @@ def demo_over_button(call):
     )
 
 
-def send_demo_over(chat_id, plan_id):
-
-    keyboard = InlineKeyboardMarkup()
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "🛒 𝘽𝙐𝙔 𝙋𝘼𝘾𝙆",
-            callback_data=f"buy:{plan_id}"
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "🔄 𝘾𝙃𝘼𝙉𝙂𝙀 𝙋𝙇𝘼𝙉",
-            callback_data="demo_menu"
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
-            url=SUPPORT_LINK
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "🏠 𝙃𝙊𝙈𝙀",
-            callback_data="home"
-        )
-    )
-
-    bot.send_message(
-        chat_id,
-        "✅ 𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍\n\n"
-        "🔥 Interested in this pack?\n"
-        "Choose an option below.",
-        reply_markup=keyboard
-    )
-
-
-# ============================================================
+# =========================================================
 # BUY
-# ============================================================
+# =========================================================
 
-@bot.callback_query_handler(func=lambda call: call.data.startswith("buy:"))
-def buy_plan(call):
+@bot.callback_query_handler(
+    func=lambda call: call.data.startswith("buy:")
+)
+def buy_button(call):
 
     bot.answer_callback_query(call.id)
 
     try:
-        plan_id = int(call.data.split(":")[1])
-    except:
+
+        plan_id = int(
+            call.data.split(":")[1]
+        )
+
+    except Exception:
+
         return
 
     plan = get_plan(plan_id)
@@ -963,83 +1173,288 @@ def buy_plan(call):
     if not plan:
         return
 
-    keyboard = InlineKeyboardMarkup()
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "💬 𝘾𝙊𝙉𝙏𝘼𝘾𝙏 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
-            url=SUPPORT_LINK
-        )
-    )
-
-    keyboard.add(
-        InlineKeyboardButton(
-            "⬅️ 𝘽𝘼𝘾𝙆",
-            callback_data=f"plan:{plan_id}"
-        )
-    )
-
-    bot.edit_message_text(
-        f"🛒 𝘽𝙐𝙔 — {plan['name']}\n\n"
-        f"💰 Price: ₹{plan['price']}\n"
-        f"⏳ Validity: {plan['validity']}\n\n"
-        "💬 Contact support to complete your purchase.",
-        chat_id=call.message.chat.id,
-        message_id=call.message.message_id,
-        reply_markup=keyboard
+    send_payment(
+        call.message.chat.id,
+        call.from_user.id,
+        plan
     )
 
 
-# ============================================================
-# HOME CALLBACK
-# ============================================================
+# =========================================================
+# PAID
+# =========================================================
 
-@bot.callback_query_handler(func=lambda call: call.data == "home")
-def home_callback(call):
+@bot.callback_query_handler(
+    func=lambda call: call.data.startswith("paid:")
+)
+def paid_confirm(call):
 
     bot.answer_callback_query(call.id)
 
-    keyboard = InlineKeyboardMarkup()
+    try:
 
-    keyboard.add(
-        InlineKeyboardButton(
-            "📚 𝙑𝙄𝙀𝙒 𝙋𝙇𝘼𝙉𝙎",
-            callback_data="plans"
+        plan_id = int(
+            call.data.split(":")[1]
         )
+
+    except Exception:
+
+        return
+
+    plan = get_plan(plan_id)
+
+    if not plan:
+        return
+
+    uid = call.from_user.id
+
+    waiting_screenshot.add(uid)
+
+    pending_orders[uid] = {
+        "plan_id": plan_id
+    }
+
+    bot.send_message(
+        call.message.chat.id,
+        "📸 <b>𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙨𝙚𝙣𝙙 𝙠𝙖𝙧𝙤.</b>"
     )
 
-    keyboard.add(
-        InlineKeyboardButton(
-            "🎬 𝘿𝙀𝙈𝙊",
-            callback_data="demo_menu"
-        )
-    )
 
-    keyboard.add(
-        InlineKeyboardButton(
-            "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
-            url=SUPPORT_LINK
-        )
-    )
+# =========================================================
+# SCREENSHOT HANDLER
+# =========================================================
 
-    bot.edit_message_text(
-        "🎓 𝙎𝙎𝙈 𝘾𝙊𝙐𝙍𝙎𝙀\n\n"
-        "✨ Choose an option below:",
-        chat_id=call.message.chat.id,
-        message_id=call.message.message_id,
-        reply_markup=keyboard
-    )
-
-
-# ============================================================
-# RUN BOT
-# ============================================================
-
-print("🚀 Bot started successfully")
-print("🛠️ Maintenance mode:", MAINTENANCE_MODE)
-
-bot.infinity_polling(
-    skip_pending=True,
-    timeout=30,
-    long_polling_timeout=30
+@bot.message_handler(
+    content_types=["photo"]
 )
+def screenshot_handler(message):
+
+    uid = message.from_user.id
+
+    if uid not in waiting_screenshot:
+        return
+
+    order = pending_orders.get(uid)
+
+    if not order:
+        return
+
+    plan = get_plan(
+        order["plan_id"]
+    )
+
+    if not plan:
+        return
+
+    screenshot_id = (
+        message.photo[-1].file_id
+    )
+
+    waiting_screenshot.discard(uid)
+
+    try:
+
+        bot.send_photo(
+            ADMIN_ID,
+            screenshot_id,
+            caption=(
+                "💳 <b>𝙉𝙀𝙒 𝙋𝘼𝙔𝙈𝙀𝙉𝙏</b>\n\n"
+                f"👤 User ID: <code>{uid}</code>\n"
+                f"📦 Plan: {plan['name']}\n"
+                f"💰 Amount: ₹{plan['price']}"
+            )
+        )
+
+        bot.reply_to(
+            message,
+            "✅ <b>𝙎𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙨𝙚𝙣𝙩.</b>\n"
+            "𝙋𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩 𝙛𝙤𝙧 𝙖𝙥𝙥𝙧𝙤𝙫𝙖𝙡."
+        )
+
+    except Exception:
+
+        log.exception(
+            "Could not send payment screenshot"
+        )
+
+        bot.reply_to(
+            message,
+            "❌ 𝙎𝙤𝙢𝙚𝙩𝙝𝙞𝙣𝙜 𝙬𝙚𝙣𝙩 𝙬𝙧𝙤𝙣𝙜."
+        )
+
+
+# =========================================================
+# ADMIN MEDIA ID MODE
+# =========================================================
+#
+# IMPORTANT:
+# Ab photo/video bhejne par ID automatically nahi milegi
+# jab tak admin /getid command na kare.
+#
+# Admin:
+# /getid
+#
+# Bot:
+# Send photo/video/document
+#
+# Phir bot exact FILE ID reply karega.
+#
+
+admin_waiting_media_id = set()
+
+
+@bot.message_handler(
+    commands=["getid"]
+)
+def getid_command(message):
+
+    if message.from_user.id != ADMIN_ID:
+
+        bot.reply_to(
+            message,
+            "❌ Not allowed."
+        )
+
+        return
+
+    admin_waiting_media_id.add(
+        message.from_user.id
+    )
+
+    bot.reply_to(
+        message,
+        "📸 <b>𝙎𝙚𝙣𝙙 𝙥𝙝𝙤𝙩𝙤, 𝙫𝙞𝙙𝙚𝙤 𝙤𝙧 𝙙𝙤𝙘𝙪𝙢𝙚𝙣𝙩 𝙣𝙤𝙬.</b>\n\n"
+        "𝙄 𝙬𝙞𝙡𝙡 𝙧𝙚𝙥𝙡𝙮 𝙬𝙞𝙩𝙝 𝙩𝙝𝙚 𝙁𝙞𝙡𝙚 𝙄𝘿."
+    )
+
+
+# =========================================================
+# ADMIN PHOTO ID
+# =========================================================
+
+@bot.message_handler(
+    content_types=["photo"]
+)
+def admin_photo_id(message):
+
+    uid = message.from_user.id
+
+    if uid != ADMIN_ID:
+        return
+
+    if uid not in admin_waiting_media_id:
+        return
+
+    file_id = message.photo[-1].file_id
+
+    admin_waiting_media_id.discard(uid)
+
+    bot.reply_to(
+        message,
+        "📸 <b>PHOTO FILE ID:</b>\n\n"
+        f"<code>{file_id}</code>"
+    )
+
+
+# =========================================================
+# ADMIN VIDEO ID
+# =========================================================
+
+@bot.message_handler(
+    content_types=["video"]
+)
+def admin_video_id(message):
+
+    uid = message.from_user.id
+
+    if uid != ADMIN_ID:
+        return
+
+    if uid not in admin_waiting_media_id:
+        return
+
+    file_id = message.video.file_id
+
+    admin_waiting_media_id.discard(uid)
+
+    bot.reply_to(
+        message,
+        "🎬 <b>VIDEO FILE ID:</b>\n\n"
+        f"<code>{file_id}</code>"
+    )
+
+
+# =========================================================
+# ADMIN DOCUMENT ID
+# =========================================================
+
+@bot.message_handler(
+    content_types=["document"]
+)
+def admin_document_id(message):
+
+    uid = message.from_user.id
+
+    if uid != ADMIN_ID:
+        return
+
+    if uid not in admin_waiting_media_id:
+        return
+
+    file_id = message.document.file_id
+
+    admin_waiting_media_id.discard(uid)
+
+    bot.reply_to(
+        message,
+        "📁 <b>DOCUMENT FILE ID:</b>\n\n"
+        f"<code>{file_id}</code>"
+    )
+
+
+# =========================================================
+# ADMIN ONLY - /id
+# =========================================================
+# Optional shortcut:
+# /id ke baad photo/video/document bhejo.
+
+@bot.message_handler(
+    commands=["id"]
+)
+def id_command(message):
+
+    if message.from_user.id != ADMIN_ID:
+
+        bot.reply_to(
+            message,
+            "❌ Not allowed."
+        )
+
+        return
+
+    admin_waiting_media_id.add(
+        message.from_user.id
+    )
+
+    bot.reply_to(
+        message,
+        "📲 <b>Media bhejo.</b>\n\n"
+        "𝙋𝙝𝙤𝙩𝙤 / 𝙑𝙞𝙙𝙚𝙤 / 𝘿𝙤𝙘𝙪𝙢𝙚𝙣𝙩"
+    )
+
+
+# =========================================================
+# RUN
+# =========================================================
+
+if __name__ == "__main__":
+
+    log.info(
+        "Bot started successfully."
+    )
+
+    bot.infinity_polling(
+        skip_pending=True,
+        timeout=30,
+        long_polling_timeout=30
+    )
