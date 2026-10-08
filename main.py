@@ -930,7 +930,18 @@ def review(call):
         f'user {uid}, '
         f'plan {p["name"] if p else pid}.'
     )
+OWNER_ID =  6516697207  # apni Telegram numeric ID
 
+@bot.message_handler(content_types=['photo'])
+def get_photo_id(message):
+    if message.from_user.id != OWNER_ID:
+        return
+
+    # Telegram multiple sizes deta hai; last wala usually largest hota hai
+    file_id = message.photo[-1].file_id
+
+    bot.reply_to(message, file_id)
+    
 OWNER_ID = 6516697207  # yahan apni Telegram numeric user ID daalo
 
 @bot.message_handler(content_types=['video'])
