@@ -242,7 +242,7 @@ STYLE_SERIES = [
     '𝙀𝙓𝘾𝙇𝙐𝙎𝙄𝙑𝙀'
 ]
 
-SUPPORT_LINK = 'https://t.me/xylerigcc
+SUPPORT_LINK = 'https://t.me/xylerigcc'
 def button(text, callback_data=None, url=None):
     if url:
         return InlineKeyboardButton(text, url=url)
