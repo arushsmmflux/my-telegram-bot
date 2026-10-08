@@ -234,7 +234,7 @@ PLANS = [
 # ============================================================
 
 # ===== EDITABLE CONTENT KE NICHE SE CODE =====
-
+age_verified = set()
 STYLE_SERIES = [
     '𝙎𝙐𝙋𝙋𝙇𝙔',
     '𝙎𝙋𝙀𝘾𝙄𝘼𝙇',
