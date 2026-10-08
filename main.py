@@ -132,13 +132,14 @@ PLANS = [
         'id': 7, 'name': '𝘽𝙃𝘼𝘽𝙃𝙄 𝙑𝙄𝘿𝙀𝙊𝙎 💦👅 ', 'price': '39',
         'validity': '180 days', 'videos': '56000+',
         'image': 'https://ibb.co/HLw36KQ4', 'qr': 'https://ibb.co/4n9q8mK2',
-        'demos': [
-'https://t.me/studyof12th/48',
-'https://t.me/studyof12th/62',
-'https://t.me/studyof12th/21',
-'https://t.me/studyof12th/23',
-'https://t.me/studyof12th/29',
-'https://t.me/studyof12th/36'
+      'demos': [
+    {'type': 'video', 'id': 'BAACAgUAAxkBAAI06GrHM2QUeiT0Q6J5yEopeA96Aim1AAJKIwACv685VjMk0xUgmBWJPQQ'},
+    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_2_HERE'},
+    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_3_HERE'},
+    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_4_HERE'},
+    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_5_HERE'},
+    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_6_HERE'}
+]
         ],
       'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
@@ -234,297 +235,200 @@ PLANS = [
 # ============================================================
 
 # ===== EDITABLE CONTENT KE NICHE SE CODE =====
-age_verified = set()
-STYLE_SERIES = [
-    'danger',
-    'success',
-    'primary',
-    'danger',
-    'success',
-    'primary',
-    'danger'
-]
-
-
 # =========================
-# SUPPORT LINK
+# DEMO SYSTEM
 # =========================
 
-SUPPORT_LINK = 'https://t.me/xylerigcc'
+demo_states = {}
 
 
-# =========================
-# BUTTON FUNCTIONS
-# =========================
-
-def button(text, data=None, url=None, style=None):
-    kwargs = {'text': text}
-
-    if data is not None:
-        kwargs['callback_data'] = data
-
-    if url is not None:
-        kwargs['url'] = url
-
-    if style:
-        try:
-            return InlineKeyboardButton(**kwargs, style=style)
-        except (TypeError, ValueError):
-            pass
-
-    return InlineKeyboardButton(**kwargs)
+def get_demos(plan):
+    return plan.get('demos', []) or []
 
 
-def add_styled(kb, text, data=None, url=None, index=0):
-    kb.add(
-        button(
-            text,
-            data=data,
-            url=url,
-            style=STYLE_SERIES[index % len(STYLE_SERIES)]
+def send_demo(chat_id, plan_id, demo_index=0):
+    p = get_plan(plan_id)
+
+    if not p:
+        return
+
+    demos = get_demos(p)
+
+    if not demos:
+        bot.send_message(
+            chat_id,
+            '𝘿𝙚𝙢𝙤 𝙖𝙫𝙖𝙞𝙡𝙖𝙗𝙡𝙚 𝙣𝙖𝙝𝙞𝙣 𝙝𝙖𝙞.'
         )
+        return
+
+    if demo_index >= len(demos):
+        demo_index = len(demos) - 1
+
+    demo_states[chat_id] = {
+        'plan_id': plan_id,
+        'index': demo_index
+    }
+
+    demo = demos[demo_index]
+
+    demo_type = demo.get('type')
+    file_id = demo.get('id')
+
+    if not file_id:
+        bot.send_message(
+            chat_id,
+            '𝘿𝙚𝙢𝙤 𝙛𝙞𝙡𝙚 𝙄𝘿 𝙢𝙞𝙨𝙨𝙞𝙣𝙜 𝙝𝙖𝙞.'
+        )
+        return
+
+    kb = InlineKeyboardMarkup()
+
+    if demo_index < len(demos) - 1:
+        add_styled(
+            kb,
+            '𝙉𝙚𝙭𝙩 𝘿𝙚𝙢𝙤 ➡️',
+            f'demonext:{plan_id}:{demo_index + 1}',
+            index=1
+        )
+    else:
+        add_styled(
+            kb,
+            '𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍 ✅',
+            f'demoover:{plan_id}',
+            index=1
+        )
+
+    add_styled(
+        kb,
+        '𝘽𝙐𝙔 𝙋𝘼𝘾𝙆 💳',
+        f'buy:{plan_id}',
+        index=0
     )
 
-
-def get_plan(pid):
-    return next(
-        (
-            p for p in PLANS
-            if p['id'] == pid and p.get('active')
-        ),
-        None
+    add_styled(
+        kb,
+        '𝘾𝙝𝙖𝙣𝙜𝙚 𝙋𝙡𝙖𝙣 🔄',
+        'home',
+        index=2
     )
 
-
-# =========================
-# SEND PHOTO OR TEXT
-# =========================
-
-def send_photo_or_text(chat_id, image, caption, reply_markup=None):
     try:
-        if image:
+        if demo_type == 'video':
+            bot.send_video(
+                chat_id,
+                file_id,
+                caption=(
+                    f"𝘿𝙚𝙢𝙤 {demo_index + 1}/{len(demos)}\n"
+                    f"𝙋𝙡𝙖𝙣: {p['name']}"
+                ),
+                reply_markup=kb
+            )
+
+        elif demo_type == 'photo':
             bot.send_photo(
                 chat_id,
-                image,
-                caption=caption,
-                reply_markup=reply_markup
+                file_id,
+                caption=(
+                    f"𝘿𝙚𝙢𝙤 {demo_index + 1}/{len(demos)}\n"
+                    f"𝙋𝙡𝙖𝙣: {p['name']}"
+                ),
+                reply_markup=kb
             )
+
         else:
             bot.send_message(
                 chat_id,
-                caption,
-                reply_markup=reply_markup
+                '𝙄𝙣𝙫𝙖𝙡𝙞𝙙 𝙙𝙚𝙢𝙤 𝙩𝙮𝙥𝙚.'
             )
 
     except Exception:
-        log.exception(
-            'Could not send configured image; sending text fallback'
-        )
-
-        bot.send_message(
-            chat_id,
-            caption,
-            reply_markup=reply_markup
-        )
+        log.exception('Failed sending demo')
 
 
 # =========================
-# AGE GATE
+# DEMO NEXT
 # =========================
 
-def send_age_gate(chat_id):
+@bot.callback_query_handler(
+    func=lambda c: c.data.startswith('demonext:')
+)
+def demo_next(call):
+
+    bot.answer_callback_query(call.id)
+
+    try:
+        parts = call.data.split(':')
+
+        plan_id = int(parts[1])
+        demo_index = int(parts[2])
+
+    except (ValueError, IndexError):
+        return
+
+    send_demo(
+        call.message.chat.id,
+        plan_id,
+        demo_index
+    )
+
+
+# =========================
+# DEMO OVER
+# =========================
+
+@bot.callback_query_handler(
+    func=lambda c: c.data.startswith('demoover:')
+)
+def demo_over(call):
+
+    bot.answer_callback_query(call.id)
+
+    try:
+        plan_id = int(
+            call.data.split(':')[1]
+        )
+    except (ValueError, IndexError):
+        return
+
+    p = get_plan(plan_id)
+
+    if not p:
+        return
+
     kb = InlineKeyboardMarkup()
 
-    kb.row(
-        button(
-            '𝙔𝙚𝙨, 𝙄’𝙢 18+',
-            'age:yes',
-            style='success'
+    add_styled(
+        kb,
+        '𝘽𝙐𝙔 𝙋𝘼𝘾𝙆 💳',
+        f'buy:{plan_id}',
+        index=1
+    )
+
+    add_styled(
+        kb,
+        '𝘾𝙝𝙖𝙣𝙜𝙚 𝙋𝙡𝙖𝙣 🔄',
+        'home',
+        index=0
+    )
+
+    add_styled(
+        kb,
+        '𝘽𝘼𝘾𝙆 ⬅️',
+        f'plan:{plan_id}',
+        index=2
+    )
+
+    bot.send_message(
+        call.message.chat.id,
+        (
+            '━━━━━━━━━━━━━━━━━━\n'
+            '       𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍 ✅\n'
+            '━━━━━━━━━━━━━━━━━━\n\n'
+            f"𝙋𝙡𝙖𝙣: {p['name']}\n\n"
+            '𝘿𝙚𝙢𝙤 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙚.\n'
+            '𝙁𝙪𝙡𝙡 𝙥𝙖𝙘𝙠 𝙠𝙚 𝙡𝙞𝙮𝙚 𝙗𝙪𝙮 𝙥𝙖𝙘𝙠 𝙠𝙖𝙧𝙚𝙞𝙣.'
         ),
-        button(
-            '𝙄’𝙢 𝙣𝙤𝙩',
-            'age:no',
-            style='danger'
-        )
-    )
-
-    send_photo_or_text(
-        chat_id,
-        AGE_IMAGE,
-        AGE_CAPTION,
-        kb
-    )
-
-
-# =========================
-# HOME
-# =========================
-
-def send_home(chat_id):
-    kb = InlineKeyboardMarkup()
-
-    # All active plans
-    for i, p in enumerate(
-        [p for p in PLANS if p.get('active')]
-    ):
-        add_styled(
-            kb,
-            f"{p['name']} · ₹{p['price']}",
-            f"plan:{p['id']}",
-            index=i
-        )
-
-    # Demo button
-    add_styled(
-        kb,
-        '🎬 𝘿𝙚𝙢𝙤',
-        'demo_menu',
-        index=0
-    )
-
-    # Support button
-    add_styled(
-        kb,
-        '🆘 𝙎𝙪𝙥𝙥𝙤𝙧𝙩',
-        url=SUPPORT_LINK,
-        index=1
-    )
-
-    send_photo_or_text(
-        chat_id,
-        WELCOME_IMAGE,
-        WELCOME_CAPTION,
-        kb
-    )
-
-
-# =========================
-# PLANS MENU
-# =========================
-
-def send_plans(chat_id):
-    kb = InlineKeyboardMarkup()
-
-    for i, p in enumerate(
-        [p for p in PLANS if p.get('active')]
-    ):
-        add_styled(
-            kb,
-            f"{p['name']} · ₹{p['price']}",
-            f"plan:{p['id']}",
-            index=i
-        )
-
-    # Demo button
-    add_styled(
-        kb,
-        '🎬 𝘿𝙚𝙢𝙤',
-        'demo_menu',
-        index=0
-    )
-
-    # Support button
-    add_styled(
-        kb,
-        '🆘 𝙎𝙪𝙥𝙥𝙤𝙧𝙩',
-        url=SUPPORT_LINK,
-        index=1
-    )
-
-    bot.send_message(
-        chat_id,
-        '𝘾𝙝𝙤𝙤𝙨𝙚 𝙖 𝙥𝙡𝙖𝙣:',
         reply_markup=kb
-    )
-
-
-# =========================
-# DEMO MENU
-# =========================
-
-def send_demo_menu(chat_id):
-    kb = InlineKeyboardMarkup()
-
-    bot.send_message(
-        chat_id,
-        '🇮🇳 𝘿𝙚𝙢𝙤 𝙙𝙚𝙠𝙝𝙣𝙚 𝙠𝙚 𝙡𝙞𝙮𝙚 𝙠𝙤𝙞 𝙥𝙡𝙖𝙣 𝙨𝙚𝙡𝙚𝙘𝙩 𝙠𝙖𝙧𝙚𝙞𝙣.\n'
-        '🇬🇧 𝙋𝙡𝙚𝙖𝙨𝙚 𝙨𝙚𝙡𝙚𝙘𝙩 𝙖 𝙥𝙡𝙖𝙣 𝙩𝙤 𝙫𝙞𝙚𝙬 𝙩𝙝𝙚 𝙙𝙚𝙢𝙤.'
-    )
-
-    # All active plans
-    for i, p in enumerate(
-        [p for p in PLANS if p.get('active')]
-    ):
-        add_styled(
-            kb,
-            f"🎬 {p['name']}",
-            f"plan:{p['id']}",
-            index=i
-        )
-
-    # Back button
-    add_styled(
-        kb,
-        '🔙 𝘽𝙖𝙘𝙠',
-        'home',
-        index=4
-    )
-
-    bot.send_message(
-        chat_id,
-        '👇 𝙎𝙚𝙡𝙚𝙘𝙩 𝙖 𝙥𝙡𝙖𝙣:',
-        reply_markup=kb
-    )
-
-
-# =========================
-# PLAN DETAILS
-# =========================
-
-def send_plan(chat_id, p):
-    caption = (
-        f"𝙋𝙡𝙖𝙣 : {p['name']}\n\n"
-        f"𝙋𝙧𝙞𝙘𝙚 - ₹{p['price']}\n"
-        f"𝙑𝙖𝙡𝙞𝙙𝙞𝙩𝙮 - {p['validity']}\n"
-        f"𝙑𝙞𝙙𝙚𝙤𝙨 - {p['videos']}\n\n"
-        f"{p['caption']}"
-    )
-
-    kb = InlineKeyboardMarkup()
-
-    # Buy button
-    add_styled(
-        kb,
-        '𝘽𝙐𝙔 𝙉𝙊𝙒 💳',
-        f"buy:{p['id']}",
-        index=0
-    )
-
-    # Demo buttons
-    demos = p.get('demos', [])
-
-    for i, url in enumerate(demos, start=1):
-        if url.startswith(('https://', 'http://')):
-            add_styled(
-                kb,
-                f'🎬 𝘿𝙚𝙢𝙤 {i}',
-                url=url,
-                index=i
-            )
-
-    # Back button
-    add_styled(
-        kb,
-        '🔙 𝘽𝙖𝙘𝙠',
-        'home',
-        index=4
-    )
-
-    send_photo_or_text(
-        chat_id,
-        p.get('image', ''),
-        caption,
-        kb
     )
 
 
@@ -533,6 +437,7 @@ def send_plan(chat_id, p):
 # =========================
 
 def send_payment(chat_id, user_id, p):
+
     if not p.get('qr'):
         bot.send_message(
             chat_id,
@@ -588,10 +493,14 @@ user_waiting_screenshot = set()
 
 @bot.message_handler(commands=['start'])
 def start(message):
+
     user_waiting_screenshot.discard(
         message.from_user.id
     )
-    send_age_gate(message.chat.id)
+
+    send_age_gate(
+        message.chat.id
+    )
 
 
 # =========================
@@ -602,9 +511,11 @@ def start(message):
     func=lambda c: c.data in ('age:yes', 'age:no')
 )
 def age_choice(call):
+
     bot.answer_callback_query(call.id)
 
     if call.data == 'age:no':
+
         kb = InlineKeyboardMarkup()
 
         add_styled(
@@ -619,16 +530,23 @@ def age_choice(call):
             DENIED_CAPTION,
             reply_markup=kb
         )
+
     else:
-        send_home(call.message.chat.id)
+        send_home(
+            call.message.chat.id
+        )
 
 
 @bot.callback_query_handler(
     func=lambda c: c.data == 'age:back'
 )
 def age_back(call):
+
     bot.answer_callback_query(call.id)
-    send_age_gate(call.message.chat.id)
+
+    send_age_gate(
+        call.message.chat.id
+    )
 
 
 # =========================
@@ -639,8 +557,12 @@ def age_back(call):
     func=lambda c: c.data == 'home'
 )
 def home(call):
+
     bot.answer_callback_query(call.id)
-    send_home(call.message.chat.id)
+
+    send_home(
+        call.message.chat.id
+    )
 
 
 # =========================
@@ -651,8 +573,12 @@ def home(call):
     func=lambda c: c.data == 'plans'
 )
 def plans(call):
+
     bot.answer_callback_query(call.id)
-    send_plans(call.message.chat.id)
+
+    send_plans(
+        call.message.chat.id
+    )
 
 
 # =========================
@@ -663,8 +589,12 @@ def plans(call):
     func=lambda c: c.data == 'demo_menu'
 )
 def demo_menu(call):
+
     bot.answer_callback_query(call.id)
-    send_demo_menu(call.message.chat.id)
+
+    send_demo_menu(
+        call.message.chat.id
+    )
 
 
 # =========================
@@ -675,12 +605,16 @@ def demo_menu(call):
     func=lambda c: c.data.startswith('plan:')
 )
 def plan_detail(call):
+
     bot.answer_callback_query(call.id)
 
     try:
         p = get_plan(
-            int(call.data.split(':')[1])
+            int(
+                call.data.split(':')[1]
+            )
         )
+
     except (ValueError, IndexError):
         p = None
 
@@ -699,12 +633,16 @@ def plan_detail(call):
     func=lambda c: c.data.startswith('buy:')
 )
 def buy(call):
+
     bot.answer_callback_query(call.id)
 
     try:
         p = get_plan(
-            int(call.data.split(':')[1])
+            int(
+                call.data.split(':')[1]
+            )
         )
+
     except (ValueError, IndexError):
         p = None
 
@@ -724,11 +662,16 @@ def buy(call):
     func=lambda c: c.data.startswith('paid:')
 )
 def paid(call):
+
     bot.answer_callback_query(call.id)
 
     try:
-        pid = int(call.data.split(':')[1])
+        pid = int(
+            call.data.split(':')[1]
+        )
+
         p = get_plan(pid)
+
     except (ValueError, IndexError):
         p = None
 
@@ -760,28 +703,37 @@ def paid(call):
     content_types=['photo', 'text', 'document']
 )
 def screenshot_handler(message):
+
     uid = message.from_user.id
 
     if uid not in user_waiting_screenshot:
         return
 
     if message.content_type != 'photo':
+
         bot.reply_to(
             message,
             '𝙋𝙡𝙚𝙖𝙨𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙖𝙨 𝙖 𝙥𝙝𝙤𝙩𝙤.'
         )
+
         return
 
-    state = pending_screenshots.get(uid, {})
+    state = pending_screenshots.get(
+        uid,
+        {}
+    )
+
     pid = state.get('plan_id')
 
     p = get_plan(pid) if pid else None
 
     if not p:
+
         bot.reply_to(
             message,
             '𝙋𝙡𝙖𝙣 𝙞𝙣𝙛𝙤 𝙢𝙞𝙨𝙨𝙞𝙣𝙜. 𝙋𝙡𝙚𝙖𝙨𝙚 𝙩𝙧𝙮 𝙖𝙜𝙖𝙞𝙣.'
         )
+
         return
 
     user_waiting_screenshot.discard(uid)
@@ -805,6 +757,7 @@ def screenshot_handler(message):
     )
 
     try:
+
         bot.send_photo(
             ADMIN_ID,
             file_id,
@@ -823,6 +776,7 @@ def screenshot_handler(message):
         )
 
     except Exception:
+
         log.exception(
             'Failed sending screenshot to admin'
         )
@@ -845,25 +799,28 @@ def screenshot_handler(message):
 def review(call):
 
     if call.from_user.id != ADMIN_ID:
+
         bot.answer_callback_query(
             call.id,
             'Not allowed',
             show_alert=True
         )
+
         return
 
-    # IMPORTANT
     parts = call.data.split(':')
 
     if len(parts) != 4 or parts[1] not in (
         'approve',
         'reject'
     ):
+
         bot.answer_callback_query(
             call.id,
             'Invalid action',
             show_alert=True
         )
+
         return
 
     action = parts[1]
@@ -871,15 +828,18 @@ def review(call):
     pid_s = parts[3]
 
     try:
+
         uid = int(uid_s)
         pid = int(pid_s)
 
     except ValueError:
+
         bot.answer_callback_query(
             call.id,
             'Invalid order',
             show_alert=True
         )
+
         return
 
     p = get_plan(pid)
@@ -891,12 +851,16 @@ def review(call):
     )
 
     try:
+
         if action == 'approve':
+
             bot.send_message(
                 uid,
                 '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙖𝙥𝙥𝙧𝙤𝙫𝙚𝙙. 𝙏𝙝𝙖𝙣𝙠 𝙮𝙤𝙪.'
             )
+
         else:
+
             bot.send_message(
                 uid,
                 '𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙧𝙚𝙟𝙚𝙘𝙩𝙚𝙙. '
@@ -905,6 +869,7 @@ def review(call):
             )
 
     except Exception:
+
         log.exception(
             'Could not notify user %s',
             uid
@@ -916,11 +881,13 @@ def review(call):
     )
 
     try:
+
         bot.edit_message_reply_markup(
             call.message.chat.id,
             call.message.message_id,
             reply_markup=None
         )
+
     except Exception:
         pass
 
@@ -930,22 +897,36 @@ def review(call):
         f'user {uid}, '
         f'plan {p["name"] if p else pid}.'
     )
-OWNER_ID =  6516697207  # apni Telegram numeric ID
 
-@bot.message_handler(content_types=['photo'])
+
+# =========================
+# OWNER FILE ID COLLECTOR
+# =========================
+
+OWNER_ID = 6516697207
+
+
+@bot.message_handler(
+    content_types=['photo']
+)
 def get_photo_id(message):
+
     if message.from_user.id != OWNER_ID:
         return
 
-    # Telegram multiple sizes deta hai; last wala usually largest hota hai
     file_id = message.photo[-1].file_id
 
-    bot.reply_to(message, file_id)
-    
-OWNER_ID = 6516697207  # yahan apni Telegram numeric user ID daalo
+    bot.reply_to(
+        message,
+        file_id
+    )
 
-@bot.message_handler(content_types=['video'])
+
+@bot.message_handler(
+    content_types=['video']
+)
 def get_video_id(message):
+
     if message.from_user.id != OWNER_ID:
         return
 
@@ -953,11 +934,14 @@ def get_video_id(message):
         message,
         message.video.file_id
     )
+
+
 # =========================
 # START BOT
 # =========================
 
 if __name__ == '__main__':
+
     log.info(
         'Starting fixed-config bot (no admin panel)'
     )
