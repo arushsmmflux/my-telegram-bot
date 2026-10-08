@@ -508,25 +508,6 @@ def start(message):
         "⏳ Please try again later.",
         reply_markup=keyboard
     )
-    bot.send_message(
-        message.chat.id,
-        "🛠️ 𝘽𝙊𝙏 𝙐𝙉𝘿𝙀𝙍 𝙈𝘼𝙄𝙉𝙏𝙀𝙉𝘼𝙉𝘾𝙀\n\n"
-        "✨ Bot is currently being updated.\n\n"
-        "⏳ Please try again later.",
-        reply_markup=keyboard
-    )
-
-        bot.send_message(
-            message.chat.id,
-            MAINTENANCE_TEXT,
-            reply_markup=keyboard
-        )
-
-        return
-
-    send_home(message.chat.id)
-
-
 # ============================================================
 # MAINTENANCE BUTTON
 # ============================================================
