@@ -670,7 +670,6 @@ demo_sessions = {}
 # =========================================================
 # SEND ONE DEMO
 # =========================================================
-
 def send_demo(
     chat_id,
     user_id,
@@ -697,6 +696,7 @@ def send_demo(
         and not str(d["id"]).startswith("PASTE_")
     ]
 
+    # All demos finished
     if index >= len(demos):
 
         send_demo_over(
@@ -727,27 +727,16 @@ def send_demo(
 
     kb = InlineKeyboardMarkup()
 
-    # Next button
-    if index < len(demos) - 1:
-
-        kb.add(
-            button(
-                "🔵 𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ➡️",
-                data=f"next_demo:{plan_id}:{index}",
-                style="primary"
-            )
+    # Always show NEXT DEMO
+    kb.add(
+        button(
+            "🔵 𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ➡️",
+            data=f"next_demo:{plan_id}:{index}",
+            style="primary"
         )
+    )
 
-    else:
-
-        kb.add(
-            button(
-                "🔴 𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍",
-                data=f"demo_over:{plan_id}",
-                style="danger"
-            )
-        )
-
+    # Back to plan
     kb.add(
         button(
             "🟢 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
@@ -810,8 +799,6 @@ def send_demo(
             chat_id,
             "❌ 𝘿𝙚𝙢𝙤 𝙛𝙞𝙡𝙚 𝙨𝙚𝙩𝙩𝙞𝙣𝙜 𝙢𝙚𝙞𝙣 𝙞𝙨𝙨𝙪𝙚 𝙝𝙖𝙞."
         )
-
-
 # =========================================================
 # DEMO OVER
 # =========================================================
@@ -830,18 +817,17 @@ def send_demo_over(chat_id, plan_id):
 
     kb.row(
         button(
-            "🟢 𝘾𝙃𝘼𝙉𝙂𝙀 𝙋𝙇𝘼𝙉",
-            data="demo_menu",
-            style="success"
-        )
-    )
-
-    kb.row(
-        button(
             "🔵 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
             data=f"plan:{plan_id}",
             style="primary"
         )
+    )
+
+    bot.send_message(
+        chat_id,
+        "🚫 <b>𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍</b>\n\n"
+        "💎 <b>𝙋𝙇𝙀𝘼𝙎𝙀 𝙋𝙐𝙍𝘾𝙃𝘼𝙎𝙀 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 𝙋𝙇𝘼𝙉</b>",
+        reply_markup=kb
     )
 
     bot.send_message(
