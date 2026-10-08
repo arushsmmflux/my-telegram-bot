@@ -75,7 +75,7 @@ PLANS = [
         "videos": "30000+",
 
         "image": "https://ibb.co/ZRqKVvRQ",
-        "qr": "PASTE_PLAN_1_QR_HERE",
+        "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
             {
@@ -120,8 +120,8 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "https://ibb.co/QF2v05qK",
-        "qr": "PASTE_PLAN_2_QR_HERE",
+        "image": "https://ibb.co/gbLMg58r",
+        "qr": "https://ibb.co/gbLMg58r",
 
         "demos": [
             {"type": "video", "id": "BAACAgUAAxkBAAI1NGrHXS2WDGTyJId8vRH4d1LU-PlRAAJRIgACv69BVtr0Es6j5DDTPQQ"},
@@ -144,7 +144,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "https://ibb.co/21H7BGM2",
+        "image": "https://ibb.co/fYsgpT3c",
         "qr": "PASTE_PLAN_3_QR_HERE",
 
         "demos": [
@@ -171,7 +171,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "https://ibb.co/HLw36KQ4",
+        "image": "https://ibb.co/4n9q8mK2",
         "qr": "PASTE_PLAN_4_QR_HERE",
 
         "demos": [
@@ -198,7 +198,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "https://ibb.co/9kKCd6ZF",
+        "image": "https://ibb.co/fYsgpT3c",
         "qr": "PASTE_PLAN_5_QR_HERE",
 
         "demos": [
@@ -222,7 +222,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "https://ibb.co/Fb6S1mYg",
+        "image": "https://ibb.co/fYsgpT3c",
         "qr": "PASTE_PLAN_6_QR_HERE",
 
         "demos": [
@@ -246,7 +246,7 @@ PLANS = [
         "videos": "30000+",
 
         "image": "https://ibb.co/5X0hc5dd",
-        "qr": "PASTE_PLAN_7_QR_HERE",
+        "qr": "https://ibb.co/xK77FFDK",
 
         "demos": [
             {"type": "video", "id": "BAACAgUAAxkBAAI1vGrHeCGVLxyFtjqCDuc0jk7iB55TAAKWIgACv69BVmJlJgxhHhkOPQQ"},
@@ -269,7 +269,7 @@ PLANS = [
         "videos": "30000+",
 
         "image": "https://ibb.co/qFhKnzcH",
-        "qr": "PASTE_PLAN_8_QR_HERE",
+        "qr": "https://ibb.co/tMVzjb0D",
 
         "demos": [
             {
@@ -301,12 +301,12 @@ PLANS = [
     {
         "id": 9,
         "name": "𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥",
-        "price": "00",
+        "price": "49",
         "validity": "180 days",
         "videos": "30000+",
 
         "image": "https://ibb.co/qFhKnzcH",
-        "qr": "PASTE_PLAN_9_QR_HERE",
+        "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
             {"type": "video", "id": "BAACAgUAAxkBAAI2dmrHiGdHP0LzVqL7aLAtu0dacFkfAAL5IgACv69BVgU4Hw3vXvDAPQQ"},
@@ -329,14 +329,8 @@ PLANS = [
         "videos": "30000+",
 
         "image": "https://ibb.co/84598K8j",
-        "qr": "PASTE_PLAN_10_QR_HERE",
+        "qr": "https://ibb.co/MDWVSzF8",
 
-        "demos": [
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_1_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_2_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_3_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_4_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_10_DEMO_5_FILE_ID"}
         ],
 
         "caption": "PLAN 10 CAPTION",
@@ -473,12 +467,12 @@ def send_start_screen(chat_id):
 
     kb.row(
         button(
-            " 𝙁𝙍𝙀𝙀",
+            " 𝙔𝙀𝙎 𝙄 𝘼𝙈 18+ ✅",
             data="free",
             style="success"
         ),
         button(
-            " 𝙋𝘼𝙄𝘿",
+            "𝙄 𝘼𝙈 𝙉𝙊𝙏 18+ ❌",
             data="paid",
             style="danger"
         )
@@ -509,8 +503,7 @@ def send_paid_screen(chat_id):
 
     bot.send_message(
         chat_id,
-        "🔒 <b>𝙊𝙉𝙇𝙔 𝙁𝙊𝙍 𝙋𝙍𝙀𝙈𝙄𝙐𝙈 𝙐𝙎𝙀𝙍𝙎</b>\n\n"
-        "✨ 𝙏𝙝𝙞𝙨 𝙨𝙚𝙘𝙩𝙞𝙤𝙣 𝙞𝙨 𝙛𝙤𝙧 𝙥𝙧𝙚𝙢𝙞𝙪𝙢 𝙪𝙨𝙚𝙧𝙨.",
+        " <b>𝙏𝙃𝙄𝙎 𝘽𝙊𝙏 𝙄𝙎 𝙊𝙉𝙇𝙔 𝙁𝙊𝙍 18+ 𝙐𝙎𝙀𝙍𝙎‼️</b>\n\n",
         reply_markup=kb
     )
 
@@ -555,7 +548,7 @@ def send_home(chat_id):
 
         add_styled(
             kb,
-            f"📦 {p['name']} · ₹{p['price']}",
+            f" {p['name']} · ₹{p['price']}",
             data=f"plan:{p['id']}",
             index=i
         )
@@ -569,7 +562,7 @@ def send_home(chat_id):
 
     add_styled(
         kb,
-        "💬 𝙎𝙐𝙋𝙋𝙊𝙍𝙏",
+        " 𝙎𝙐𝙋𝙋𝙊𝙍𝙏📞",
         url=SUPPORT_LINK,
         index=1
     )
@@ -749,7 +742,7 @@ def send_demo(
     # Always show NEXT DEMO
     kb.add(
         button(
-            "🔵 𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ➡️",
+            " 𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ➡️",
             data=f"next_demo:{plan_id}:{index}",
             style="primary"
         )
@@ -758,7 +751,7 @@ def send_demo(
     # Back to plan
     kb.add(
         button(
-            "🟢 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
+            " 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
             data=f"plan:{plan_id}",
             style="success"
         )
@@ -828,7 +821,7 @@ def send_demo_over(chat_id, plan_id):
 
     kb.row(
         button(
-            "🔴 𝘽𝙐𝙔 𝙋𝘼𝘾𝙆 💳",
+            " 𝘽𝙐𝙔 𝙋𝘼𝘾𝙆 💳",
             data=f"buy:{plan_id}",
             style="danger"
         )
@@ -836,7 +829,7 @@ def send_demo_over(chat_id, plan_id):
 
     kb.row(
         button(
-            "🔵 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
+            " 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
             data=f"plan:{plan_id}",
             style="primary"
         )
@@ -870,23 +863,23 @@ def send_payment(chat_id, user_id, plan):
 
     kb.row(
         button(
-            "🟢 𝙄 𝙋𝘼𝙄𝘿",
+            " 𝙄 𝙋𝘼𝙄𝘿",
             data=f"paid:{plan['id']}",
             style="success"
         ),
         button(
-            "🔵 𝘽𝘼𝘾𝙆",
+            " 𝘽𝘼𝘾𝙆",
             data=f"plan:{plan['id']}",
             style="primary"
         )
     )
 
     caption = (
-        f"💰 <b>𝙋𝙖𝙮: ₹{plan['price']}</b>\n\n"
+        f" <b>𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙋𝘼𝙂𝙀 💳: ₹{plan['price']}</b>\n\n"
         "1️⃣ 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍.\n"
         "2️⃣ 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩.\n"
-        "3️⃣ 𝘾𝙡𝙞𝙘𝙠 <b>𝙄 𝙋𝘼𝙄𝘿</b>.\n"
-        "4️⃣ 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩."
+        "3️⃣ 𝘾𝙡𝙞𝙘𝙠 <b>𝙄 𝙋𝘼𝙄𝘿✅</b>.\n"
+        "4️⃣ 𝙎𝙚𝙣𝙙 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩.✅"
     )
 
     send_photo_or_text(
