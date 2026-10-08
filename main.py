@@ -229,9 +229,10 @@ PLANS = [
     },
 ]
 # =================== END OF EDITABLE CONTENT =====================
+# ============================================================
+# BUTTON STYLE
+# ============================================================
 
-# Telegram supports button styles only on some Bot API/client versions.
-# We try the requested red/green/blue style sequence and gracefully fall back.
 STYLE_SERIES = [
     'danger',
     'success',
