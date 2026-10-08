@@ -47,7 +47,7 @@ SUPPORT_LINK = "https://t.me/xylerigcc"
 #
 # Agar empty rahega to bot text bhej dega.
 
-WELCOME_IMAGE = ""
+WELCOME_IMAGE = "BQACAgUAAxkBAAI1SGrHXiJ5xT9M113ppwuDAnJOd0YjAAJWIgACv69BVhAt5m1CHaWyPQQ"
 
 
 # =========================================================
@@ -58,7 +58,7 @@ WELCOME_IMAGE = ""
 # Agar same image welcome ke liye use karni hai:
 # START_IMAGE = WELCOME_IMAGE
 
-START_IMAGE = ""
+START_IMAGE = "BQACAgUAAxkBAAI1Q2rHXgSAGyZNK-QLdAM6VAWmCPz_AAJUIgACv69BVgs8n4-qoTb_PQQ"
 
 
 # =========================================================
@@ -74,7 +74,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_1_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1UGrHXxBqNxLvxb0CvAPg0bZ5Px_OAAJZIgACv69BVoFUHdQjDjktPQQ",
         "qr": "PASTE_PLAN_1_QR_HERE",
 
         "demos": [
@@ -112,7 +112,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_2_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1ZmrHX21OeUrF4vUV9xieZZNkHVX2AAJeIgACv69BVrD2MoU0OynaPQQ",
         "qr": "PASTE_PLAN_2_QR_HERE",
 
         "demos": [
@@ -135,7 +135,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_3_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1W2rHXz2mDVbWA4KZdvBDNk8LQxjVAAJaIgACv69BVo6vLvgjuOIjPQQ",
         "qr": "PASTE_PLAN_3_QR_HERE",
 
         "demos": [
@@ -158,7 +158,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_4_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1cWrHX7BT4InnLhS3SLxfdlMZbsQ5AAJgIgACv69BVpyg52xMJ0QrPQQ",
         "qr": "PASTE_PLAN_4_QR_HERE",
 
         "demos": [
@@ -181,7 +181,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_5_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1dWrHX8PELGSWzmVxImtdyTmau860AAJhIgACv69BVktUO3bNwxBkPQQ",
         "qr": "PASTE_PLAN_5_QR_HERE",
 
         "demos": [
@@ -204,7 +204,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_6_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1TGrHXwbfcf_9DcYSRUn32IDDJPtZAAJYIgACv69BVv9zDRN1BiiAPQQ",
         "qr": "PASTE_PLAN_6_QR_HERE",
 
         "demos": [
@@ -227,7 +227,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_7_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1bWrHX6QS9deLrUcp1HZDBG9g_OaFAAJfIgACv69BVnG8RFPE5NFZPQQ",
         "qr": "PASTE_PLAN_7_QR_HERE",
 
         "demos": [
@@ -250,7 +250,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_8_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1ZGrHX2ILCBX8b9Qxe3Y2-6k3DzIvAAJdIgACv69BViaEY78FlQRjPQQ",
         "qr": "PASTE_PLAN_8_QR_HERE",
 
         "demos": [
@@ -286,7 +286,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_9_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1YGrHX1bXBiTVpIUketChkY8pfZPAAAJcIgACv69BViWqbDZKy61xPQQ",
         "qr": "PASTE_PLAN_9_QR_HERE",
 
         "demos": [
@@ -309,7 +309,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "PASTE_PLAN_10_IMAGE_HERE",
+        "image": "BQACAgUAAxkBAAI1eWrHX9SnCDU1PpPl3neVkDZfCBEOAAJiIgACv69BVsIgBUl_R2KNPQQ",
         "qr": "PASTE_PLAN_10_QR_HERE",
 
         "demos": [
@@ -444,10 +444,7 @@ def send_photo_or_text(
 # =========================================================
 
 START_CAPTION = (
-    "✨ <b>𝙒𝙀𝙇𝘾𝙊𝙈𝙀</b> ✨\n\n"
-    "𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙩𝙤 𝙤𝙪𝙧 𝙎𝙎𝙈 𝙘𝙤𝙪𝙧𝙨𝙚.\n"
-    "𝘾𝙝𝙤𝙤𝙨𝙚 𝙖𝙣 𝙤𝙥𝙩𝙞𝙤𝙣 𝙗𝙚𝙡𝙤𝙬.\n\n"
-    "👇 <b>𝙋𝙡𝙚𝙖𝙨𝙚 𝙘𝙝𝙤𝙤𝙨𝙚:</b>"
+  " 𝘽𝙚𝙛𝙤𝙧𝙚 𝙘𝙤𝙣𝙩𝙞𝙣𝙪𝙞𝙣𝙜, 𝙥𝙡𝙚𝙖𝙨𝙚 𝙘𝙤𝙣𝙛𝙞𝙧𝙢 𝙮𝙤𝙪 𝙖𝙧𝙚 18 𝙤𝙧 𝙤𝙡𝙙𝙚𝙧."
 )
 
 
