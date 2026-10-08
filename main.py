@@ -47,16 +47,23 @@ WELCOME_CAPTION = '''𝙃𝙀𝙔 👋🏻, 𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙩�
 
 # Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
 PLANS = [
-    {
-        'id': 1, 'name': '𝙈𝙊𝙈 𝘼𝙉𝘿 𝙎𝙊𝙉 😍🔥 ', 'price': '49',
-        'validity': '180 days', 'videos': 'As described',
-        'image': 'https://ibb.co/ZRqKVvRQ', 'qr': 'https://ibb.co/fYsgpT3c',
-        'demos': [
-'https://t.me/studyof12th/27',
-'https://t.me/studyof12th/30',
-'https://t.me/studyof12th/47',
-'https://t.me/studyof12th/65'
-        ],
+   {
+    'id': 8,
+    'name': '𝙈𝙊𝙈 𝘼𝙉𝘿 𝙎𝙊𝙉 😍 🔥',
+    'price': '58',
+    'validity': '180 days',
+    'videos': '30000+',
+    'image': 'https://ibb.co/5X0hc5dd',
+    'qr': 'https://ibb.co/xK77FFDK',
+
+    'demos': [
+        {'type': 'video', 'id': 'BAACAgUAAxkBAAI06GrHM2QUeiT0Q6J5yEopeA96Aim1AAJKIwACv685VjMk0xUgmBWJPQQ'},
+        {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_2_HERE'},
+        {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_3_HERE'}
+    ],
+       
+    # baaki tumhare existing fields yahan...
+},
    'caption': (
     '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
     '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
