@@ -862,10 +862,6 @@ if __name__ == '__main__':
         level=logging.INFO
     )
 
-    logger.info(
-        'Starting bot...'
-    )
-
     bot.infinity_polling(
         skip_pending=True
     )
