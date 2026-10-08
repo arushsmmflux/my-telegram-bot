@@ -850,33 +850,37 @@ def send_demo(
 # =========================================================
 # DEMO OVER
 # =========================================================
-
-def send_demo_over(chat_id, plan_id):
+def send_demo_over(chat_id, plan):
 
     kb = InlineKeyboardMarkup()
 
     kb.row(
         button(
-            " 𝘽𝙐𝙔 𝙋𝘼𝘾𝙆 💳",
-            data=f"buy:{plan_id}",
-            style="danger"
+            "💎 𝘽𝙐𝙔 𝙋𝘼𝘾𝙆",
+            data=f"buy:{plan['id']}",
+            style="success"
         )
     )
 
     kb.row(
         button(
-            " 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
-            data=f"plan:{plan_id}",
+            "🔙 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
+            data=f"plan:{plan['id']}",
             style="primary"
         )
     )
 
+    text = (
+        "🚫 <b>𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍</b>\n\n"
+        "💎 <b>𝙋𝙇𝙀𝘼𝙎𝙀 𝙋𝙐𝙍𝘾𝙃𝘼𝙎𝙀 𝙋𝙍𝙀𝙈𝙄𝙐𝙈</b>\n\n"
+        "❤️ <b>𝙁𝙊𝙍 𝙈𝙊𝙍𝙀 𝙅𝙊𝙄𝙉 𝙃𝙀𝙍𝙀</b> "
+        "<a href='https://t.me/studyof12thc'>@studyof12thc</a>"
+    )
+
     bot.send_message(
         chat_id,
-        "🚫 <b>𝘿𝙀𝙈𝙊 𝙊𝙑𝙀𝙍</b>\n\n"
-"💎 <b>𝙋𝙇𝙀𝘼𝙎𝙀 𝙋𝙐𝙍𝘾𝙃𝘼𝙎𝙀 𝙋𝙍𝙀𝙈𝙄𝙐𝙈</b>\n\n"
-"❤️ <b>𝙁𝙊𝙍 𝙈𝙊𝙍𝙀 𝙅𝙊𝙄𝙉 𝙃𝙀𝙍𝙀</b> "
-"<a href='https://t.me/studyof12thc'>@studyof12thc</a>"
+        text,
+        parse_mode="HTML",
         reply_markup=kb
     )
 
