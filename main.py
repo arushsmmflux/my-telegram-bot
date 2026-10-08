@@ -47,194 +47,257 @@ WELCOME_CAPTION = '''𝙃𝙀𝙔 👋🏻, 𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙩�
 
 # Add/edit exactly 10 plan entries here. Leave unused entries with active=False.
 PLANS = [
-   {
-    'id': 8,
-    'name': '𝙈𝙊𝙈 𝘼𝙉𝘿 𝙎𝙊𝙉 😍 🔥',
-    'price': '58',
-    'validity': '180 days',
-    'videos': '30000+',
-    'image': 'https://ibb.co/5X0hc5dd',
-    'qr': 'https://ibb.co/xK77FFDK',
 
-    'demos': [
-        {'type': 'video', 'id': 'BAACAgUAAxkBAAI06GrHM2QUeiT0Q6J5yEopeA96Aim1AAJKIwACv685VjMk0xUgmBWJPQQ'},
-        {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_2_HERE'},
-        {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_3_HERE'}
-    ],
-       
-    # baaki tumhare existing fields yahan...
-},
-   'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙁𝙍𝙄𝘿𝘼𝙔 ✅.'
-),
-'active': True
-    },
-      {
-        'id': 4, 'name': '𝙍!@𝙋𝙀 𝙑𝙄𝘿𝙀𝙊𝙎 💦👀 ', 'price': '69',
-        'validity': '180 days', 'videos': '40000',
-        'image': 'https://ibb.co/QF2v05qK', 'qr': 'https://ibb.co/gbLMg58r',
-        'demos': [   
-'https://t.me/studyof12th/42',
-'https://t.me/studyof12th/37',
-'https://t.me/studyof12th/20',
-'https://t.me/studyof12th/12',
-'https://t.me/studyof12th/15',
-'https://t.me/studyof12th/40',
-'https://t.me/studyof12th/40'
-        ],
-      'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 SATURDAY ✅.'
-),
-'active': True
-    },
-      {
-        'id': 5, 'name': '𝘾𝙃𝙄!𝙇𝘿 𝙑𝙄𝘿!𝙀𝙊 ( 𝘾.𝙋)  🔥👀', 'price': '49',
-        'validity': '180 days', 'videos': '70000+',
-        'image': 'https://ibb.co/21H7BGM2', 'qr': 'https://ibb.co/fYsgpT3c',
-        'demos': [          
-'https://t.me/studyof12th/51',
-'https://t.me/studyof12th/41',
-'https://t.me/studyof12th/28',
-'https://t.me/studyof12th/26',
-'https://t.me/studyof12th/25',
-'https://t.me/studyof12th/24',
-'https://t.me/studyof12th/6'
-        ],
-       'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 SUNDAY✅.'
-),
-'active': True
-    },
-      {
-        'id': 6, 'name': '𝘽𝙃𝘼𝙄 𝘽𝙀𝙃𝘼𝙉 🔥🥵 ', 'price': '49',
-        'validity': '180 days', 'videos': '67000+',
-        'image': 'https://ibb.co/9kKCd6ZF', 'qr': 'https://ibb.co/fYsgpT3c',
-        'demos': [
-'https://t.me/studyof12th/53',
-'https://t.me/studyof12th/10',
-'https://t.me/studyof12th/55',
-'https://t.me/studyof12th/7',
-'https://t.me/studyof12th/34',
-'https://t.me/studyof12th/49',
-'https://t.me/studyof12th/54'
-        ],
-      'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 MONDAY ✅.'
-),
-'active': True
-    },
-      {
-        'id': 7, 'name': '𝘽𝙃𝘼𝘽𝙃𝙄 𝙑𝙄𝘿𝙀𝙊𝙎 💦👅 ', 'price': '39',
-        'validity': '180 days', 'videos': '56000+',
-        'image': 'https://ibb.co/HLw36KQ4', 'qr': 'https://ibb.co/4n9q8mK2',
-      'demos': [
-    {'type': 'video', 'id': 'BAACAgUAAxkBAAI06GrHM2QUeiT0Q6J5yEopeA96Aim1AAJKIwACv685VjMk0xUgmBWJPQQ'},
-    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_2_HERE'},
-    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_3_HERE'},
-    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_4_HERE'},
-    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_5_HERE'},
-    {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_6_HERE'}
-]
-        ],
-      'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 TUESDAY ✅.'
-),
-'active': True
-    },
-      {
-        'id': 8, 'name': '𝘽𝘼𝘼𝙋 𝘽𝙀𝙏𝙄 🔥💦 ', 'price': '58',
-        'validity': '180 days', 'videos': '30000+',
-        'image': 'https://ibb.co/5X0hc5dd', 'qr': 'https://ibb.co/xK77FFDK',
-        'demos': [
-'https://t.me/studyof12th/60',
-'https://t.me/studyof12th/59',
-'https://t.me/studyof12th/58'
-        ],
-       'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 WEDNESDAY ✅.'
-),
-'active': True
-    },
-      {
-        'id': 9, 'name': '𝙂𝙄𝙍𝙇𝙎 𝙒𝙄𝙏𝙃 𝘼𝙉!𝙈@𝙇🔥', 'price': '49',
-        'validity': '180 days', 'videos': '18000+',
-        'image': 'https://ibb.co/C5KZBm7f', 'qr': 'https://ibb.co/fYsgpT3c',
-        'demos': [
-'https://t.me/studyof12th/61'
-        ],
-       'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 THURSDAY ✅.'
-),
-'active': True
-    },
-      {
-        'id': 10, 'name': '𝗜𝗡𝗦𝗧𝗚𝗥𝗔𝗠 𝗠𝗠𝗦 𝗔𝗟𝗟 😍🔥 ', 'price': '49',
-        'validity': '180 days', 'videos': '50000+',
-        'image': 'https://ibb.co/Fb6S1mYg', 'qr': 'https://ibb.co/fYsgpT3c',
-        'demos': [
-'https://t.me/studyof12th/35',
-'https://t.me/studyof12th/50',
-'https://t.me/studyof12th/63',
-'https://t.me/studyof12th/56',
-'https://t.me/studyof12th/52'
-        ],
-       'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙁𝙍𝙄𝘿𝘼𝙔 ✅.'
-),
-'active': True
-    },
     {
-        'id': 2, 'name': '𝙈𝙄𝙓 𝙂𝙍𝙊𝙐𝙋 70𝙆 𝙑𝙄𝘿𝙀𝙊𝙎 🥵 ', 'price': '63',
-        'validity': '180 days', 'videos': '70000+',
-        'image': 'https://ibb.co/qFhKnzcH', 'qr': 'https://ibb.co/tMVzjb0D',
+        'id': 1,
+        'name': 'PLAN demo ',
+        'price': '90',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_1_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_1_QR_HERE',
+
         'demos': [
-'https://t.me/studyof12th/31',
-'https://t.me/studyof12th/57'
-       ],
-       'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 SATURDAY ✅.'
-),
-'active': True
+            {'type': 'video', 'id': 'BAACAgUAAxkBAAI06GrHM2QUeiT0Q6J5yEopeA96Aim1AAJKIwACv685VjMk0xUgmBWJPQQ'},
+            {'type': 'video', 'id': 'PASTE_PLAN_1_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_1_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_1_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_1_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 1 CAPTION'
+        ),
+
+        'active': True
     },
+
+
     {
-        'id': 3, 'name': '🔥𝗔𝗟𝗟 𝗩𝗜𝗣 𝗠𝗘𝗚𝗔 𝗣𝗔𝗖𝗞 😍', 'price': '169',
-        'validity': '180 days', 'videos': '1 lakh+ ',
-        'image': 'https://ibb.co/84598K8j', 'qr': 'https://ibb.co/MDWVSzF8',
-       'caption': (
-    '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
-    '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
-    '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
-    '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 SUNDAY ✅.'
-),
-'active': True
+        'id': 2,
+        'name': 'PLAN 2',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_2_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_2_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_2_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_2_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_2_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_2_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_2_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 2 CAPTION'
+        ),
+
+        'active': True
     },
+
+
+    {
+        'id': 3,
+        'name': 'PLAN 3',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_3_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_3_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_3_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_3_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_3_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_3_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_3_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 3 CAPTION'
+        ),
+
+        'active': True
+    },
+
+
+    {
+        'id': 4,
+        'name': 'PLAN 4',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_4_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_4_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_4_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_4_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_4_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_4_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_4_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 4 CAPTION'
+        ),
+
+        'active': True
+    },
+
+
+    {
+        'id': 5,
+        'name': 'PLAN 5',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_5_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_5_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_5_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_5_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_5_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_5_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_5_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 5 CAPTION'
+        ),
+
+        'active': True
+    },
+
+
+    {
+        'id': 6,
+        'name': 'PLAN 6',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_6_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_6_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_6_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_6_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_6_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_6_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_6_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 6 CAPTION'
+        ),
+
+        'active': True
+    },
+
+
+    {
+        'id': 7,
+        'name': 'PLAN 7',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_7_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_7_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_7_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_7_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_7_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_7_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_7_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 7 CAPTION'
+        ),
+
+        'active': True
+    },
+
+
+    {
+        'id': 8,
+        'name': 'youtube viral shorts 🔥',
+        'price': '58',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'https://ibb.co/5X0hc5dd',
+        'qr': 'https://ibb.co/xK77FFDK',
+
+        'demos': [
+            {'type': 'video', 'id': 'BAACAgUAAxkBAAI06GrHM2QUeiT0Q6J5yEopeA96Aim1AAJKIwACv685VjMk0xUgmBWJPQQ'},
+            {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_2_HERE'},
+            {'type': 'video', 'id': 'PASTE_VIDEO_FILE_ID_3_HERE'}
+        ],
+
+        'caption': (
+            '1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n'
+            '2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌\n'
+            '3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍\n'
+            '4. 𝙉𝙀𝙒 𝙑𝙄𝘿𝙀𝙊𝙎 𝙐𝙋𝙇𝙊𝘼𝘿𝙀𝘿 𝙀𝙑𝙀𝙍𝙔 𝙁𝙍𝙄𝘿𝘼𝙔 ✅.'
+        ),
+
+        'active': True
+    },
+
+
+    {
+        'id': 9,
+        'name': 'PLAN 9',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_9_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_9_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_9_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_9_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_9_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_9_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_9_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 9 CAPTION'
+        ),
+
+        'active': True
+    },
+
+
+    {
+        'id': 10,
+        'name': 'PLAN 10',
+        'price': '00',
+        'validity': '180 days',
+        'videos': '30000+',
+        'image': 'PASTE_PLAN_10_IMAGE_HERE',
+        'qr': 'PASTE_PLAN_10_QR_HERE',
+
+        'demos': [
+            {'type': 'video', 'id': 'PASTE_PLAN_10_DEMO_1_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_10_DEMO_2_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_10_DEMO_3_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_10_DEMO_4_FILE_ID'},
+            {'type': 'video', 'id': 'PASTE_PLAN_10_DEMO_5_FILE_ID'}
+        ],
+
+        'caption': (
+            'PLAN 10 CAPTION'
+        ),
+
+        'active': True
+    }
+
 ]
 # =================== END OF EDITABLE CONTENT =====================
 # ============================================================
