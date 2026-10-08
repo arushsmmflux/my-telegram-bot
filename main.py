@@ -74,7 +74,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "30000+",
 
-        "image": "BQACAgUAAxkBAAI1UGrHXxBqNxLvxb0CvAPg0bZ5Px_OAAJZIgACv69BVoFUHdQjDjktPQQ",
+        "image": "https://ibb.co/ZRqKVvRQ",
         "qr": "PASTE_PLAN_1_QR_HERE",
 
         "demos": [
