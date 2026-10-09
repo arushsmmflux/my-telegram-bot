@@ -718,6 +718,7 @@ demo_sessions = {}
 # =========================================================
 # SEND ONE DEMO
 # =========================================================
+
 def send_demo(
     chat_id,
     user_id,
@@ -725,108 +726,72 @@ def send_demo(
     index,
     delete_message_id=None
 ):
-
     plan = get_plan(plan_id)
 
     if not plan:
-        bot.send_message(
-            chat_id,
-            "❌ 𝙋𝙡𝙖𝙣 𝙣𝙤𝙩 𝙛𝙤𝙪𝙣𝙙."
-        )
+        bot.send_message(chat_id, "❌ Plan not found.")
         return
 
-    demos = plan.get("demos", [])
-
+    # Support both Telegram file IDs and hosted URLs
     demos = [
-        d for d in demos
-        if d.get("id")
-        and not str(d["id"]).startswith("PASTE_")
+        d for d in plan.get("demos", [])
+        if (d.get("url") or d.get("id"))
+        and not str(d.get("id", "")).startswith("PASTE_")
+        and not str(d.get("url", "")).startswith("PASTE_")
     ]
 
-    # All demos finished
     if index >= len(demos):
-
-        send_demo_over(
-            chat_id,
-            plan
-        )
-
+        send_demo_over(chat_id, plan)
         return
 
-    # Delete previous demo
     if delete_message_id:
-
         try:
-            bot.delete_message(
-                chat_id,
-                delete_message_id
-            )
-
+            bot.delete_message(chat_id, delete_message_id)
         except Exception:
-            log.exception(
-                "Could not delete previous demo"
-            )
+            log.exception("Could not delete previous demo")
 
     demo = demos[index]
-
-    demo_type = demo.get("type")
-    file_id = demo.get("id")
+    demo_type = demo.get("type", "video")
+    media = demo.get("url") or demo.get("id")
 
     kb = InlineKeyboardMarkup()
 
-    # Always show NEXT DEMO
-    kb.add(
-        button(
-            " 𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ➡️",
-            data=f"next_demo:{plan_id}:{index}",
-            style="primary"
-        )
-    )
+    kb.add(button(
+        "𝙉𝙀𝙓𝙏 𝘿𝙀𝙈𝙊 ➡️",
+        data=f"next_demo:{plan_id}:{index}",
+        style="primary"
+    ))
+    kb.add(button(
+        "𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
+        data=f"plan:{plan_id}",
+        style="success"
+    ))
 
-    # Back to plan
-    kb.add(
-        button(
-            " 𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
-            data=f"plan:{plan_id}",
-            style="success"
-        )
+    caption = (
+        f"🎬 <b>{plan['name']}</b>\n"
+        f"𝘿𝙚𝙢𝙤 {index + 1}/{len(demos)}"
     )
 
     try:
-
         if demo_type == "video":
-
             sent = bot.send_video(
-                chat_id,
-                file_id,
-                caption=(
-                    f"🎬 <b>{plan['name']}</b>\n"
-                    f"𝘿𝙚𝙢𝙤 {index + 1}/{len(demos)}"
-                ),
+                chat_id, media,
+                caption=caption,
+                parse_mode="HTML",
                 reply_markup=kb
             )
-
         elif demo_type == "photo":
-
             sent = bot.send_photo(
-                chat_id,
-                file_id,
-                caption=(
-                    f"📸 <b>{plan['name']}</b>\n"
-                    f"𝘿𝙚𝙢𝙤 {index + 1}/{len(demos)}"
-                ),
+                chat_id, media,
+                caption=caption,
+                parse_mode="HTML",
                 reply_markup=kb
             )
-
         else:
-
             sent = bot.send_document(
-                chat_id,
-                file_id,
-                caption=(
-                    f"📁 <b>{plan['name']}</b>\n"
-                    f"𝘿𝙚𝙢𝙤 {index + 1}/{len(demos)}"
-                ),
+                chat_id, media,
+                caption=caption,
+                parse_mode="HTML",
                 reply_markup=kb
             )
 
@@ -837,15 +802,12 @@ def send_demo(
         }
 
     except Exception:
-
-        log.exception(
-            "Could not send demo"
-        )
-
+        log.exception("Could not send demo")
         bot.send_message(
             chat_id,
-            "❌ 𝘿𝙚𝙢𝙤 𝙛𝙞𝙡𝙚 𝙨𝙚𝙩𝙩𝙞𝙣𝙜 𝙢𝙚𝙞𝙣 𝙞𝙨𝙨𝙪𝙚 𝙝𝙖𝙞."
+            "❌ Demo nahi bhej paya. Hosted URL direct aur publicly accessible hona chahiye."
         )
+
 # =========================================================
 # DEMO OVER
 # =========================================================
