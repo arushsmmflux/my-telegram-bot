@@ -93,7 +93,7 @@ PLANS = [
         "demos": [
             {
                 "type": "video",
-                "id": "https://yourimageshare.com/ib/1o0nI7DWRP"
+                "id": "https://yourimageshare.com/ib/1o0nI7DWRP.mp4"
             },
             {
                 "type": "video",
