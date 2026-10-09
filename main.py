@@ -93,7 +93,7 @@ PLANS = [
         "demos": [
             {
                 "type": "video",
-                "id": "BAACAgEAAxkBAAI1uGrHdxiONKpbmlGTyHvowkY5-NOdAAJfBwACm3pBRmnwsGVg3oC1PQQ"
+                "id": "https://yourimageshare.com/ib/1o0nI7DWRP"
             },
             {
                 "type": "video",
