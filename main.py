@@ -110,12 +110,8 @@ PLANS = [
              {
                 "type": "video",
                 "id": "https://videotourl.com/videos/1791609569957-a7ce2e8a-e185-4dc6-893c-298a2d9c1b4c.mp4"
-            },
-            
-            {
-                "type": "video",
-                "id": "BAACAgUAAxkBAAI1y2rHeVx-RkIlGJNKCZw97WDxcuCdAAKaIgACv69BVsbbPDC2Ob_VPQQ"
-            }
+            }     
+        
         ],
 
         "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
@@ -202,8 +198,7 @@ PLANS = [
             {"type": "video", "id": "https://videotourl.com/videos/1791611220352-ba6538bc-4db1-401e-81f7-88c53824e27f.mp4"},
              {"type": "video", "id": "https://videotourl.com/videos/1791611168222-86d679dd-8a24-46fb-8b06-d59cc97e84c2.mp4"},
              {"type": "video", "id": "https://videotourl.com/videos/1791611005214-c25159ac-d514-4eff-8061-a25465ff6eba.mp4"},
-             {"type": "video", "id": "https://videotourl.com/videos/1791609479203-02acf86c-6132-4bc2-8041-9f43ab529748.mp4"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI112rHehWT7ChqF4hbypfAEwmyF9BkAAKeIgACv69BVtXBJ3Uu9oPEPQQ"}
+             {"type": "video", "id": "https://videotourl.com/videos/1791609479203-02acf86c-6132-4bc2-8041-9f43ab529748.mp4"}
         ],
         
  "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
