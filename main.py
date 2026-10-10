@@ -140,12 +140,16 @@ PLANS = [
         "qr": "https://ibb.co/gbLMg58r",
 
         "demos": [
-            {"type": "video", "id": "BAACAgUAAxkBAAI1NGrHXS2WDGTyJId8vRH4d1LU-PlRAAJRIgACv69BVtr0Es6j5DDTPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2gWrHiNUQIt0CvCi0dnJGr7seR0I5AAL7IgACv69BVvEdzgSGOYZBPQQ"},
-            {"type": "video", "id": "PASTE_PLAN_2_DEMO_3_FILE_ID"},
-             {"type": "video", "id": "BAACAgUAAxkBAAI2iWrHiO6fqiYP4xolqkpuX0ZMsS0dAAL9IgACv69BVpy5j6D2cEt6PQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2jWrHiPZS0lcDuVtCfsflk6BR6TUQAAL-IgACv69BVpWSGbnrEPxWPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2hWrHiOJLaQ20bd0ZQccYSGi1DGuDAAL8IgACv69BVn0nBQ-OdSg0PQQ"}
+            {"type": "video", "id": "https://videotourl.com/videos/1791598317965-12b2368c-6035-4e43-b708-df28bcd246b6.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791609986226-0b727823-bf05-42b7-80e8-c949f04b95ab.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791598333066-6d6fc74f-945c-4641-99d1-d862e59790d4.mp4"},
+              {"type": "video", "id": "PASTE_PLAN_2_DEMO_3_FILE_ID"},
+              {"type": "video", "id": "https://videotourl.com/videos/1791598348006-882fbe39-db59-4bb7-8636-1c2645fb93c0.mp4"},
+              {"type": "video", "id": "https://videotourl.com/videos/1791611260635-789f7a13-25cd-4204-8ffc-455168319040.mp4"},
+              {"type": "video", "id": "https://videotourl.com/videos/1791598360862-d0ddd962-c4e7-4c98-a860-d360bf6779f8.mp4"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791601968259-cb7b49a5-a8c5-45f9-9156-e08f71b052d0.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791598382840-4245fa8e-38f8-4737-8bb9-a2b8641a3d0f.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791598397313-ff9dd5ef-d489-4715-a2ca-a71c8923f162.mp4"}
         ],
 
         "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
@@ -167,15 +171,14 @@ PLANS = [
         "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
-            {"type": "video", "id": "BAACAgUAAxkBAAI102rHeZi-bZlCOVmo9Ii4N1CXKMdGAAKdIgACv69BVpPMgg4dHNouPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI132rHeiQH7V8Xda4tsZ4OXbHSXU2XAAKhIgACv69BVg9-lRdTEe6RPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI16GrHejbZ4SxzgTWqpGk7Ysz5ZCKhAAKiIgACv69BVrbHAbnH-B1APQQ"},
-            {"type": "video", "id": "PASTE_PLAN_3_DEMO_4_FILE_ID"},
-             {"type": "video", "id": "BAACAgUAAxkBAAI17GrHekGkiNKYiHfMd_54l1h4_d80AAKjIgACv69BVtazVYarbN0sPQQ"},
-             {"type": "video", "id": "PASTE_PLAN_3_DEMO_4_FILE_ID"},
-             {"type": "video", "id": "BAACAgUAAxkBAAI18GrHekz_R4t2R4dzv5xikrFHAjE4AAKkIgACv69BVoNd8Uyq6RNMPQQ"},
-             {"type": "video", "id": "BAACAgUAAxkBAAI19GrHelmwMFLeHgABj6xXslCrL2EgPQACpSIAAr-vQVZdvb1db57WjT0E"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI112rHehWT7ChqF4hbypfAEwmyF9BkAAKeIgACv69BVtXBJ3Uu9oPEPQQ"}
+            {"type": "video", "id": "https://videotourl.com/videos/1791598226633-9d219b40-bf0b-4774-b493-6449c47d5ef1.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791598035486-79178a34-a631-49d2-870e-ff3425f1c058.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791611314862-1e0e5b81-0a04-436a-9749-4f5e9115404f.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791598059935-f6722923-e315-4b97-aaeb-e7b0af379f2b.mp4"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791598126801-a117ace0-e399-46e6-b697-0d3da6efeedd.mp4"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791598076600-288d5faf-8d1c-4fd2-b876-a519eddacbcb.mp4"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791598104865-7bca6c3f-db24-465d-9688-d153131af1e5.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791598207010-15f8101c-d87e-4e83-bd6a-43a333204662.mp4"}
         ],
 
         "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
@@ -197,16 +200,17 @@ PLANS = [
         "qr": "https://ibb.co/4n9q8mK2",
 
         "demos": [
-            {"type": "video", "id": "BAACAgUAAxkBAAI2VGrHh0V0mxFFNp3VOcOb33Ml1G4MAALzIgACv69BVk4g0vpDj712PQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2WGrHh6zMI-he32oPz4_Bg5wRpq-JAAL1IgACv69BVpTUY_voLFY_PQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2WmrHh7KLY1uzWB5ystZmXDyl__xJAAL2IgACv69BVnbHhaDQGFm5PQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2YWrHh8ajZjtBAe6pGjWj8gH8Do8XAAL3IgACv69BVuLRCRB7zpIBPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2ZWrHh8wrHURDjV3lm5-E1D-JIU-1AAL4IgACv69BVn8OuNQVbkxbPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2UGrHhaPSiODGYfCLDgX2vCg7rNZxAALtIgACv69BVibnUY0jw7XXPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2TGrHhZccYoGN9dYTBS3mJMZHjbA4AALsIgACv69BVosDunRUSBK0PQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2fWrHiI7Nlb-qmDGWX8V5OPABhxF3AAL6IgACv69BVrDggsTSrVXBPQQ"},
-            {"type": "video", "id": "PASTE_PLAN_4_DEMO_5_FILE_ID"}
+            {"type": "video", "id": "https://videotourl.com/videos/1791611037316-4db456f2-f82c-4468-9f48-381341ed6e55.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791611085614-c863517b-d989-4d6f-b6ef-d23db0b73f5a.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791611220352-ba6538bc-4db1-401e-81f7-88c53824e27f.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791611220352-ba6538bc-4db1-401e-81f7-88c53824e27f.mp4"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791611168222-86d679dd-8a24-46fb-8b06-d59cc97e84c2.mp4"},
+             {"type": "video", "id": "PASTE_PLAN_3_DEMO_4_FILE_ID"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791611005214-c25159ac-d514-4eff-8061-a25465ff6eba.mp4"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791609479203-02acf86c-6132-4bc2-8041-9f43ab529748.mp4"},
+            {"type": "video", "id": "BAACAgUAAxkBAAI112rHehWT7ChqF4hbypfAEwmyF9BkAAKeIgACv69BVtXBJ3Uu9oPEPQQ"}
         ],
+        
  "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
 "2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
 "3. 𝙃𝙄𝙂𝙃 𝙌𝙐𝘼𝙇𝙄𝙏𝙔 𝙑𝙄𝘿𝙀𝙊𝙎 😍"
@@ -226,12 +230,12 @@ PLANS = [
         "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
-            {"type": "video", "id": "BAACAgUAAxkBAAI2D2rHfDIG-VI27jxnsZvofOtrGTyfAAKuIgACv69BVm1uywMJ7wpRPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2E2rHfDzkpAIyxQa_lRAtdlN6yT29AAKwIgACv69BVkO_UZZ-lONrPQQ"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791611423923-36dbbbf3-84c1-4754-a7e4-dc05798eaa03.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791611350514-052fe889-5ac7-4446-91ef-2f928070e131.mp4"},
             {"type": "video", "id": "BAACAgUAAxkBAAI2F2rHfErohmsyPAs8G3PzT51PSrpMAAKxIgACv69BVjpXV3XoC8KPPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2HWrHfFTFQ939rnRsRWwSQLD5RjQqAAKzIgACv69BVrrMSsutBep6PQQ"},
-             {"type": "video", "id": "BAACAgUAAxkBAAI2LWrHf2JdymEiQzYPAzuN7rLmXU6LAALSIgACv69BVoCKrwF1v2vCPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2HWrHfFTFQ939rnRsRWwSQLD5RjQqAAKzIgACv69BVrrMSsutBep6PQQ"}
+            {"type": "video", "id": "https://videotourl.com/videos/1791609591492-b5b0f616-27c5-436f-9aa9-e70720337677.mp4"},
+             {"type": "video", "id": "https://videotourl.com/videos/1791609952353-7ee9382f-6db6-4c43-86ed-c8f418a3282c.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791609450717-98fd3d4d-533c-46fc-a290-9f9f937b6721.mp4"}
         ],
  "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
 "2. 𝙉𝙊 𝘼𝙉𝙔 𝘼𝘿𝙎 ❌"
@@ -252,11 +256,13 @@ PLANS = [
         "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
-            {"type": "video", "id": "https://yourimageshare.com/ib/utt4oORaNh.mp4"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI1_GrHev604uRozFYP7sClRfafGVkxAAKnIgACv69BVtjbgnDvti8UPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2AAFqx3tSmYWUSW-Z07I43VDM8HNSzgACqSIAAr-vQVaXeLkJQr04Dz0E"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2BGrHe2Nkdn8bBxL-1uiW0e3IGq5iAAKqIgACv69BVnfq1jhpQgGgPQQ"},
-            {"type": "video", "id": "PASTE_PLAN_6_DEMO_5_FILE_ID"}
+            {"type": "video", "id": "https://videotourl.com/videos/1791607740001-dfef0130-88bb-4ca0-948d-b857ba8fc867.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791607674607-203922d8-e261-4085-90fc-4be2fd62a6fb.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791607662133-116f8c11-861a-4d4c-94a4-411fbd79a4f4.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791607553470-a87b7709-29e5-449b-89d2-49ce97c8e367.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791607585444-8a7d8e39-2917-4d23-949e-c048fcbacb2f.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791607607288-b1cc3341-7d49-473e-8544-840992806dab.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791607617748-9c8da0dd-313e-4a4d-862b-7ccf034383b7.mp4"}
         ],
 
         "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
@@ -278,11 +284,8 @@ PLANS = [
         "qr": "https://ibb.co/xK77FFDK",
 
         "demos": [
-            {"type": "video", "id": "BAACAgUAAxkBAAI1vGrHeCGVLxyFtjqCDuc0jk7iB55TAAKWIgACv69BVmJlJgxhHhkOPQQ"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI1v2rHeCm5-AjZoCrPiee5IOCLTqQxAAKXIgACv69BVjV55biDkaGePQQ"},
-            {"type": "video", "id": "PASTE_PLAN_7_DEMO_3_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_7_DEMO_4_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_7_DEMO_5_FILE_ID"}
+            {"type": "video", "id": "https://videotourl.com/videos/1791609855846-9b6bac98-1fcf-4d60-b612-3e5abaf6be7e.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791614058029-1220e2df-44c4-467d-bbd7-755af32ada0c.mp4"}
         ],
 
          "caption": "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅"
@@ -306,16 +309,11 @@ PLANS = [
         "demos": [
             {
                 "type": "video",
-                "id": "BAACAgUAAxkBAAI2PGrHhGx2iYgllaR9-h-CS7nuCFUwAALnIgACv69BVoD11n1hlXQ2PQQ"
+                "id": "https://videotourl.com/videos/1791611593469-187437c5-8f84-41c6-afa1-3d61feb9ff72.mp4"
             },
             {
                 "type": "video",
-                "id": "BAACAgUAAxkBAAI2OmrHhGIsfGnOZaBjkRlku4J56E0JAALmIgACv69BVjit1DxrrZ5KPQQ"
-                
-            },
-            {
-                "type": "video",
-                "id": "PASTE_PLAN_8_DEMO_3_FILE_ID"
+                "id": "https://videotourl.com/videos/1791611552865-c2cf6f7d-1544-4c34-9bdb-5e5fb2092584.mp4"
             }
         ],
 
@@ -341,11 +339,8 @@ PLANS = [
         "qr": "https://ibb.co/fYsgpT3c",
 
         "demos": [
-            {"type": "video", "id": "BAACAgUAAxkBAAI2dmrHiGdHP0LzVqL7aLAtu0dacFkfAAL5IgACv69BVgU4Hw3vXvDAPQQ"},
-            {"type": "video", "id": "PASTE_PLAN_9_DEMO_2_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_9_DEMO_3_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_9_DEMO_4_FILE_ID"},
-            {"type": "video", "id": "PASTE_PLAN_9_DEMO_5_FILE_ID"}
+            {"type": "video", "id": "https://videotourl.com/videos/1791611713436-2f106a4b-9ee1-4d9b-8e06-c30a0fe309e7.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791611779829-f05b75a9-65c7-441d-ad89-5d5f15301b01.mp4"}
         ],
 
         "caption": (
