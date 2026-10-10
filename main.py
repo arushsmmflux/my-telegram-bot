@@ -112,8 +112,8 @@ PLANS = [
                 "id": "https://videotourl.com/videos/1791609569957-a7ce2e8a-e185-4dc6-893c-298a2d9c1b4c.mp4"
             },
              {
-                "type": "video",
-                "id": "PASTE_PLAN_1_DEMO_3_FILE_ID"
+                "type": "image",
+                "id": "https://ibb.co/r2KFm1Ct"
             },
             {
                 "type": "video",
@@ -143,7 +143,7 @@ PLANS = [
             {"type": "video", "id": "https://videotourl.com/videos/1791598317965-12b2368c-6035-4e43-b708-df28bcd246b6.mp4"},
             {"type": "video", "id": "https://videotourl.com/videos/1791609986226-0b727823-bf05-42b7-80e8-c949f04b95ab.mp4"},
             {"type": "video", "id": "https://videotourl.com/videos/1791598333066-6d6fc74f-945c-4641-99d1-d862e59790d4.mp4"},
-              {"type": "video", "id": "PASTE_PLAN_2_DEMO_3_FILE_ID"},
+              {"type": "image", "id": "https://ibb.co/XZ0t4D5L"},
               {"type": "video", "id": "https://videotourl.com/videos/1791598348006-882fbe39-db59-4bb7-8636-1c2645fb93c0.mp4"},
               {"type": "video", "id": "https://videotourl.com/videos/1791611260635-789f7a13-25cd-4204-8ffc-455168319040.mp4"},
               {"type": "video", "id": "https://videotourl.com/videos/1791598360862-d0ddd962-c4e7-4c98-a860-d360bf6779f8.mp4"},
@@ -176,7 +176,8 @@ PLANS = [
             {"type": "video", "id": "https://videotourl.com/videos/1791611314862-1e0e5b81-0a04-436a-9749-4f5e9115404f.mp4"},
             {"type": "video", "id": "https://videotourl.com/videos/1791598059935-f6722923-e315-4b97-aaeb-e7b0af379f2b.mp4"},
              {"type": "video", "id": "https://videotourl.com/videos/1791598126801-a117ace0-e399-46e6-b697-0d3da6efeedd.mp4"},
-             {"type": "video", "id": "https://videotourl.com/videos/1791598076600-288d5faf-8d1c-4fd2-b876-a519eddacbcb.mp4"},
+            {"type": "video", "id": "https://videotourl.com/videos/1791598126801-a117ace0-e399-46e6-b697-0d3da6efeedd.mp4"},
+             {"type": "photo", "id": "https://ibb.co/6c4RL0bj"},
              {"type": "video", "id": "https://videotourl.com/videos/1791598104865-7bca6c3f-db24-465d-9688-d153131af1e5.mp4"},
             {"type": "video", "id": "https://videotourl.com/videos/1791598207010-15f8101c-d87e-4e83-bd6a-43a333204662.mp4"}
         ],
@@ -205,7 +206,7 @@ PLANS = [
             {"type": "video", "id": "https://videotourl.com/videos/1791611220352-ba6538bc-4db1-401e-81f7-88c53824e27f.mp4"},
             {"type": "video", "id": "https://videotourl.com/videos/1791611220352-ba6538bc-4db1-401e-81f7-88c53824e27f.mp4"},
              {"type": "video", "id": "https://videotourl.com/videos/1791611168222-86d679dd-8a24-46fb-8b06-d59cc97e84c2.mp4"},
-             {"type": "video", "id": "PASTE_PLAN_3_DEMO_4_FILE_ID"},
+             {"type": "image", "id": "https://ibb.co/Ng1cgMdD"},
              {"type": "video", "id": "https://videotourl.com/videos/1791611005214-c25159ac-d514-4eff-8061-a25465ff6eba.mp4"},
              {"type": "video", "id": "https://videotourl.com/videos/1791609479203-02acf86c-6132-4bc2-8041-9f43ab529748.mp4"},
             {"type": "video", "id": "BAACAgUAAxkBAAI112rHehWT7ChqF4hbypfAEwmyF9BkAAKeIgACv69BVtXBJ3Uu9oPEPQQ"}
@@ -232,7 +233,7 @@ PLANS = [
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791611423923-36dbbbf3-84c1-4754-a7e4-dc05798eaa03.mp4"},
             {"type": "video", "id": "https://videotourl.com/videos/1791611350514-052fe889-5ac7-4446-91ef-2f928070e131.mp4"},
-            {"type": "video", "id": "BAACAgUAAxkBAAI2F2rHfErohmsyPAs8G3PzT51PSrpMAAKxIgACv69BVjpXV3XoC8KPPQQ"},
+            {"type": "image", "id": "https://ibb.co/qvtk5H1"},
             {"type": "video", "id": "https://videotourl.com/videos/1791609591492-b5b0f616-27c5-436f-9aa9-e70720337677.mp4"},
              {"type": "video", "id": "https://videotourl.com/videos/1791609952353-7ee9382f-6db6-4c43-86ed-c8f418a3282c.mp4"},
             {"type": "video", "id": "https://videotourl.com/videos/1791609450717-98fd3d4d-533c-46fc-a290-9f9f937b6721.mp4"}
