@@ -728,7 +728,7 @@ def send_demo(
         bot.send_message(chat_id, "❌ Plan not found.")
         return
 
-    # Support both Telegram file IDs and hosted URLs
+    # Keep photo/video links in the exact PLANS order
     demos = [
         d for d in plan.get("demos", [])
         if (d.get("url") or d.get("id"))
@@ -757,6 +757,7 @@ def send_demo(
         data=f"next_demo:{plan_id}:{index}",
         style="primary"
     ))
+
     kb.add(button(
         "𝘽𝘼𝘾𝙆 𝙏𝙊 𝙋𝙇𝘼𝙉",
         data=f"plan:{plan_id}",
@@ -769,23 +770,28 @@ def send_demo(
     )
 
     try:
-        if demo_type == "video":
-            sent = bot.send_video(
-                chat_id, media,
-                caption=caption,
-                parse_mode="HTML",
-                reply_markup=kb
-            )
-        elif demo_type == "photo":
+        if demo_type == "photo":
             sent = bot.send_photo(
-                chat_id, media,
+                chat_id,
+                media,
                 caption=caption,
                 parse_mode="HTML",
                 reply_markup=kb
             )
+
+        elif demo_type == "video":
+            sent = bot.send_video(
+                chat_id,
+                media,
+                caption=caption,
+                parse_mode="HTML",
+                reply_markup=kb
+            )
+
         else:
             sent = bot.send_document(
-                chat_id, media,
+                chat_id,
+                media,
                 caption=caption,
                 parse_mode="HTML",
                 reply_markup=kb
@@ -801,9 +807,8 @@ def send_demo(
         log.exception("Could not send demo")
         bot.send_message(
             chat_id,
-            "❌ Demo nahi bhej paya. Hosted URL direct aur publicly accessible hona chahiye."
+            "❌ Demo nahi bhej paya. Direct media URL check karo."
         )
-
 # =========================================================
 # DEMO OVER
 # =========================================================
