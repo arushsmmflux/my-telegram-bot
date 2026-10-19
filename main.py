@@ -88,7 +88,7 @@ PLANS = [
         "videos": "45000+",
 
         "image": "https://ibb.co/ZRqKVvRQ",
-        "qr": "https://ibb.co/fYsgpT3c",
+        "qr": "https://ibb.co/mVKJqSK5",
 
         "demos": [
             {
@@ -129,7 +129,7 @@ PLANS = [
         "videos": "40000+",
 
         "image": "https://ibb.co/QF2v05qK",
-        "qr": "https://ibb.co/gbLMg58r",
+        "qr": "https://ibb.co/BRYY4kr",
 
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791598317965-12b2368c-6035-4e43-b708-df28bcd246b6.mp4"},
@@ -159,7 +159,7 @@ PLANS = [
         "videos": "70000+",
 
         "image": "https://ibb.co/21H7BGM2",
-        "qr": "https://ibb.co/fYsgpT3c",
+        "qr": "https://ibb.co/mVKJqSK5",
 
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791598226633-9d219b40-bf0b-4774-b493-6449c47d5ef1.mp4"},
@@ -188,7 +188,7 @@ PLANS = [
         "videos": "56000+",
 
         "image": "https://ibb.co/HLw36KQ4",
-        "qr": "https://ibb.co/4n9q8mK2",
+        "qr": "https://ibb.co/vxhWFyxf",
 
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791611037316-4db456f2-f82c-4468-9f48-381341ed6e55.mp4"},
@@ -216,7 +216,7 @@ PLANS = [
         "videos": "67000+",
 
         "image": "https://ibb.co/9kKCd6ZF",
-        "qr": "https://ibb.co/fYsgpT3c",
+        "qr": "https://ibb.co/mVKJqSK5",
 
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791611423923-36dbbbf3-84c1-4754-a7e4-dc05798eaa03.mp4"},
@@ -241,7 +241,7 @@ PLANS = [
         "videos": "50000+",
 
         "image": "https://ibb.co/Fb6S1mYg",
-        "qr": "https://ibb.co/fYsgpT3c",
+        "qr": "https://ibb.co/mVKJqSK5",
 
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791607740001-dfef0130-88bb-4ca0-948d-b857ba8fc867.mp4"},
@@ -269,7 +269,7 @@ PLANS = [
         "videos": "30000+",
 
         "image": "https://ibb.co/5X0hc5dd",
-        "qr": "https://ibb.co/xK77FFDK",
+        "qr": "https://ibb.co/jvXYth2F",
 
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791609855846-9b6bac98-1fcf-4d60-b612-3e5abaf6be7e.mp4"},
@@ -287,12 +287,12 @@ PLANS = [
     {
         "id": 8,
         "name": "𝙈𝙄𝙓 𝙂𝙍𝙊𝙐𝙋 70𝙆 𝙑𝙄𝘿𝙀𝙊𝙎 🥵",
-        "price": "63",
+        "price": "69",
         "validity": "180 days",
         "videos": "70000+",
 
         "image": "https://ibb.co/qFhKnzcH",
-        "qr": "https://ibb.co/tMVzjb0D",
+        "qr": "https://ibb.co/BRYY4kr",
 
         "demos": [
             {
@@ -324,7 +324,7 @@ PLANS = [
         "videos": "18000+",
 
         "image": "https://ibb.co/qFhKnzcH",
-        "qr": "https://ibb.co/fYsgpT3c",
+        "qr": "https://ibb.co/mVKJqSK5",
 
         "demos": [
             {"type": "video", "id": "https://videotourl.com/videos/1791611713436-2f106a4b-9ee1-4d9b-8e06-c30a0fe309e7.mp4"},
@@ -347,7 +347,7 @@ PLANS = [
         "validity": "180 days",
         "videos": "100000+",
         "image": "https://ibb.co/84598K8j",
-        "qr": "https://ibb.co/MDWVSzF8",
+        "qr": "https://ibb.co/nNb9V6dT",
 
         "caption": (
             "1. 𝙔𝙊𝙐 𝘾𝘼𝙉 𝙎𝘼𝙑𝙀 𝙄𝙉 𝙂𝘼𝙇𝙇𝙀𝙍𝙔 ✅\n"
