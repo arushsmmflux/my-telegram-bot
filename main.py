@@ -365,11 +365,11 @@ PLANS = [
 
 STYLE_SERIES = [
     "danger",
-    "success",
-    "primary",
     "danger",
-    "success",
-    "primary"
+    "danger",
+    "danger",
+    "danger",
+    "danger"
 ]
 
 
