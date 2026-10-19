@@ -363,11 +363,21 @@ PLANS = [
 # BUTTON STYLES
 # =========================================================
 
+STYLE_SERIES = [
+    "danger",
+    "success",
+    "primary",
+    "danger",
+    "success",
+    "primary",
+    "danger"
+]
+
+
 def button(text, data=None, url=None, style=None):
 
     kwargs = {
-        "text": text,
-        "style": "danger"
+        "text": text
     }
 
     if data is not None:
@@ -376,23 +386,42 @@ def button(text, data=None, url=None, style=None):
     if url is not None:
         kwargs["url"] = url
 
+    if style:
+        try:
+            return InlineKeyboardButton(
+                **kwargs,
+                style=style
+            )
+        except (TypeError, ValueError):
+            pass
+
     return InlineKeyboardButton(**kwargs)
 
 
-def add_styled(
-    kb,
-    text,
-    data=None,
-    url=None,
-    index=0
-):
+def add_styled(kb, text, data=None, url=None, index=0):
 
     kb.add(
         button(
             text,
             data=data,
-            url=url
+            url=url,
+            style=STYLE_SERIES[index % len(STYLE_SERIES)]
         )
+    )
+
+
+# ============================================================
+# PLAN HELPER
+# ============================================================
+
+def get_plan(pid):
+
+    return next(
+        (
+            p for p in PLANS
+            if p["id"] == pid and p.get("active")
+        ),
+        None
     )
 
 
