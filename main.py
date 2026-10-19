@@ -363,20 +363,11 @@ PLANS = [
 # BUTTON STYLES
 # =========================================================
 
-STYLE_SERIES = [
-    "danger",
-    "danger",
-    "danger",
-    "danger",
-    "danger",
-    "danger"
-]
-
-
 def button(text, data=None, url=None, style=None):
 
     kwargs = {
-        "text": text
+        "text": text,
+        "style": "danger"
     }
 
     if data is not None:
@@ -384,9 +375,6 @@ def button(text, data=None, url=None, style=None):
 
     if url is not None:
         kwargs["url"] = url
-
-    if style is not None:
-        kwargs["style"] = style
 
     return InlineKeyboardButton(**kwargs)
 
@@ -399,16 +387,11 @@ def add_styled(
     index=0
 ):
 
-    style = STYLE_SERIES[
-        index % len(STYLE_SERIES)
-    ]
-
     kb.add(
         button(
             text,
             data=data,
-            url=url,
-            style=style
+            url=url
         )
     )
 
