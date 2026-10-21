@@ -1,20 +1,23 @@
 import os
 import logging
 import telebot
-
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
-ADMIN_RAW = os.getenv("ADMIN_ID", "").strip()
 
-if not BOT_TOKEN:
-    raise RuntimeError("BOT_TOKEN missing")
+# =========================================================
+# BOT CONFIGURATION (Bina Environment Variables ke)
+# =========================================================
 
-if not ADMIN_RAW.isdigit():
-    raise RuntimeError("ADMIN_ID missing or invalid")
+# 👇 Yahan apna Bot Token aur Admin ID direct daal do:
+BOT_TOKEN = "8848270184:AAHaov62JW4MVQWVjWFCrdMO5fXsf6XcSzw"   # Telegram Bot Token yahan quotes (" ") me daal do
+ADMIN_ID = 6516697207                # Apni Numeric Admin ID yahan bina quotes ke daal do
 
-ADMIN_ID = int(ADMIN_RAW)
+if not BOT_TOKEN or BOT_TOKEN == "YOUR_BOT_TOKEN_HERE":
+    raise RuntimeError("BOT_TOKEN sahi se daal brother!")
 
-bot = telebot.TeleBot(BOT_TOKEN)
+if not ADMIN_ID or ADMIN_ID == 123456789:
+    raise RuntimeError("ADMIN_ID sahi numeric ID daal brother!")
+
+bot = telebot.TeleBot(BOT_TOKEN, parse_mode="HTML")
 
 # =========================================================
 # LOGGING
@@ -30,17 +33,6 @@ log = logging.getLogger(__name__)
 user_waiting_screenshot = set()
 pending_screenshots = {}
 
-# =========================================================
-# BOT
-# =========================================================
-
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
-
-bot = telebot.TeleBot(
-    BOT_TOKEN,
-    parse_mode="HTML"
-)
 
 
 # =========================================================
