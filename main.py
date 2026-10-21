@@ -1,20 +1,30 @@
-Import os
+import os
 import logging
 import telebot
 
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-BOT_TOKEN = os.getenv("BOT_TOKEN", "").strip()
-ADMIN_RAW = os.getenv("ADMIN_ID", "").strip()
 
-if not BOT_TOKEN:
-    raise RuntimeError("BOT_TOKEN missing")
+# =========================================================
+# BOT SETTINGS — YAHAN CHANGE KARNA
+# =========================================================
 
-if not ADMIN_RAW.isdigit():
-    raise RuntimeError("ADMIN_ID missing or invalid")
+BOT_TOKEN = "8848270184:AAFO_OIBW87779E5UCCVjcvSypNXivkUfRQ"
+ADMIN_ID = 6516697207 # Yahan apni Telegram Admin ID likhna
 
-ADMIN_ID = int(ADMIN_RAW)
+# =========================================================
+# BOT SETUP
+# =========================================================
 
-bot = telebot.TeleBot(BOT_TOKEN)
+if BOT_TOKEN == "PASTE_YOUR_BOT_TOKEN_HERE" or not BOT_TOKEN.strip():
+    raise RuntimeError("Please enter your BOT_TOKEN")
+
+if not isinstance(ADMIN_ID, int) or ADMIN_ID <= 0:
+    raise RuntimeError("Please enter a valid ADMIN_ID")
+
+bot = telebot.TeleBot(
+    BOT_TOKEN.strip(),
+    parse_mode="HTML"
+)
 
 # =========================================================
 # LOGGING
@@ -29,19 +39,6 @@ log = logging.getLogger(__name__)
 
 user_waiting_screenshot = set()
 pending_screenshots = {}
-
-# =========================================================
-# BOT
-# =========================================================
-
-BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
-
-bot = telebot.TeleBot(
-    BOT_TOKEN,
-    parse_mode="HTML"
-)
-
 
 # =========================================================
 # SUPPORT
