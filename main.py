@@ -1,9 +1,12 @@
 import os
 import logging
 import telebot
-
+import io
+import sqlite3
+import random
+import datetime
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-
+import qrcode
 # =========================================================
 # BOT SETTINGS — YAHAN CHANGE KARNA
 # =========================================================
@@ -837,14 +840,42 @@ def send_demo_over(chat_id, plan):
         reply_markup=kb
     )
 
+
 # =========================================================
-# PAYMENT
+# DATABASE HELPERS FOR PERSISTENT PENDING ORDERS
+# =========================================================
+
+def set_pending_order(user_id, plan_id, txn_id):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS pending_orders (user_id INTEGER PRIMARY KEY, plan_id INTEGER, txn_id TEXT)")
+    cursor.execute("INSERT OR REPLACE INTO pending_orders (user_id, plan_id, txn_id) VALUES (?, ?, ?)", (user_id, plan_id, txn_id))
+    conn.commit()
+    conn.close()
+
+def get_pending_order(user_id):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS pending_orders (user_id INTEGER PRIMARY KEY, plan_id INTEGER, txn_id TEXT)")
+    cursor.execute("SELECT plan_id, txn_id FROM pending_orders WHERE user_id=?", (user_id,))
+    res = cursor.fetchone()
+    conn.close()
+    return res if res else None
+
+def clear_pending_order(user_id):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS pending_orders (user_id INTEGER PRIMARY KEY, plan_id INTEGER, txn_id TEXT)")
+    cursor.execute("DELETE FROM pending_orders WHERE user_id=?", (user_id,))
+    conn.commit()
+    conn.close()
+
+# =========================================================
+# SEND PAYMENT
 # =========================================================
 
 def send_payment(chat_id, user_id, plan):
-
     qr = plan.get("qr", "")
-
     if not qr:
         bot.send_message(
             chat_id,
@@ -852,12 +883,13 @@ def send_payment(chat_id, user_id, plan):
         )
         return
 
+    txn_id = generate_txn_id(plan["id"])
     kb = InlineKeyboardMarkup()
 
     kb.row(
         button(
             " 𝙄 𝙋𝘼𝙄𝘿 ✅",
-            data=f"paid:{plan['id']}",
+            data=f"paid:{plan['id']}:{txn_id}",
             style="success"
         )
     )
@@ -872,6 +904,7 @@ def send_payment(chat_id, user_id, plan):
 
     caption = (
         f"<b>𝙋𝘼𝙔𝙈𝙀𝙉𝙏 𝙋𝘼𝙂𝙀 💳: ₹{plan['price']}</b>\n\n"
+        f"🆔 <b>TXN:</b> <code>{txn_id}</code>\n\n"
         "1️⃣ 𝙎𝙘𝙖𝙣 𝙩𝙝𝙚 𝙌𝙍.\n"
         "2️⃣ 𝙋𝙖𝙮 𝙩𝙝𝙚 𝙚𝙭𝙖𝙘𝙩 𝙖𝙢𝙤𝙪𝙣𝙩.\n"
         "3️⃣ 𝘾𝙡𝙞𝙘𝙠 <b>𝙄 𝙋𝘼𝙄𝘿 ✅</b>.\n"
@@ -884,13 +917,7 @@ def send_payment(chat_id, user_id, plan):
         caption,
         kb
     )
-# =========================================================
-# SCREENSHOT STATE
-# =========================================================
-
-waiting_screenshot = set()
-pending_orders = {}
-
+    set_pending_order(user_id, plan["id"], txn_id)
 
 # =========================================================
 # START COMMAND
@@ -898,11 +925,9 @@ pending_orders = {}
 
 @bot.message_handler(commands=["start"])
 def start(message):
-
     send_start_screen(
         message.chat.id
     )
-
 
 # =========================================================
 # FREE
@@ -912,33 +937,25 @@ def start(message):
     func=lambda call: call.data == "free"
 )
 def free_button(call):
-
     bot.answer_callback_query(call.id)
-
     send_home(
         call.message.chat.id
     )
 
-
 # =========================================================
-# PAID
-# =========================================================
-# =========================================================
-# I PAID
+# I PAID (FIXED SINGLE HANDLER WITH PERSISTENCE)
 # =========================================================
 
 @bot.callback_query_handler(
     func=lambda call: call.data.startswith("paid:")
 )
 def paid_confirm(call):
-
     bot.answer_callback_query(call.id)
 
     try:
-        plan_id = int(
-            call.data.split(":")[1]
-        )
-
+        parts = call.data.split(":")
+        plan_id = int(parts[1])
+        txn_id = parts[2] if len(parts) > 2 else generate_txn_id(plan_id)
     except (ValueError, IndexError):
         bot.send_message(
             call.message.chat.id,
@@ -956,12 +973,7 @@ def paid_confirm(call):
         return
 
     uid = call.from_user.id
-
-    waiting_screenshot.add(uid)
-
-    pending_orders[uid] = {
-        "plan_id": plan_id
-    }
+    set_pending_order(uid, plan_id, txn_id)
 
     bot.send_message(
         call.message.chat.id,
@@ -978,13 +990,10 @@ def paid_confirm(call):
     func=lambda call: call.data == "start"
 )
 def start_back(call):
-
     bot.answer_callback_query(call.id)
-
     send_start_screen(
         call.message.chat.id
     )
-
 
 # =========================================================
 # HOME
@@ -994,13 +1003,10 @@ def start_back(call):
     func=lambda call: call.data == "home"
 )
 def home_button(call):
-
     bot.answer_callback_query(call.id)
-
     send_home(
         call.message.chat.id
     )
-
 
 # =========================================================
 # DEMO MENU
@@ -1010,13 +1016,10 @@ def home_button(call):
     func=lambda call: call.data == "demo_menu"
 )
 def demo_button(call):
-
     bot.answer_callback_query(call.id)
-
     send_demo_menu(
         call.message.chat.id
     )
-
 
 # =========================================================
 # PLAN
@@ -1026,17 +1029,13 @@ def demo_button(call):
     func=lambda call: call.data.startswith("plan:")
 )
 def plan_button(call):
-
     bot.answer_callback_query(call.id)
 
     try:
-
         plan_id = int(
             call.data.split(":")[1]
         )
-
     except Exception:
-
         return
 
     plan = get_plan(plan_id)
@@ -1049,7 +1048,6 @@ def plan_button(call):
         plan
     )
 
-
 # =========================================================
 # DEMO PLAN SELECT
 # =========================================================
@@ -1058,17 +1056,13 @@ def plan_button(call):
     func=lambda call: call.data.startswith("demo_plan:")
 )
 def demo_plan_button(call):
-
     bot.answer_callback_query(call.id)
 
     try:
-
         plan_id = int(
             call.data.split(":")[1]
         )
-
     except Exception:
-
         return
 
     plan = get_plan(plan_id)
@@ -1076,14 +1070,12 @@ def demo_plan_button(call):
     if not plan:
         return
 
-    # Start from demo 1
     send_demo(
         call.message.chat.id,
         call.from_user.id,
         plan_id,
         0
     )
-
 
 # =========================================================
 # NEXT DEMO
@@ -1093,18 +1085,13 @@ def demo_plan_button(call):
     func=lambda call: call.data.startswith("next_demo:")
 )
 def next_demo_button(call):
-
     bot.answer_callback_query(call.id)
 
     try:
-
         parts = call.data.split(":")
-
         plan_id = int(parts[1])
         current_index = int(parts[2])
-
     except Exception:
-
         return
 
     session = demo_sessions.get(
@@ -1114,12 +1101,10 @@ def next_demo_button(call):
     old_message_id = None
 
     if session:
-
         old_message_id = session.get(
             "message_id"
         )
 
-    # Next demo
     send_demo(
         call.message.chat.id,
         call.from_user.id,
@@ -1127,7 +1112,6 @@ def next_demo_button(call):
         current_index + 1,
         delete_message_id=old_message_id
     )
-
 
 # =========================================================
 # DEMO OVER
@@ -1137,17 +1121,13 @@ def next_demo_button(call):
     func=lambda call: call.data.startswith("demo_over:")
 )
 def demo_over_button(call):
-
     bot.answer_callback_query(call.id)
 
     try:
-
         plan_id = int(
             call.data.split(":")[1]
         )
-
     except Exception:
-
         return
 
     session = demo_sessions.pop(
@@ -1156,23 +1136,18 @@ def demo_over_button(call):
     )
 
     if session:
-
         try:
-
             bot.delete_message(
                 call.message.chat.id,
                 session["message_id"]
             )
-
         except Exception:
-
             pass
 
     send_demo_over(
         call.message.chat.id,
         plan_id
     )
-
 
 # =========================================================
 # BUY
@@ -1182,17 +1157,13 @@ def demo_over_button(call):
     func=lambda call: call.data.startswith("buy:")
 )
 def buy_button(call):
-
     bot.answer_callback_query(call.id)
 
     try:
-
         plan_id = int(
             call.data.split(":")[1]
         )
-
     except Exception:
-
         return
 
     plan = get_plan(plan_id)
@@ -1206,51 +1177,6 @@ def buy_button(call):
         plan
     )
 
-
-# =========================================================
-# PAID
-# =========================================================
-
-@bot.callback_query_handler(
-    func=lambda call: call.data.startswith("paid:")
-)
-def paid_confirm(call):
-
-    bot.answer_callback_query(call.id)
-
-    try:
-
-        plan_id = int(
-            call.data.split(":")[1]
-        )
-
-    except Exception:
-
-        return
-
-    plan = get_plan(plan_id)
-
-    if not plan:
-        return
-
-    uid = call.from_user.id
-
-    waiting_screenshot.add(uid)
-
-    pending_orders[uid] = {
-        "plan_id": plan_id
-    }
-
-    bot.send_message(
-        call.message.chat.id,
-        "📸 <b>𝙋𝙖𝙮𝙢𝙚𝙣𝙩 𝙨𝙘𝙧𝙚𝙚𝙣𝙨𝙝𝙤𝙩 𝙨𝙚𝙣𝙙 𝙠𝙖𝙧𝙤.</b>"
-    )
-
-
-# =========================================================
-# SCREENSHOT HANDLER
-# =========================================================
-
 # =========================================================
 # SCREENSHOT HANDLER
 # =========================================================
@@ -1259,21 +1185,20 @@ def paid_confirm(call):
     content_types=["photo"]
 )
 def screenshot_handler(message):
-
     uid = message.from_user.id
 
-    # User ne I PAID nahi dabaya
-    if uid not in waiting_screenshot:
+    # Check if admin is trying to get media ID
+    if uid == ADMIN_ID and uid in admin_waiting_media_id:
+        admin_photo_id(message)
         return
 
-    order = pending_orders.get(uid)
+    order = get_pending_order(uid)
 
     if not order:
         return
 
-    plan = get_plan(
-        order["plan_id"]
-    )
+    plan_id, txn_id = order
+    plan = get_plan(plan_id)
 
     if not plan:
         bot.reply_to(
@@ -1283,10 +1208,6 @@ def screenshot_handler(message):
         return
 
     screenshot_id = message.photo[-1].file_id
-
-    # =====================================================
-    # ADMIN BUTTONS
-    # =====================================================
 
     kb = InlineKeyboardMarkup()
 
@@ -1306,12 +1227,7 @@ def screenshot_handler(message):
         )
     )
 
-    # =====================================================
-    # SEND SCREENSHOT TO ADMIN
-    # =====================================================
-
     try:
-
         bot.send_photo(
             ADMIN_ID,
             screenshot_id,
@@ -1319,24 +1235,21 @@ def screenshot_handler(message):
                 "💳 <b>𝙉𝙀𝙒 𝙋𝘼𝙔𝙈𝙀𝙉𝙏</b>\n\n"
                 f"👤 𝙐𝙨𝙚𝙧 𝙄𝘿: <code>{uid}</code>\n"
                 f"📦 𝙋𝙡𝙖𝙣: {plan['name']}\n"
-                f"💰 𝘼𝙢𝙤𝙪𝙣𝙩: ₹{plan['price']}"
+                f"💰 𝘼𝙢𝙤𝙪𝙣𝙩: ₹{plan['price']}\n"
+                f"🆔 𝙂𝙚𝙣𝙚𝙧𝙖𝙩𝙚𝙙 𝙏𝙓𝙉: <code>{txn_id}</code>"
             ),
             reply_markup=kb
         )
 
-        # Screenshot successfully sent to admin
-        waiting_screenshot.discard(uid)
-        pending_orders.pop(uid, None)
+        clear_pending_order(uid)
 
-        # User confirmation
         bot.reply_to(
             message,
             "✅ <b>𝙎𝘾𝙍𝙀𝙀𝙉𝙎𝙃𝙊𝙏 𝙎𝙐𝘽𝙈𝙄𝙏𝙏𝙀𝘿</b>\n\n"
-            "⏳ 𝙔𝙤𝙪𝙧 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙞𝙨 𝙪𝙣𝙙𝙚𝙧 𝙧𝙚𝙫𝙞𝙚𝙬."
+            "⏳ 𝙔𝙤𝙪𝙧 𝙥𝙖𝙮𝙢𝙚𝙣𝙩 𝙞𝙨 𝙪𝙣𝙙𝙚𝙧 𝙧𝙚𝙫𝙞𝙚w."
         )
 
     except Exception:
-
         log.exception(
             "Could not send payment screenshot to admin"
         )
@@ -1350,35 +1263,18 @@ def screenshot_handler(message):
 # =========================================================
 # ADMIN MEDIA ID MODE
 # =========================================================
-#
-# IMPORTANT:
-# Ab photo/video bhejne par ID automatically nahi milegi
-# jab tak admin /getid command na kare.
-#
-# Admin:
-# /getid
-#
-# Bot:
-# Send photo/video/document
-#
-# Phir bot exact FILE ID reply karega.
-#
 
 admin_waiting_media_id = set()
-
 
 @bot.message_handler(
     commands=["getid"]
 )
 def getid_command(message):
-
     if message.from_user.id != ADMIN_ID:
-
         bot.reply_to(
             message,
             "❌ Not allowed."
         )
-
         return
 
     admin_waiting_media_id.add(
@@ -1391,26 +1287,9 @@ def getid_command(message):
         "𝙄 𝙬𝙞𝙡𝙡 𝙧𝙚𝙥𝙡𝙮 𝙬𝙞𝙩𝙝 𝙩𝙝𝙚 𝙁𝙞𝙡𝙚 𝙄𝘿."
     )
 
-
-# =========================================================
-# ADMIN PHOTO ID
-# =========================================================
-
-@bot.message_handler(
-    content_types=["photo"]
-)
 def admin_photo_id(message):
-
     uid = message.from_user.id
-
-    if uid != ADMIN_ID:
-        return
-
-    if uid not in admin_waiting_media_id:
-        return
-
     file_id = message.photo[-1].file_id
-
     admin_waiting_media_id.discard(uid)
 
     bot.reply_to(
@@ -1419,16 +1298,10 @@ def admin_photo_id(message):
         f"<code>{file_id}</code>"
     )
 
-
-# =========================================================
-# ADMIN VIDEO ID
-# =========================================================
-
 @bot.message_handler(
     content_types=["video"]
 )
 def admin_video_id(message):
-
     uid = message.from_user.id
 
     if uid != ADMIN_ID:
@@ -1438,7 +1311,6 @@ def admin_video_id(message):
         return
 
     file_id = message.video.file_id
-
     admin_waiting_media_id.discard(uid)
 
     bot.reply_to(
@@ -1447,16 +1319,10 @@ def admin_video_id(message):
         f"<code>{file_id}</code>"
     )
 
-
-# =========================================================
-# ADMIN DOCUMENT ID
-# =========================================================
-
 @bot.message_handler(
     content_types=["document"]
 )
 def admin_document_id(message):
-
     uid = message.from_user.id
 
     if uid != ADMIN_ID:
@@ -1466,7 +1332,6 @@ def admin_document_id(message):
         return
 
     file_id = message.document.file_id
-
     admin_waiting_media_id.discard(uid)
 
     bot.reply_to(
@@ -1475,25 +1340,15 @@ def admin_document_id(message):
         f"<code>{file_id}</code>"
     )
 
-
-# =========================================================
-# ADMIN ONLY - /id
-# =========================================================
-# Optional shortcut:
-# /id ke baad photo/video/document bhejo.
-
 @bot.message_handler(
     commands=["id"]
 )
 def id_command(message):
-
     if message.from_user.id != ADMIN_ID:
-
         bot.reply_to(
             message,
             "❌ Not allowed."
         )
-
         return
 
     admin_waiting_media_id.add(
@@ -1506,13 +1361,11 @@ def id_command(message):
         "𝙋𝙝𝙤𝙩𝙤 / 𝙑𝙞𝙙𝙚𝙤 / 𝘿𝙤𝙘𝙪𝙢𝙚𝙣𝙩"
     )
 
-
 # =========================================================
 # RUN
 # =========================================================
 
 if __name__ == "__main__":
-
     log.info(
         "Bot started successfully."
     )
