@@ -8,11 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/api/webhook",
-      "dest": "main.py"
-    },
-    {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "main.py"
     }
   ]
