@@ -6,7 +6,6 @@ import sqlite3
 import random
 import datetime
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-import qrcode
 from flask import Flask, request, jsonify
 
 # ============================================================
