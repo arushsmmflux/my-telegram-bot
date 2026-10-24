@@ -11,7 +11,7 @@ import qrcode
 # BOT SETTINGS — YAHAN CHANGE KARNA
 # =========================================================
 
-BOT_TOKEN = "8848270184:AAHaov62JW4MVQWVjWFCrdMO5fXsf6XcSzw"
+BOT_TOKEN = "8727541726:AAHdlQTFnysvG3bRyNsHkTfuDP-3rOQGvgI"
 ADMIN_ID = 6516697207 # Yahan apni Telegram Admin ID likhna
 
 # =========================================================
