@@ -8,17 +8,11 @@ import datetime
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import qrcode
 # =========================================================
-# BOT SETTINGS — YAHAN CHANGE KARNA
-# =========================================================
-
-BOT_TOKEN = "8727541726:AAHdlQTFnysvG3bRyNsHkTfuDP-3rOQGvgI"
-ADMIN_ID = 6516697207 # Yahan apni Telegram Admin ID likhna
-
-# =========================================================
+# ============================================================
 # BOT SETUP
-# =========================================================
+# ============================================================
 
-if BOT_TOKEN == "PASTE_YOUR_BOT_TOKEN_HERE" or not BOT_TOKEN.strip():
+if not BOT_TOKEN.strip() or BOT_TOKEN == "PASTE_YOUR_BOT_TOKEN_HERE":
     raise RuntimeError("Please enter your BOT_TOKEN")
 
 if not isinstance(ADMIN_ID, int) or ADMIN_ID <= 0:
@@ -28,6 +22,16 @@ bot = telebot.TeleBot(
     BOT_TOKEN.strip(),
     parse_mode="HTML"
 )
+
+# Vercel Flask app
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "").strip()
+
+if not WEBHOOK_SECRET:
+    raise RuntimeError("Set WEBHOOK_SECRET in Vercel Environment Variables")
 
 # =========================================================
 # LOGGING
@@ -1361,17 +1365,35 @@ def id_command(message):
         "𝙋𝙝𝙤𝙩𝙤 / 𝙑𝙞𝙙𝙚𝙤 / 𝘿𝙤𝙘𝙪𝙢𝙚𝙣𝙩"
     )
 
-# =========================================================
-# RUN
-# =========================================================
+# ==========================================
+# VERCEL WEBHOOK
+# ==========================================
 
-if __name__ == "__main__":
-    log.info(
-        "Bot started successfully."
+@app.route("/api/webhook", methods=["POST"])
+def telegram_webhook():
+
+    secret_header = request.headers.get(
+        "X-Telegram-Bot-Api-Secret-Token",
+        ""
     )
 
-    bot.infinity_polling(
-        skip_pending=True,
-        timeout=30,
-        long_polling_timeout=30
-    )
+    if secret_header != WEBHOOK_SECRET:
+        return jsonify({"ok": False, "error": "Unauthorized"}), 403
+
+    try:
+        update = telebot.types.Update.de_json(
+            request.get_data(as_text=True)
+        )
+
+        bot.process_new_updates([update])
+
+        return jsonify({"ok": True})
+
+    except Exception:
+        app.logger.exception("Webhook processing failed")
+        return jsonify({"ok": False}), 500
+
+
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"status": "Telegram bot webhook is running"})
