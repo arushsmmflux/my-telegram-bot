@@ -7,12 +7,20 @@ import random
 import datetime
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import qrcode
-# =========================================================
+from flask import Flask, request, jsonify
+
+# ============================================================
+# BOT SETTINGS
+# ============================================================
+
+BOT_TOKEN = "8727541726:AAHdlQTFnysvG3bRyNsHkTfuDP-3rOQGvgI"
+ADMIN_ID = 6516697207
+
 # ============================================================
 # BOT SETUP
 # ============================================================
 
-if not BOT_TOKEN.strip() or BOT_TOKEN == "PASTE_YOUR_BOT_TOKEN_HERE":
+if not BOT_TOKEN.strip() or BOT_TOKEN == "PASTE_YOUR_NEW_BOT_TOKEN_HERE":
     raise RuntimeError("Please enter your BOT_TOKEN")
 
 if not isinstance(ADMIN_ID, int) or ADMIN_ID <= 0:
@@ -23,19 +31,22 @@ bot = telebot.TeleBot(
     parse_mode="HTML"
 )
 
-# Vercel Flask app
-from flask import Flask, request, jsonify
+# ============================================================
+# VERCEL FLASK APP
+# ============================================================
 
 app = Flask(__name__)
 
 WEBHOOK_SECRET = os.getenv("WEBHOOK_SECRET", "").strip()
 
 if not WEBHOOK_SECRET:
-    raise RuntimeError("Set WEBHOOK_SECRET in Vercel Environment Variables")
+    raise RuntimeError(
+        "Set WEBHOOK_SECRET in Vercel Environment Variables"
+    )
 
-# =========================================================
+# ============================================================
 # LOGGING
-# =========================================================
+# ============================================================
 
 logging.basicConfig(
     level=logging.INFO,
@@ -44,8 +55,14 @@ logging.basicConfig(
 
 log = logging.getLogger(__name__)
 
+# ============================================================
+# USER STATE
+# ============================================================
+
 user_waiting_screenshot = set()
 pending_screenshots = {}
+
+log.info("Bot setup completed successfully.")
 
 # =========================================================
 # SUPPORT
