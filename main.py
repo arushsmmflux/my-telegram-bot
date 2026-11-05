@@ -24,7 +24,7 @@ import qrcode
 # ==========================================
 # CONFIGURATION SECTION (Fully Editable)
 # ==========================================
-BOT_TOKEN = os.getenv("BOT_TOKEN", "9237541002:AAFLPjAv6N7x0yy__m616ss5Ajtu4Yf92gE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "9237541002:AAHXroHVc2PAgFs37rGEXuyBzjRlICLcKNI")
 ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_IDS", "6007715708").split(",")]
 
 # UPI Payment Configuration
